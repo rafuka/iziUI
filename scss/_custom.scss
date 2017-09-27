@@ -1,0 +1,10 @@
+
+.container {
+	border: 1px solid black;
+}
+
+[class*="col"] {
+	  border: 2px solid black;
+	  background-color: tomato;
+	  min-height: 100px;
+}
