@@ -1,0 +1,75 @@
+
+
+nav.mobile {
+
+	@include display-flex();
+	position: relative;
+
+	input[name=mobile-btn] {
+		display: none;
+	}
+
+	label[for=mobile-btn] {
+		display: none;
+		height: 50px;
+		position: relative;
+		width: 50px;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		span {
+			background-color: blue;
+			display: block;
+			height: 5px;
+			left: 10%;
+			position: absolute;
+			width: 80%;
+
+			&:nth-child(1) {
+				top: 10px;
+			}
+
+			&:nth-child(2), &:nth-child(3) {
+				top: 22.5px;
+			}
+
+			&:nth-child(4) {
+				top: 35px;
+			}
+			
+		}
+	}
+
+}
+
+@media screen and (max-width: 720px) {
+	nav.mobile {
+		background-color: red;
+
+		label[for=mobile-btn] {
+			display: inline-block;
+		}
+
+		ul {
+			background-color: white;
+			height: 100vh;
+			position: absolute;
+			right: 100%;
+			text-align: right;
+			top: 100%;
+			width: 100%;
+			li {
+				display: block;
+			}
+		}
+
+		input#mobile-btn {
+			&:checked ~ ul {
+				right: 55%;
+			}
+		}
+	}
+}
+
