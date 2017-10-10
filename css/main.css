@@ -133,44 +133,44 @@ nav.mobile {
   position: relative; }
   nav.mobile input[name=mobile-btn] {
     display: none; }
-  nav.mobile label[for=mobile-btn] {
+  nav.mobile label.hamburguer {
     display: none;
     height: 50px;
     position: relative;
     width: 50px; }
-    nav.mobile label[for=mobile-btn]:hover {
+    nav.mobile label.hamburguer:hover {
       cursor: pointer; }
-    nav.mobile label[for=mobile-btn] span {
+    nav.mobile label.hamburguer span {
       background-color: blue;
       display: block;
       height: 5px;
       left: 10%;
       position: absolute;
       width: 80%; }
-      nav.mobile label[for=mobile-btn] span:nth-child(1) {
+      nav.mobile label.hamburguer span:nth-child(1) {
         top: 10px; }
-      nav.mobile label[for=mobile-btn] span:nth-child(2), nav.mobile label[for=mobile-btn] span:nth-child(3) {
+      nav.mobile label.hamburguer span:nth-child(2), nav.mobile label.hamburguer span:nth-child(3) {
         top: 22.5px; }
-      nav.mobile label[for=mobile-btn] span:nth-child(4) {
+      nav.mobile label.hamburguer span:nth-child(4) {
         top: 35px; }
 
 @media screen and (max-width: 720px) {
   nav.mobile {
     background-color: red; }
-    nav.mobile label[for=mobile-btn] {
+    nav.mobile label.hamburguer {
       display: inline-block; }
     nav.mobile ul {
       background-color: white;
-      height: 100vh;
+      height: 0px;
+      overflow: hidden;
       position: absolute;
-      right: 100%;
-      text-align: right;
+      text-align: left;
       top: 100%;
       width: 100%; }
       nav.mobile ul li {
         display: block; }
     nav.mobile input#mobile-btn:checked ~ ul {
-      right: 55%; } }
+      height: 100%; } }
 .container {
   border: 1px solid black; }
 
