@@ -5,13 +5,26 @@ nav.mobile {
 	@include display-flex();
 	position: relative;
 
-	input[name=mobile-btn] {
-		display: none;
+	.mask {
+		background-color: black;
+		height: 75vh;
+		opacity: 0.3;
+		position: fixed;
+		top: 100vh;
+		transition: top .2s ease, z-index 0s .2s;
+		width: 100%;
+		z-index: -10;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 
 	label.hamburguer {
 		display: none;
 		height: 50px;
+		margin-left: auto;
+		margin-right: 5px;
 		position: relative;
 		width: 50px;
 
@@ -24,11 +37,13 @@ nav.mobile {
 			display: block;
 			height: 5px;
 			left: 10%;
+			opacity: 1;
 			position: absolute;
 			width: 80%;
+			transition: top .2s ease .2s, opacity 0s ease .2s, transform .2s ease;
 
 			&:nth-child(1) {
-				top: 10px;
+				top: 10px;		
 			}
 
 			&:nth-child(2), &:nth-child(3) {
@@ -40,12 +55,45 @@ nav.mobile {
 			}
 		}
 	}
+
+	input[name=mobile-btn] {
+		display: none;
+
+		&:checked + label.hamburguer {
+			span {
+				&:nth-child(1), &:nth-child(4) {
+					top: 22.5px;
+					opacity: 0;
+					transition: top .2s ease, opacity 0s ease .2s;
+				}
+
+				&:nth-child(2) {
+					transform: rotate(45deg);
+					transition: transform .2s ease .2s;
+				}
+
+				&:nth-child(3) {
+					transform: rotate(-45deg);
+					transition: transform .2s ease .2s;
+				}
+			}
+		}
+
+		&:checked ~ .mask {
+			top: 75vh;
+			z-index: 1;
+		}
+	}
 }
 
 @media screen and (max-width: 720px) {
 
 	nav.mobile {
 		background-color: red;
+		position: fixed;
+		top: 0px;
+		width: 100%;
+		
 
 		label.hamburguer {
 			display: inline-block;
@@ -55,10 +103,11 @@ nav.mobile {
 			background-color: white;
 			height: 0px;
 			overflow: hidden;
-		    position: absolute;
-		    text-align: left;
-		    top: 100%;
-		    width: 100%;    
+		  position: absolute;
+		  text-align: left;
+		  top: 100%;
+		  width: 100%; 
+		  transition: height .2s ease;   
 		    
 			li {
 				display: block;
@@ -68,9 +117,11 @@ nav.mobile {
 		input#mobile-btn {
 			
 			&:checked ~ ul {
-				height: 100%;
+				height: 100vh;
+				height: calc(75vh - 40px);
+				overflow: scroll;
 			}
 		}
 	}
-}
+}	
 
