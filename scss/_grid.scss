@@ -2,17 +2,17 @@
 
 .container {
   @include display-flex();
+  align-items: baseline;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0px;
-  padding: 0px;
+  padding: 10px;
   width: 100%;
 
   & > div {
     border-radius: 10px;
     height: 100px;
     width: 100px;
-    margin: 10px;
   }
 
   div:nth-child(2n) {
