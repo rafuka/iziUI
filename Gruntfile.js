@@ -4,44 +4,48 @@ module.exports = function(grunt) {
   
     watch: {
       sass: {
-        files: '**/*.scss', 
+        files: 'dev/scss/**/*.scss', 
         tasks: ['sass', 'cssmin']
       },
-      js: {
-        files: 'scripts/**/*.js',
-        tasks: ['concat', 'uglify']
+      js_concat: {
+        files: 'dev/scripts/**/*.js',
+        tasks: ['concat']
+      },
+      js_uglify: {
+        files: 'dist/scripts/built.js',
+        tasks: ['uglify']
       }
     },
 
     sass: {
       dev: {
         files: {
-          'css/main.css' : 'scss/main.scss'
+          'dist/css/main.css' : 'dev/scss/main.scss'
         }
       }
     },
 
     cssmin: {
       build: {
-        src: 'css/main.css',
-        dest: 'css/main.min.css'
+        src: 'dist/css/main.css',
+        dest: 'dist/css/main.min.css'
       }    
     },
 
     concat: {
       options: {
-        separator: '\n/*next file*/\n\n'
+        separator: '\n\n\n'
       },
       dist: {
-        src: ['scripts/*.js'],
-        dest: 'scripts/built.js'
+        src: ['dev/scripts/*.js'],
+        dest: 'dist/scripts/built.js'
       }
     },
 
     uglify: {
       build: {
         files: {
-          'scripts/built.min.js': ['scripts/built.js']
+          'dist/scripts/built.min.js': ['dist/scripts/built.js']
         }
       }
     }

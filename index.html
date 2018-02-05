@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="dist/css/main.min.css">
 	
 	<title>iziUI Framework</title>
 </head>
@@ -27,53 +28,59 @@
 		</ul>
 	</nav>
 	<aside class="tab-menu">
-		<h1>BALLS OF FIRE</h1>
+		<h1>Aside menu (components)</h1>
 	</aside>
 	<main class="tab-content">
 	<section>
-		<div class="container">
+		<div class="container-col">
 			<p>iziUI is a quick and easy-to-use UI framework. The use of flex-box containers instead of columns and rows makes it a simple framework for a quick responsive solution!</p>
 		</div>
 	</section>
 	<section>
-		<h1>Grid</h1>
-		<div class="container">
-			<div >1</div>
-			<div >2</div>
-			<div >3</div>
-			<div >4</div>
-			<div >5</div>
-			<div >6</div>
-			<div >7</div>
+		<h1>Layout</h1>
+		
+		<p>The main layout components are containers, which come in two flavors: container-row and container-col, and correspond to the flex-direction: column and flex-direction: row properties.</p>
+		<p>This makes it easy to create responive layouts in seconds! Plus it is highly customizable using the flexbox properties.</p>
+		<div class="container-row example">
+			<div class="container-row">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<input id="example-1-input-1" type="checkbox" class="js-modifier-width">
+				<label for="example-1-input-1"><- width -></label>
+			</div>
+			<div class="container-col">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<input id="example-1-input-2" type="checkbox" class="js-modifier-height">
+				<label for="example-1-input-2"><- height -></label>
+			</div>
+			<div class="container-row">
+				<div>1</div>
+				<div>2</div>
+				<div class="container-col">
+					<div>3</div>
+					<div>4</div>
+					<div>5</div>
+				</div>
+				<input id="example-1-input-3" type="checkbox" class="js-modifier-width" checked>
+				<label for="example-1-input-3"><- width -></label>
+			</div>
 		</div>
 	</section>
 	<section>
 		<h1>Grid</h1>
-		<div class="container">
-			<div >1</div>
-			<div >2</div>
-			<div >3</div>
-			<div >4</div>
-			<div >5</div>
-			<div >6</div>
-			<div >7</div>
-		</div>
-	</section>
-	<section>
-		<h1>Grid</h1>
-		<div class="container">
-			<div >1</div>
-			<div >2</div>
-			<div >3</div>
-			<div >4</div>
-			<div >5</div>
-			<div >6</div>
-			<div >7</div>
-		</div>
+		
 	</section>
 	
 	</main>
 	
+	<script type="text/javascript" src="dist/scripts/built.min.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,29 @@
+
+
+[class^="container"] {
+  @include display-flex();
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+[class^="container"] > [class^="container"] {
+  display: inline-flex;
+  width: initial;
+}
+
+.container {
+  &-col {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  &-row {
+    flex-direction: row;
+  } 
+}

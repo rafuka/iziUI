@@ -1,0 +1,116 @@
+	a.logo {
+
+		h1 {
+			color: white;
+			font-size: 1.5em;
+			font-weight: bold;
+		}
+	}
+
+.example::before {
+	content: 'example';
+	font-family: 'mono', sans-serif;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	font-color: #972cfe;
+	opacity: .5;
+}
+
+.example {
+
+	background-color: #d5a9ff;
+	border: 3px solid #972cfe;
+	border-left: none;
+	border-right: none;
+	margin: 30px auto;
+	padding: 20px;
+	position: relative;
+
+	div:not([class*="container"]) {
+		background-color: #972cfe;
+		border-radius: 5px;
+		color: white;
+		height: 40px;
+		margin: 10px;
+		padding-top: 12px;
+		padding-left: 15px;
+		width: 40px;	
+	}
+
+	& > div[class*="container"] {
+		background-color: white;
+		border-radius: 10px;
+		margin: 10px;
+		padding: 40px;
+		position: relative;
+		transition: height 2s ease-out, width 2s ease-out;
+		width: 380px;
+		height: 380px;
+		&::before {
+			color: #972cfe;
+			font-family: 'mono', sans-serif;
+			font-size: .8em;
+			font-weight: bold;
+			position: absolute;
+			top: 3px;
+			left: 7px;	
+		}
+	}
+
+	& > div.container-row {
+		&::before {
+			content: 'container-row';	
+		}
+	}
+
+	& > div.container-col {
+		&::before {
+			content: 'container-col';
+		}
+	}
+
+	span[class^="js-modifier"] {
+		position: absolute;
+
+		&[class$="height"] {
+			right: 3px;
+			top:3px;
+
+		}
+
+		&[class$="width"] {
+			bottom: 3px;
+			left: 7px;
+		}
+	}
+
+	input[class^="js-modifier"] {
+		position: absolute;
+		height: 0px;
+		visibility: hidden;
+		width: 0px; 
+		
+		& + label {
+			color: red;
+			position: absolute;
+		}
+
+		& + label:hover {
+			cursor: pointer;
+		}
+
+		&[class$="width"] + label {
+			bottom: 5px;
+		}
+
+		&[class$="height"] + label {
+			right: -30px;
+			transform: rotate(90deg);
+		}
+
+		&:checked + label {
+			color: green;
+		}	
+	}
+}

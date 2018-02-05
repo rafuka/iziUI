@@ -49,30 +49,36 @@ table {
   font-family: "Lato", sans-serif !important;
   text-decoration: none; }
 
+h1 {
+  font-size: 2em; }
+
 ul li {
   display: inline-block; }
 
-.container {
+[class^="container"] {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  align-items: baseline;
+  align-content: center;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  justify-items: center;
   margin: 0px;
   padding: 0px;
   width: 100%; }
-  .container > div {
-    border-radius: 10px;
-    height: 100px;
-    width: 100px;
-    margin: 10px; }
-  .container div:nth-child(2n) {
-    background-color: lightblue; }
-  .container div:nth-child(2n+1) {
-    background-color: #49bfe6; }
+
+[class^="container"] > [class^="container"] {
+  display: inline-flex;
+  width: initial; }
+
+.container-col {
+  flex-direction: column;
+  overflow-x: hidden; }
+.container-row {
+  flex-direction: row; }
 
 header {
   margin-bottom: 50px; }
@@ -202,5 +208,78 @@ a.logo h1 {
   color: white;
   font-size: 1.5em;
   font-weight: bold; }
+
+.example::before {
+  content: 'example';
+  font-family: 'mono', sans-serif;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-color: #972cfe;
+  opacity: .5; }
+
+.example {
+  background-color: #d5a9ff;
+  border: 3px solid #972cfe;
+  border-left: none;
+  border-right: none;
+  margin: 30px auto;
+  padding: 20px;
+  position: relative; }
+  .example div:not([class*="container"]) {
+    background-color: #972cfe;
+    border-radius: 5px;
+    color: white;
+    height: 40px;
+    margin: 10px;
+    padding-top: 12px;
+    padding-left: 15px;
+    width: 40px; }
+  .example > div[class*="container"] {
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 40px;
+    position: relative;
+    transition: height 2s ease-out, width 2s ease-out;
+    width: 380px;
+    height: 380px; }
+    .example > div[class*="container"]::before {
+      color: #972cfe;
+      font-family: 'mono', sans-serif;
+      font-size: .8em;
+      font-weight: bold;
+      position: absolute;
+      top: 3px;
+      left: 7px; }
+  .example > div.container-row::before {
+    content: 'container-row'; }
+  .example > div.container-col::before {
+    content: 'container-col'; }
+  .example span[class^="js-modifier"] {
+    position: absolute; }
+    .example span[class^="js-modifier"][class$="height"] {
+      right: 3px;
+      top: 3px; }
+    .example span[class^="js-modifier"][class$="width"] {
+      bottom: 3px;
+      left: 7px; }
+  .example input[class^="js-modifier"] {
+    position: absolute;
+    height: 0px;
+    visibility: hidden;
+    width: 0px; }
+    .example input[class^="js-modifier"] + label {
+      color: red;
+      position: absolute; }
+    .example input[class^="js-modifier"] + label:hover {
+      cursor: pointer; }
+    .example input[class^="js-modifier"][class$="width"] + label {
+      bottom: 5px; }
+    .example input[class^="js-modifier"][class$="height"] + label {
+      right: -30px;
+      transform: rotate(90deg); }
+    .example input[class^="js-modifier"]:checked + label {
+      color: green; }
 
 /*# sourceMappingURL=main.css.map */
