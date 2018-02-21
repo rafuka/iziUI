@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name=”viewport” content=”width=device-width”>
 	<link rel="stylesheet" type="text/css" href="dist/css/main.min.css">
 	
 	<title>iziUI Framework</title>
@@ -32,16 +33,14 @@
 	</aside>
 	<main class="tab-content">
 	<section>
-		<div class="container-col">
-			<p>iziUI is a quick and easy-to-use UI framework. The use of flex-box containers instead of columns and rows makes it a simple framework for a quick responsive solution!</p>
-		</div>
+		<p>iziUI is a easy-to-use UI framework. The use of flex-box containers instead of columns and rows makes it a simple framework for a quick responsive solution!</p>
 	</section>
 	<section>
 		<h1>Layout</h1>
 		
 		<p>The main layout components are containers, which come in two flavors: container-row and container-col, and correspond to the flex-direction: column and flex-direction: row properties.</p>
 		<p>This makes it easy to create responive layouts in seconds! Plus it is highly customizable using the flexbox properties.</p>
-		<div class="container-row example">
+		<div class="container-row example" id="example-1">
 			<div class="container-row">
 				<div>1</div>
 				<div>2</div>
@@ -74,7 +73,145 @@
 		</div>
 	</section>
 	<section>
-		<h1>Grid</h1>
+		<h1>Components</h1>
+		<h2>Mobile Menu</h2>
+		<p>A responsive menu.</p>
+		<div class="container-row example" id="example-2"> 
+			<div>
+				<nav class="navbar">
+					<a class="logo"><h1>iziUI</h1></a>
+					<input type="checkbox" name="mobile-btn" id="mobile-btn-example-2-1">
+					<label for="mobile-btn-example-2-1" class="hamburguer">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</label>
+					<label for="mobile-btn-example-2-1" class="mask"></label>
+					<ul class="navbar-main mobile-left">
+						<li><a href="#">One</a></li>
+						<li><a href="#">Two</a></li>
+						<li><a href="#">Three</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<h2>Buttons</h2>
+
+
+		<h2>Cards</h2>
+		<p>Different types of cards to hold content</p>
+		<div class="container-row example">
+			<div class="card">
+				<div class="card__content">
+					<p>Cards formed with the <code>class="card"</code> may contain any content and are customizable. They don't have a fixed height and their minimum width is <code>300px</code>.</p>
+				</div>
+			</div>
+			<div class="card--profile">
+				<header>
+					<img src="http://via.placeholder.com/150x150">
+				</header>
+				<div class="card__content">
+					<h1>Title</h1>
+					<p>Lorem sf Ipsum Lorsdgsdfem Ipsum a Lorem xy Ipsum Loremgdsd Ipsum Lorem Ipsum
+					Lorem Ipsum  sfdg Lorem Ipsum Lorem Ipsusdgm Loremg Ipsum Lorem Ipsum 
+					sdg</p>
+				</div>
+				<footer>
+					<p>Card footer</p>
+				</footer>
+			</div>
+			<div class="card--item">
+				<header>
+					<img src="http://via.placeholder.com/300x150">
+				</header>
+				<div class="card__content">
+					<h1>Title</h1>
+					<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
+					sfg fdas gdf gad sdh sdgh sdgh sdghwreh dlñkh ñsjdgh 
+					 erlyhjha dfm jkdhlkjh dkjg halkdj hgsldk.</p>
+				</div>
+				<footer>
+					<p>card footer</p>
+				</footer>
+			</div>
+			<div class="card--item">
+				<header>
+					<img src="http://via.placeholder.com/300x150">
+				</header>
+				<div class="card__content">
+					<h1>Title</h1>
+					<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
+					sfg fdas gdf gad sdh sdgh sdgh sdghwreh dlñkh ñsjdgh 
+					 erlyhjha dfm jkdhlkjh dkjg halkdj hgsldk.</p>
+				</div>
+				<footer>
+					<p>card footer</p>
+				</footer>
+			</div>
+			<div class="card--item">
+				<header>
+					<img src="http://via.placeholder.com/300x150">
+				</header>
+				<div class="card__content">
+					<h1>Title</h1>
+					<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
+					sfg fdas gdf gad sdh sdgh sdgh sdghwreh dlñkh ñsjdgh 
+					 erlyhjha dfm jkdhlkjh dkjg halkdj hgsldk.</p>
+				</div>
+				<footer>
+					<p>card footer</p>
+				</footer>
+			</div>
+			<div class="card--item">
+				<header>
+					<img src="http://via.placeholder.com/300x150">
+				</header>
+				<div class="card__content">
+					<h1>Title</h1>
+					<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
+					sfg fdas gdf gad sdh sdgh sdgh sdghwreh dlñkh ñsjdgh 
+					 erlyhjha dfm jkdhlkjh dkjg halkdj hgsldk.</p>
+				</div>
+				<footer>
+					<p>card footer</p>
+				</footer>
+			</div>
+			<div class="card--item">
+				<header>
+					<img src="http://via.placeholder.com/300x150">
+				</header>
+				<div class="card__content">
+					<h1>Title</h1>
+					<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
+					sfg fdas gdf gad sdh sdgh sdgh sdghwreh dlñkh ñsjdgh 
+					 erlyhjha dfm jkdhlkjh dkjg halkdj hgsldk.</p>
+				</div>
+				<footer>
+					<p>card footer</p>
+				</footer>
+			</div>
+			<div class="card--item">
+				<header>
+					<img src="http://via.placeholder.com/300x150">
+				</header>
+				<div class="card__content">
+					<h1>Title</h1>
+					<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
+					sfg fdas gdf gad sdh sdgh sdgh sdghwreh dlñkh ñsjdgh 
+					 erlyhjha dfm jkdhlkjh dkjg halkdj hgsldk.</p>
+				</div>
+				<footer>
+					<p>card footer</p>
+				</footer>
+			</div>
+		</div>
+
+		<h2>Accordion</h2>
+
+		<h2>Tab Panel</h2>
+
+
 		
 	</section>
 	

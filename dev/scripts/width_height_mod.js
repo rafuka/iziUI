@@ -3,7 +3,11 @@ var width_mod = document.getElementsByClassName('js-modifier-width');
 var height_mod = document.getElementsByClassName('js-modifier-height');
 
 
-// Get the parent elements' offset width and height and set it as a css style, and set the checked property to false
+/*  
+*	Get the parent elements' offset width and height and set it as a css style, and set 
+*	the checked property to false
+*/
+
 for (var i = 0; i < width_mod.length; i++) {
 	width_mod[i].checked = false;
 	width_mod[i].initialWidth = width_mod[i].parentElement.offsetWidth;
@@ -17,9 +21,9 @@ for (var i = 0; i < height_mod.length; i++) {
 }
 
 
-
-
-// Set event listeners to each modifier
+/* 
+*	Set event listeners to each modifier
+*/
 
 for (var i = 0; i < width_mod.length; i++) {
 	
