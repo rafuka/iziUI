@@ -155,11 +155,50 @@ nav.navbar {
     margin-left: auto; }
     nav.navbar ul.navbar-main li a {
       color: white;
-      padding: 10px; }
+      padding: 10px;
+      padding-left: 20px; }
       nav.navbar ul.navbar-main li a:hover {
         opacity: .9;
         cursor: pointer; }
+    nav.navbar ul.navbar-main .dropdown {
+      position: relative; }
+      nav.navbar ul.navbar-main .dropdown__toggle {
+        display: none; }
+      nav.navbar ul.navbar-main .dropdown__title {
+        color: white;
+        padding: 10px;
+        padding-left: 20px;
+        transition: color .2s ease,background-color .2s ease; }
+        nav.navbar ul.navbar-main .dropdown__title:hover {
+          opacity: .9;
+          cursor: pointer; }
+      nav.navbar ul.navbar-main .dropdown__menu {
+        background-color: black;
+        border-radius: 0px 0px 5px 5px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        min-width: 160px;
+        padding-top: 30px;
+        position: absolute;
+        top: 100%;
+        transition: max-height .4s ease;
+        visibility: visible; }
+        nav.navbar ul.navbar-main .dropdown__menu li {
+          display: block; }
+          nav.navbar ul.navbar-main .dropdown__menu li a {
+            display: block;
+            width: 100%; }
 
+@media screen and (min-width: 721px) {
+  .dropdown__menu {
+    max-height: 0px;
+    overflow: hidden; }
+  .dropdown:hover > .dropdown__menu {
+    max-height: 1000px;
+    max-height: 90vh; }
+  .dropdown:hover > .dropdown__title {
+    opacity: .9; } }
 @media screen and (max-width: 720px) {
   nav.navbar {
     top: 0px;
@@ -188,19 +227,68 @@ nav.navbar {
         transition: color .2s ease, background-color .2s ease; }
         nav.navbar ul.navbar-main li a:hover {
           background-color: white;
-          color: black; }
+          color: black;
+          cursor: pointer; }
       nav.navbar ul.navbar-main.mobile-left {
         height: 100vh;
         right: 100%; }
         nav.navbar ul.navbar-main.mobile-left li {
-          text-align: right; }
+          text-align: left; }
+      nav.navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__title {
+        background-color: white;
+        color: black; }
+        nav.navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__title span {
+          border-color: black; }
+          nav.navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__title span:first-child {
+            transform: rotate(0deg);
+            border-color: green; }
+          nav.navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__title span:last-child {
+            transform: rotate(180deg); }
+      nav.navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__menu {
+        max-height: 1000px;
+        max-height: 80vh; }
+      nav.navbar ul.navbar-main .dropdown__title {
+        color: white;
+        width: 100%;
+        display: block;
+        padding-right: 35px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: relative; }
+        nav.navbar ul.navbar-main .dropdown__title:hover {
+          background-color: white;
+          color: black; }
+          nav.navbar ul.navbar-main .dropdown__title:hover span {
+            border-color: black !important; }
+        nav.navbar ul.navbar-main .dropdown__title span {
+          border: 1px solid white;
+          float: right;
+          height: 0px;
+          position: absolute;
+          width: 15px;
+          right: 20px;
+          margin: 0;
+          top: calc(50% - 1px);
+          transition: transform .3s ease; }
+        nav.navbar ul.navbar-main .dropdown__title span:first-child {
+          transform: rotate(90deg); }
+      nav.navbar ul.navbar-main .dropdown__menu {
+        display: block;
+        position: static;
+        padding: 0px;
+        height: auto;
+        max-height: 0px;
+        overflow: auto;
+        transition: max-height .4s ease; }
+        nav.navbar ul.navbar-main .dropdown__menu li a {
+          padding-left: 45px; }
     nav.navbar input#mobile-btn:checked ~ ul {
       height: 100vh;
       height: calc(75vh - 40px);
       overflow: scroll; }
       nav.navbar input#mobile-btn:checked ~ ul.mobile-left {
         height: 100vh;
-        right: 40vw; } }
+        right: 0px; } }
 .card, .card--profile, .card--item {
   background-color: white;
   border-radius: 3px;
@@ -253,7 +341,8 @@ a.logo h1 {
   border-right: none;
   margin: 30px auto;
   padding: 20px;
-  position: relative; }
+  position: relative;
+  transition: height .3s ease; }
   .example > div[class*="container"] {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4); }
 
