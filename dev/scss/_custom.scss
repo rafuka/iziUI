@@ -11,10 +11,11 @@
 .example::before {
 	content: 'example';
 	font-family: 'mono', sans-serif;
+	font-size: .9em;
 	position: absolute;
 	top: 5px;
 	left: 5px;
-	font-color: #972cfe;
+	color: #1d0238;
 	opacity: .5;
 }
 
@@ -126,6 +127,7 @@
 #example-2 {
 	& > div {
 		background-color: white;
+		box-shadow: 0 0 4px rgba(0,0,0,.4);
 		height: 400px;
 		overflow: hidden;
 		position: relative;
@@ -199,10 +201,76 @@
 					overflow: scroll;
 
 					&.mobile-left {
-						height: 100vh;
-						right: 35%;
+						right: 0;
 					}
 				}
+			}
+		}
+	}
+}
+
+#example-3 {
+
+	& > div[class*='container'] {	
+		background-color: white;
+		border-radius: 10px;
+		margin-top: 20px;
+		max-width: 500px;
+		padding: 20px;
+	}
+
+	h3 {
+		width: 100%;
+		margin: 20px 0px;
+
+		&:first-child {
+			margin-top: 0px;
+		}
+	}
+}
+
+#example-5 {
+
+	& > div[class*='container'] {	
+		background-color: white;
+		border-radius: 10px;
+		margin-top: 20px;
+		max-width: 500px;
+		padding: 20px;
+
+		h3 {
+			width: 100%;
+			margin: 20px 0px;
+
+			&:first-child {
+				margin-top: 0px;
+			}
+		}
+	}
+
+	.accordion {
+		&__panel {
+			p {
+				padding: 10px;
+			}
+		}
+	}
+}
+
+#example-6 {
+	& > div[class*='container'] {	
+		background-color: white;
+		border-radius: 10px;
+		margin-top: 20px;
+		max-width: 500px;
+		padding: 20px;
+
+		h3 {
+			width: 100%;
+			margin: 20px 0px;
+
+			&:first-child {
+				margin-top: 0px;
 			}
 		}
 	}

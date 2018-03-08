@@ -35,124 +35,200 @@
 			<li><a href="#">Watch on GitHub</a></li>
 		</ul>
 	</nav>
-	<aside class="tab-menu">
-		<h1>Aside menu (components)</h1>
-	</aside>
-	<main class="tab-content">
-	<section>
-		<p>iziUI is a easy-to-use UI framework. The use of flex-box containers instead of columns and rows makes it a simple framework for a quick responsive solution!</p>
-	</section>
-	<section>
-		<h1>Layout</h1>
-		
-		<p>The main layout components are containers, which come in two flavors: container-row and container-col, and correspond to the flex-direction: column and flex-direction: row properties.</p>
-		<p>This makes it easy to create responive layouts in seconds! Plus it is highly customizable using the flexbox properties.</p>
-		<div class="container-row example" id="example-1">
-			<div class="container-row">
-				<div>1</div>
-				<div>2</div>
-				<div>3</div>
-				<div>4</div>
-				<div>5</div>
-				<input id="example-1-input-1" type="checkbox" class="js-modifier-width">
-				<label for="example-1-input-1"><- width -></label>
-			</div>
-			<div class="container-col">
-				<div>1</div>
-				<div>2</div>
-				<div>3</div>
-				<div>4</div>
-				<div>5</div>
-				<input id="example-1-input-2" type="checkbox" class="js-modifier-height">
-				<label for="example-1-input-2"><- height -></label>
-			</div>
-			<div class="container-row">
-				<div>1</div>
-				<div>2</div>
-				<div class="container-col">
+
+	<main>
+		<section>
+			<p>iziUI is a easy-to-use UI framework. The use of flex-box containers instead of columns and rows makes it a simple framework for a quick responsive solution!</p>
+		</section>
+		<section>
+			<h1>Layout</h1>
+			
+			<p>The main layout components are containers, which come in two flavors: container-row and container-col, and correspond to the flex-direction: column and flex-direction: row properties.</p>
+			<p>This makes it easy to create responive layouts in seconds! Plus it is highly customizable using the flexbox properties.</p>
+			<div class="container-row example" id="example-1">
+				<div class="container-row">
+					<div>1</div>
+					<div>2</div>
 					<div>3</div>
 					<div>4</div>
 					<div>5</div>
+					<input id="example-1-input-1" type="checkbox" class="js-modifier-width">
+					<label for="example-1-input-1"><- width -></label>
 				</div>
-				<input id="example-1-input-3" type="checkbox" class="js-modifier-width" checked>
-				<label for="example-1-input-3"><- width -></label>
-			</div>
-		</div>
-	</section>
-	<section>
-		<h1>Components</h1>
-		<h2>Mobile Menu</h2>
-		<p>A responsive menu.</p>
-		<div class="container-row example" id="example-2"> 
-			<div>
-				<nav class="navbar">
-					<a class="logo"><h1>iziUI</h1></a>
-					<input type="checkbox" name="mobile-btn" id="mobile-btn-example-2-1">
-					<label for="mobile-btn-example-2-1" class="hamburguer">
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-					</label>
-					
-					<ul class="navbar-main mobile-left">
-						<li><a href="#">One</a></li>
-						<li><a href="#">Two</a></li>
-						<li><a href="#">Three</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-		<h2>Buttons</h2>
-
-
-		<h2>Cards</h2>
-		<p>Different types of cards to hold content</p>
-		<div class="container-row example">
-			<div class="card">
-				<div class="card__content">
-					<p>Cards formed with the <code>class="card"</code> may contain any content and are customizable. They don't have a fixed height and their minimum width is <code>300px</code>.</p>
+				<div class="container-col">
+					<div>1</div>
+					<div>2</div>
+					<div>3</div>
+					<div>4</div>
+					<div>5</div>
+					<input id="example-1-input-2" type="checkbox" class="js-modifier-height">
+					<label for="example-1-input-2"><- height -></label>
+				</div>
+				<div class="container-row">
+					<div>1</div>
+					<div>2</div>
+					<div class="container-col">
+						<div>3</div>
+						<div>4</div>
+						<div>5</div>
+					</div>
+					<input id="example-1-input-3" type="checkbox" class="js-modifier-width" checked>
+					<label for="example-1-input-3"><- width -></label>
 				</div>
 			</div>
-			<div class="card--profile">
-				<header>
-					<img src="http://via.placeholder.com/150x150">
-				</header>
-				<div class="card__content">
-					<h1>Title</h1>
-					<p>Lorem sf Ipsum Lorsdgsdfem Ipsum a Lorem xy Ipsum Loremgdsd Ipsum Lorem Ipsum
-					Lorem Ipsum  sfdg Lorem Ipsum Lorem Ipsusdgm Loremg Ipsum Lorem Ipsum 
-					sdg</p>
+		</section>
+		<section>
+			<h1>Components</h1>
+			<h2>Responsive Navigation Menus</h2>
+			<p>A responsive menu.</p>
+			<div class="container-row example" id="example-2">
+				<div>
+					<nav class="navbar">
+						<a class="logo"><h1>iziUI</h1></a>
+						<input type="checkbox" name="mobile-btn" id="mobile-btn-example-2-1">
+						<label for="mobile-btn-example-2-1" class="hamburguer">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</label>
+						
+						<ul class="navbar-main mobile-left">
+							<li><a href="#">One</a></li>
+							<li><a href="#">Two</a></li>
+							<li><a href="#">Three</a></li>
+						</ul>
+					</nav>
 				</div>
-				<footer>
-					<p>Card footer</p>
-				</footer>
 			</div>
-			<div class="card--item">
-				<header>
-					<img src="http://via.placeholder.com/300x150">
-				</header>
-				<div class="card__content">
-					<h1>Title</h1>
-					<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
-					sfg fdas gdf gad sdh sdgh sdgh sdghwreh dlñkh ñsjdgh 
-					 erlyhjha dfm jkdhlkjh dkjg halkdj hgsldk.</p>
+			<h2>Buttons</h2>
+			<div class="container-row example" id="example-3">
+				<div class="container-row">
+					<h3>Default Buttons</h3>
+					<button class="izi-btn">BUTTON</button>
+					<button class="izi-btn izi-btn--primary">PRIMARY</button>
+					<button class="izi-btn izi-btn--success">SUCCESS</button>
+					<button class="izi-btn izi-btn--danger">DANGER</button>
+					<h3>Hover Buttons</h3>
+					<button class="izi-btn izi-btn--hover">BUTTON</button>
+					<button class="izi-btn izi-btn--hover izi-btn--primary">PRIMARY</button>
+					<button class="izi-btn izi-btn--hover izi-btn--success">SUCCESS</button>
+					<button class="izi-btn izi-btn--hover izi-btn--danger">DANGER</button>
 				</div>
-				<footer>
-					<p>card footer</p>
-				</footer>
 			</div>
-			
-		</div>
 
-		<h2>Accordion</h2>
+			<h2>Cards</h2>
+			<p>Different types of cards to hold content</p>
+			<div class="container-row example" id="example-4">
+				<div class="card">
+					<div class="card__content">
+						<p>Cards formed with the <code>class="card"</code> may contain any content and are customizable. They don't have a fixed height and their minimum width is <code>300px</code>.</p>
+					</div>
+				</div>
+				<div class="card--profile">
+					<header>
+						<img src="http://placebear.com/150/150">
+					</header>
+					<div class="card__content">
+						<h1>Title</h1>
+						<p>Lorem sf Ipsum Lorsdgsdfem Ipsum a Lorem xy Ipsum Loremgdsd Ipsum Lorem Ipsum
+						Lorem Ipsum  sfdg Lorem Ipsum Lorem Ipsusdgm Loremg Ipsum Lorem Ipsum 
+						sdg</p>
+					</div>
+					<footer>
+						<p>Card footer</p>
+					</footer>
+				</div>
+				<div class="card--item">
+					<header>
+						<img src="http://placekitten.com/300/150">
+					</header>
+					<div class="card__content">
+						<h1>Title</h1>
+						<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
+						sfg fdas gdf gad sdh sdgh sdgh sdghwreh dlñkh ñsjdgh 
+						 erlyhjha dfm jkdhlkjh dkjg halkdj hgsldk.</p>
+					</div>
+					<footer>
+						<p>card footer</p>
+					</footer>
+				</div>		
+			</div>
 
-		<h2>Tab Panel</h2>
-
-
-		
-	</section>
-	
+			<h2>Accordions</h2>
+			<div class="container-row example" id="example-5">
+				<div class="container-row">
+					<h3>Multiple expanded tabs accordion</h3>
+					<div class="accordion--multiple">
+						<div class="accordion__tab">Tab 1</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg sljkhgas gass kd sdfgls hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 2</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg  h ksdjh kshad lsjhls uhgsahg kfgjfhbh jj h kdfkg ls sj kdgldhd hdhf ldshg h hd dj f    kdhg kslsdkg d kd d   dh kdhgkj lkdhg dks d kd lkdhgkd jdh jjf huehw p p epie ii ru e iwiw ei piue ie  eiweihe e ei ipew h  e  ih gt t y uf ytf k fk hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 3</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg dj h  ks djshdkj djkshj dskdj kjs j d kjdsh sjkd kdh djh kjdh kjds h hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 4</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg  dkgyksd gsdgd dkj dh hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+					</div>
+					<h3>One tab at a time accordion</h3>
+					<div class="accordion--single">
+						<div class="accordion__tab">Tab 1</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg sljkhgas gass kd sdfgls hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 2</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg  h ksdjh kshad lsjhls uhgsahg kfgjfhbh jj h kdfkg ls sj kdgldhd hdhf ldshg h hd dj f    kdhg kslsdkg d kd d   dh kdhgkj lkdhg dks d kd lkdhgkd jdh jjf huehw p p epie ii ru e iwiw ei piue ie  eiweihe e ei ipew h  e  ih gt t y uf ytf k fk hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 3</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg dj h  ks djshdkj djkshj dskdj kjs j d kjdsh sjkd kdh djh kjdh kjds h hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 4</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg  dkgyksd gsdgd dkj dh hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<h2>Tab Panels</h2>
+			<div class="container-row example" id="example-6">
+				<!--<div class="tabs">
+					<div class="tabs__header">
+						<input type="radio" class="tabs__radio" name="tab-1-input" id="tab-1-input">
+						<label for="tab-1-input" class="tabs__tab">Tab 1</label>
+						<input type="radio" class="tabs__radio" name="tab-2-input" id="tab-2-input">
+						<label for="tab-2-input" class="tabs__tab">Tab 2</label>
+						<input type="radio" class="tabs__radio" name="tab-3-input" id="tab-3-input">
+						<label for="tab-3-input" class="tabs__tab">Tab 3</label>
+					</div>
+					<div class="tabs__content">
+						<div class="tabs__panel tabs__panel">First Panel.</div>
+						<div class="tabs__panel">Second Panel.</div>
+						<div class="tabs__panel">Third Panel.</div>
+					</div>
+				</div>-->
+				<div class="container-row">
+					<div class="tabs">		
+						<label for="tab-1-input" class="tabs__tab">Tab 1</label>
+						<input type="radio" class="tabs__radio" name="tabs" id="tab-1-input" checked>
+						<div class="tabs__panel">First Panel.</div>
+						
+						<label for="tab-2-input" class="tabs__tab">Tab 2</label>
+						<input type="radio" class="tabs__radio" name="tabs" id="tab-2-input">
+						<div class="tabs__panel">Second Panel.</div>
+					</div>
+				</div>
+				
+			</div>
+		</section>
 	</main>
 	
 	<script type="text/javascript" src="dist/scripts/built.min.js"></script>
