@@ -100,6 +100,7 @@
 // Remembers the scroll position in order to 
 // maintain it when the body's height changes
 
+/*
 (function(){
 
 	// Listen to the height of a given element
@@ -138,70 +139,100 @@
 	
 
 })();
+*/
 
 
 (function() {
 
-	var tabPanels = document.getElementsByClassName('tabs');
-	var tabRadios = document.getElementsByClassName('tabs__radio');
-	var tabContents = document.getElementsByClassName('tabs__content');
+	var tabs = document.getElementsByClassName('tabs__tab');
+	
+	function togglePanel(tab) {
+		var allTabs = tab.parentElement.children;
+		var panelId = tab.getAttribute('data-controls');
+		var panel = document.getElementById(panelId);
+		var allPanels = panel.parentElement.children;
 
-	// Associate each tab with each panel
 
+		for (var i = 0; i < allTabs.length; i++) {
+			allTabs[i].classList.remove('tabs__tab--active');
+		}
+
+		tab.classList.add('tabs__tab--active');
+
+		
+		for (var i = 0; i < allPanels.length; i++) {
+			allPanels[i].classList.remove('tabs__panel--visible');
+		}
+
+		panel.classList.add('tabs__panel--visible');
+	}
+
+	for (var i = 0; i < tabs.length; i++) {
+		(function(i) {
+			tabs[i].addEventListener('click', function() {
+
+				if (!this.classList.contains('tabs__tab--active')) {
+					togglePanel(this);
+				}			
+			});
+		})(i);
+	}
 })();
 
 
-
-var width_mod = document.getElementsByClassName('js-modifier-width');
-var height_mod = document.getElementsByClassName('js-modifier-height');
-
-
-/*  
-*	Get the parent elements' offset width and height and set it as a css style, and set 
-*	the checked property to false
-*/
-
-for (var i = 0; i < width_mod.length; i++) {
-	width_mod[i].checked = false;
-	width_mod[i].initialWidth = width_mod[i].parentElement.offsetWidth;
-	width_mod[i].parentElement.style.width = width_mod[i].initialWidth +'px';
-}
-
-for (var i = 0; i < height_mod.length; i++) {
-	height_mod[i].checked = false;
-	height_mod[i].initialHeight = height_mod[i].parentElement.offsetHeight;
-	height_mod[i].parentElement.style.height = height_mod[i].initialHeight +'px';
-}
+(function() {
+	var width_mod = document.getElementsByClassName('js-modifier-width');
+	var height_mod = document.getElementsByClassName('js-modifier-height');
 
 
-/* 
-*	Set event listeners to each modifier
-*/
+	/*  
+	*	Get the parent elements' offset width and height and set it as a css style
+	*	and set the checked property to false
+	*/	
 
-for (var i = 0; i < width_mod.length; i++) {
-	
-	width_mod[i].addEventListener('change', function() {
+	for (var i = 0; i < width_mod.length; i++) {
+		width_mod[i].checked = false;
+		width_mod[i].initialWidth = width_mod[i].parentElement.offsetWidth;
+		width_mod[i].parentElement.style.width = width_mod[i].initialWidth +'px';
+	}
+
+	for (var i = 0; i < height_mod.length; i++) {
+		height_mod[i].checked = false;
+		height_mod[i].initialHeight = height_mod[i].parentElement.offsetHeight;
+		height_mod[i].parentElement.style.height = height_mod[i].initialHeight +'px';
+	}
+
+
+	/* 
+	*	Set event listeners to each modifier
+	*/
+
+	for (var i = 0; i < width_mod.length; i++) {
 		
+		width_mod[i].addEventListener('change', function() {
+			
 
-		if (this.checked) {
-			this.parentElement.style.width = '150px';
-		}
-		else {
-			this.parentElement.style.width = this.initialWidth + 'px';
-	
-		}
-	});
-}
+			if (this.checked) {
+				this.parentElement.style.width = '150px';
+			}
+			else {
+				this.parentElement.style.width = this.initialWidth + 'px';
+		
+			}
+		});
+	}
 
-for (var i = 0; i < height_mod.length; i++) {
-	height_mod[i].addEventListener('change', function() {
-		if (this.checked) {
-			this.parentElement.style.height = '150px';
-		}
-		else {
-			this.parentElement.style.height = this.initialHeight + 'px';
-	
-		}
-	});
-}
+	for (var i = 0; i < height_mod.length; i++) {
+		height_mod[i].addEventListener('change', function() {
+			if (this.checked) {
+				this.parentElement.style.height = '150px';
+			}
+			else {
+				this.parentElement.style.height = this.initialHeight + 'px';
+		
+			}
+		});
+	}
+})();
+
 

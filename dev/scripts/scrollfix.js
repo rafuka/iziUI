@@ -1,6 +1,7 @@
 // Remembers the scroll position in order to 
 // maintain it when the body's height changes
 
+/*
 (function(){
 
 	// Listen to the height of a given element
@@ -39,3 +40,4 @@
 	
 
 })();
+*/

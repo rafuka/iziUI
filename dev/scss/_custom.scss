@@ -1,12 +1,12 @@
 
-	a.logo {
+a.logo {
 
-		h1 {
-			color: white;
-			font-size: 1.5em;
-			font-weight: bold;
-		}
+	h1 {
+		color: white;
+		font-size: 1.5em;
+		font-weight: bold;
 	}
+}
 
 .example::before {
 	content: 'example';
@@ -151,19 +151,17 @@
 				height: 0px;
 				left: 0px;
 				overflow: hidden;
-			  position: absolute;
-			  text-align: center;
-			  top: 100%;
-			  transition: height .3s ease, right .3s ease, left .3s ease;
-			  width: 100%; 
-			  z-index: 2;
+				position: absolute;
+				top: 100%;
+				transition: height .3s ease, right .3s ease, left .3s ease;
+				width: 100%; 
+				z-index: 2;
 
-			  li {
+				li {
 
 					a {
 						color: $navColor;
 						width: 100%;
-						transition: all .1s ease;
 						display: block;
 						padding-right: 35px;
 						transition: color .2s ease, background-color .2s ease;
@@ -175,14 +173,10 @@
 					}
 				}
 
-			  &.mobile-left {
-			  	height: 100vh;
-			  	right: 100%;
-
-			  	li {
-			  		text-align: right;
-			  	}
-			  }
+				&.mobile-left {
+					height: 100vh;
+					right: 100%;
+				}
 
 
 			}
@@ -202,6 +196,86 @@
 
 					&.mobile-left {
 						right: 0;
+					}
+				}
+			}
+
+			.dropdown {
+
+				&__toggle:checked {
+
+					& ~ .dropdown__title {
+						background-color: $navColor;
+						color: $navBckgnd;
+
+						span {
+							border-color: $navBckgnd;
+
+							&:first-child {
+								transform: rotate(0deg);
+								border-color: green;
+							}
+
+							&:last-child {
+								transform: rotate(180deg);
+							}
+						}		
+					}
+
+					& ~ .dropdown__menu {
+						max-height: 1000px;
+						max-height: 80vh;
+					}
+				}
+
+				&__title {
+					color: $navColor;
+					width: 100%;
+					display: block;
+					padding-right: 35px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					position: relative;
+
+					&:hover {
+						background-color: $navColor;
+						color: $navBckgnd;
+
+						span {
+							border-color: $navBckgnd!important;
+						}	
+					}
+
+					span {	
+						border: 1px solid $navColor;
+						float: right;
+						height: 0px;
+						position: absolute;
+						width: 15px;
+						right: 20px;
+						margin: 0;
+						top: calc(50% - 1px);
+						transition: transform .3s ease;
+					}
+
+					span:first-child {
+						transform: rotate(90deg);
+					}
+				}
+
+				&__menu {
+					display: block;
+					position: static;
+					padding: 0px;
+					height: auto;
+					max-height: 0px;
+					overflow: auto;
+					transition: max-height .4s ease;
+
+					li {
+						a {
+							padding-left: 45px;
+						}
 					}
 				}
 			}
@@ -261,7 +335,27 @@
 	& > div[class*='container'] {	
 		background-color: white;
 		border-radius: 10px;
-		margin-top: 20px;
+		margin: 10px;
+		max-width: 400px;
+		padding: 20px;
+		width: 100%;
+
+		h3 {
+			width: 100%;
+			margin: 20px 0px;
+
+			&:first-child {
+				margin-top: 0px;
+			}
+		}
+	}
+}
+
+#example-7 {
+	& > div[class*='container'] {	
+		background-color: white;
+		border-radius: 10px;
+		margin: 10px;
 		max-width: 500px;
 		padding: 20px;
 

@@ -362,25 +362,52 @@ nav.navbar {
     border-bottom: 1px solid #c992fe; }
 
 .tabs {
-  position: relative; }
-  .tabs__header {
-    width: 100%; }
+  position: relative;
+  width: 100%; }
+  .tabs__list {
+    margin-bottom: 10px; }
   .tabs__tab {
-    display: inline-block; }
+    display: inline-block;
+    padding: 10px;
+    position: relative; }
     .tabs__tab:hover {
       cursor: pointer; }
+    .tabs__tab:after {
+      background-color: #972cfe;
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      height: 2px;
+      width: 0px;
+      transition: all .3s ease; }
+    .tabs__tab--active {
+      color: #972cfe; }
+      .tabs__tab--active:after {
+        left: 0;
+        width: 100%; }
   .tabs__content {
-    overflow-x: hidden;
-    width: 100%; }
+    min-height: 200px;
+    width: 100%;
+    overflow: auto;
+    padding: 10px;
+    padding-top: 0px;
+    position: relative; }
   .tabs__panel {
     opacity: 0;
     position: absolute;
     transition: opacity .2s ease; }
-  .tabs__radio {
-    display: none; }
-    .tabs__radio:checked + .tabs__panel {
+    .tabs__panel--visible {
       opacity: 1;
       transition: opacity .2s .2s ease; }
+  .tabs--pill .tabs__tab--active {
+    background-color: #972cfe;
+    color: white;
+    border-radius: 5px; }
+    .tabs--pill .tabs__tab--active:after {
+      content: '';
+      width: 0;
+      height: 0; }
 
 a.logo h1 {
   color: white;
@@ -487,7 +514,6 @@ a.logo h1 {
       left: 0px;
       overflow: hidden;
       position: absolute;
-      text-align: center;
       top: 100%;
       transition: height .3s ease, right .3s ease, left .3s ease;
       width: 100%;
@@ -495,7 +521,6 @@ a.logo h1 {
       #example-2 > div nav.navbar ul.navbar-main li a {
         color: white;
         width: 100%;
-        transition: all .1s ease;
         display: block;
         padding-right: 35px;
         transition: color .2s ease, background-color .2s ease; }
@@ -505,8 +530,6 @@ a.logo h1 {
       #example-2 > div nav.navbar ul.navbar-main.mobile-left {
         height: 100vh;
         right: 100%; }
-        #example-2 > div nav.navbar ul.navbar-main.mobile-left li {
-          text-align: right; }
     #example-2 > div nav.navbar .mask {
       position: absolute;
       width: 100%;
@@ -517,6 +540,54 @@ a.logo h1 {
       overflow: scroll; }
       #example-2 > div nav.navbar input#mobile-btn-example-2-1:checked ~ ul.mobile-left {
         right: 0; }
+    #example-2 > div nav.navbar .dropdown__toggle:checked ~ .dropdown__title {
+      background-color: white;
+      color: black; }
+      #example-2 > div nav.navbar .dropdown__toggle:checked ~ .dropdown__title span {
+        border-color: black; }
+        #example-2 > div nav.navbar .dropdown__toggle:checked ~ .dropdown__title span:first-child {
+          transform: rotate(0deg);
+          border-color: green; }
+        #example-2 > div nav.navbar .dropdown__toggle:checked ~ .dropdown__title span:last-child {
+          transform: rotate(180deg); }
+    #example-2 > div nav.navbar .dropdown__toggle:checked ~ .dropdown__menu {
+      max-height: 1000px;
+      max-height: 80vh; }
+    #example-2 > div nav.navbar .dropdown__title {
+      color: white;
+      width: 100%;
+      display: block;
+      padding-right: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      position: relative; }
+      #example-2 > div nav.navbar .dropdown__title:hover {
+        background-color: white;
+        color: black; }
+        #example-2 > div nav.navbar .dropdown__title:hover span {
+          border-color: black !important; }
+      #example-2 > div nav.navbar .dropdown__title span {
+        border: 1px solid white;
+        float: right;
+        height: 0px;
+        position: absolute;
+        width: 15px;
+        right: 20px;
+        margin: 0;
+        top: calc(50% - 1px);
+        transition: transform .3s ease; }
+      #example-2 > div nav.navbar .dropdown__title span:first-child {
+        transform: rotate(90deg); }
+    #example-2 > div nav.navbar .dropdown__menu {
+      display: block;
+      position: static;
+      padding: 0px;
+      height: auto;
+      max-height: 0px;
+      overflow: auto;
+      transition: max-height .4s ease; }
+      #example-2 > div nav.navbar .dropdown__menu li a {
+        padding-left: 45px; }
 
 #example-3 > div[class*='container'] {
   background-color: white;
@@ -547,13 +618,26 @@ a.logo h1 {
 #example-6 > div[class*='container'] {
   background-color: white;
   border-radius: 10px;
-  margin-top: 20px;
-  max-width: 500px;
-  padding: 20px; }
+  margin: 10px;
+  max-width: 400px;
+  padding: 20px;
+  width: 100%; }
   #example-6 > div[class*='container'] h3 {
     width: 100%;
     margin: 20px 0px; }
     #example-6 > div[class*='container'] h3:first-child {
+      margin-top: 0px; }
+
+#example-7 > div[class*='container'] {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  max-width: 500px;
+  padding: 20px; }
+  #example-7 > div[class*='container'] h3 {
+    width: 100%;
+    margin: 20px 0px; }
+    #example-7 > div[class*='container'] h3:first-child {
       margin-top: 0px; }
 
 /*# sourceMappingURL=main.css.map */

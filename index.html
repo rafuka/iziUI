@@ -95,7 +95,15 @@
 						
 						<ul class="navbar-main mobile-left">
 							<li><a href="#">One</a></li>
-							<li><a href="#">Two</a></li>
+							<li class="dropdown">
+								<input type="checkbox" name="mobile-dropdown-toggle" class="dropdown__toggle" id="mobile-dropdown-toggle-example">
+								<label class="dropdown__title" for="mobile-dropdown-toggle-example">Two<span></span><span></span></label>	
+								<ul class="dropdown__menu">
+									<li><a href="#">Two and one quarter</a></li>
+									<li><a href="#">Two and a half</a></li>
+									<li><a href="#">Two and three quarters</a></li>
+								</ul>
+							</li>
 							<li><a href="#">Three</a></li>
 						</ul>
 					</nav>
@@ -200,33 +208,45 @@
 			</div>
 			<h2>Tab Panels</h2>
 			<div class="container-row example" id="example-6">
-				<!--<div class="tabs">
-					<div class="tabs__header">
-						<input type="radio" class="tabs__radio" name="tab-1-input" id="tab-1-input">
-						<label for="tab-1-input" class="tabs__tab">Tab 1</label>
-						<input type="radio" class="tabs__radio" name="tab-2-input" id="tab-2-input">
-						<label for="tab-2-input" class="tabs__tab">Tab 2</label>
-						<input type="radio" class="tabs__radio" name="tab-3-input" id="tab-3-input">
-						<label for="tab-3-input" class="tabs__tab">Tab 3</label>
-					</div>
-					<div class="tabs__content">
-						<div class="tabs__panel tabs__panel">First Panel.</div>
-						<div class="tabs__panel">Second Panel.</div>
-						<div class="tabs__panel">Third Panel.</div>
-					</div>
-				</div>-->
 				<div class="container-row">
-					<div class="tabs">		
-						<label for="tab-1-input" class="tabs__tab">Tab 1</label>
-						<input type="radio" class="tabs__radio" name="tabs" id="tab-1-input" checked>
-						<div class="tabs__panel">First Panel.</div>
+					<h3>Default Tabs</h3>
+					<div class="tabs">
+						<ul class="tabs__list">
+							<li class="tabs__tab tabs__tab--active" data-controls="tab-panel-1">Tab 1</li>
+							<li class="tabs__tab" data-controls="tab-panel-2">Tab 2</li>
+							<li class="tabs__tab" data-controls="tab-panel-3">Tab 3</li>
+						</ul>
+						<div class="tabs__content">
+							<div class="tabs__panel tabs__panel--visible" id="tab-panel-1">First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel .</div>
+							<div class="tabs__panel" id="tab-panel-2">Second Panel.</div>
+							<div class="tabs__panel" id="tab-panel-3">Third Panel.</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="container-row">
+					<h3>Pill Tabs</h3>
+					<div class="tabs tabs--pill">
+						<ul class="tabs__list">
+							<li class="tabs__tab tabs__tab--active" data-controls="tab-panel-4">Tab 1</li>
+							<li class="tabs__tab" data-controls="tab-panel-5">Tab 2</li>
+							<li class="tabs__tab" data-controls="tab-panel-6">Tab 3</li>
+						</ul>
+						<div class="tabs__content">
+							<div class="tabs__panel tabs__panel--visible" id="tab-panel-4">First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel .</div>
+							<div class="tabs__panel" id="tab-panel-5">Second Panel.</div>
+							<div class="tabs__panel" id="tab-panel-6">Third Panel.</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<h2>Carousel</h2>
+			<div class="container-row example" id="example-7">
+				<div class="container-row">
+					<div class="carousel">
 						
-						<label for="tab-2-input" class="tabs__tab">Tab 2</label>
-						<input type="radio" class="tabs__radio" name="tabs" id="tab-2-input">
-						<div class="tabs__panel">Second Panel.</div>
 					</div>
 				</div>
-				
 			</div>
 		</section>
 	</main>
