@@ -3,18 +3,16 @@ module.exports = function(grunt) {
   grunt.initConfig({
   
     watch: {
-      sass: {
+      css: {
         files: 'dev/scss/**/*.scss', 
-        tasks: ['sass', 'cssmin']
+        tasks: ['sass', 'postcss', 'cssmin']
       },
-      js_concat: {
+      
+      js: {
         files: 'dev/scripts/**/*.js',
-        tasks: ['concat']
+        tasks: ['concat', 'uglify']
       },
-      js_uglify: {
-        files: 'dist/scripts/built.js',
-        tasks: ['uglify']
-      }
+      
     },
 
     sass: {
@@ -25,9 +23,22 @@ module.exports = function(grunt) {
       }
     },
 
+    postcss: {
+      options: {
+        map: true,
+        processors: [
+          require('autoprefixer')({browsers: ['last 2 versions']})
+        ]
+      },
+      dist: {
+        src: 'dist/css/main.css',
+        dest: 'dist/css/main-prefixed.css'
+      }
+    },
+
     cssmin: {
       build: {
-        src: 'dist/css/main.css',
+        src: 'dist/css/main-prefixed.css',
         dest: 'dist/css/main.min.css'
       }    
     },
@@ -49,15 +60,15 @@ module.exports = function(grunt) {
         }
       }
     }
-
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['sass', 'cssmin', 'concat', 'uglify']);
+  grunt.registerTask('default', ['watch']);
 
 };

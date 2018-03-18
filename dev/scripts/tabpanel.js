@@ -1,7 +1,7 @@
 (function() {
 
 	var tabs = document.getElementsByClassName('tabs__tab');
-	
+	console.log('YO MAMMAAA;')
 	function togglePanel(tab) {
 		var allTabs = tab.parentElement.children;
 		var panelId = tab.getAttribute('data-controls');
@@ -21,6 +21,9 @@
 		}
 
 		panel.classList.add('tabs__panel--visible');
+		setTimeout(function() {
+			panel.parentElement.scrollTop = 0;
+		}, 100);
 	}
 
 	for (var i = 0; i < tabs.length; i++) {

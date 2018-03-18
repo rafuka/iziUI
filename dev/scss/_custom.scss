@@ -368,4 +368,53 @@ a.logo {
 			}
 		}
 	}
+
+	.carousel {
+		width: 450px;
+		height: 350px;
+	}
+}
+
+#example-8 {
+	& > div[class*='container'] {	
+		background-color: white;
+		border-radius: 10px;
+		margin: 10px;
+		max-width: 500px;
+		padding: 20px;
+
+		h3 {
+			width: 100%;
+			margin: 20px 0px;
+
+			&:first-child {
+				margin-top: 0px;
+			}
+		}
+	}
+}
+
+#example-9 {
+	& > div[class*='container'] {	
+		background-color: white;
+		border-radius: 10px;
+		margin: 10px;
+		max-width: 500px;
+		padding: 20px;
+
+		h3 {
+			width: 100%;
+			margin: 20px 0px;
+
+			&:first-child {
+				margin-top: 0px;
+			}
+		}
+	}
+}
+
+.input-field {
+	width: 100%;
+	text-align: center;
+	margin: 10px;
 }
