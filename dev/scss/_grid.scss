@@ -1,7 +1,7 @@
 
 
 [class^="container"] {
-  @include display-flex();
+  display: flex;
   align-content: center;
   align-items: center;
   flex-wrap: wrap;

@@ -16,10 +16,14 @@
 			carousel.arrowRight.style.top = arrowRightTopPos + 'px';
 			carousel.arrowLeft.style.top = arrowLeftTopPos + 'px';
 
-			// Associate each radio button with its correspondant label
-			for (var j = 0; j < carousel.labels.length; j++) {
+			// Associate each radio button with its correspondant label and slide
+			for (var j = 0; j < carousel.slides.length; j++) {
 				carousel.labels[j].radio = document.getElementById(carousel.labels[j].getAttribute('for'));
 				document.getElementById(carousel.labels[j].getAttribute('for')).label = carousel.labels[j];
+
+				carousel.radios[j].slide = carousel.radios[j].nextElementSibling;
+
+				carousel.slides[j].radio = carousel.slides[j].previousElementSibling;
 			}
 
 			// Add the selected state class to the label of the default selected radio.
@@ -43,11 +47,9 @@
 						for (var k = 0; k < carousel.labels.length; k++) {
 							var label = carousel.labels[k];
 							if (label.getAttribute('for') !== this.id) {
-								console.log('boom!');
 								label.classList.remove('carousel__label--selected');
 							}
 							else {
-								console.log('BAM');
 								label.classList.add('carousel__label--selected');
 							}
 						}
@@ -57,7 +59,6 @@
 
 			// Change the slide when clicking on an arrow.
 			carousel.arrowRight.addEventListener('click', function(e) {
-				console.log('right!');
 				for (var i = 0; i < carousel.radios.length; i++) {
 					var radio = carousel.radios[i];
 					var nextRadio = carousel.radios[(i + 1) % carousel.radios.length];
@@ -67,11 +68,9 @@
 						for (var k = 0; k < carousel.labels.length; k++) {
 							var label = carousel.labels[k];
 							if (label.getAttribute('for') !== nextRadio.id) {
-								console.log('boom!');
 								label.classList.remove('carousel__label--selected');
 							}
 							else {
-								console.log('BAM');
 								label.classList.add('carousel__label--selected');
 							}
 						}

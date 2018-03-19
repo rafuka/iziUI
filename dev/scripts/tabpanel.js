@@ -1,7 +1,7 @@
 (function() {
 
 	var tabs = document.getElementsByClassName('tabs__tab');
-	console.log('YO MAMMAAA;')
+
 	function togglePanel(tab) {
 		var allTabs = tab.parentElement.children;
 		var panelId = tab.getAttribute('data-controls');

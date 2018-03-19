@@ -55,11 +55,10 @@ h1 {
 ul li {
   display: inline-block; }
 
+body.no-scroll {
+  overflow: hidden; }
+
 [class^="container"] {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   align-content: center;
   align-items: center;
@@ -417,6 +416,7 @@ nav.navbar {
   .carousel__slide {
     display: none;
     height: 100%;
+    overflow: scroll;
     position: relative;
     width: 100%; }
   .carousel__radio {
@@ -454,10 +454,54 @@ nav.navbar {
   appearance: none;
   color: erguevo; }
 
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100%;
+  width: 100%; }
+  .modal__header {
+    background-color: #972cfe;
+    color: white;
+    padding: 10px; }
+  .modal__body {
+    padding: 10px; }
+  .modal__footer {
+    padding: 10px; }
+  .modal__overlay {
+    background-color: black;
+    opacity: 0;
+    transition: opacity .4s ease;
+    height: 100%; }
+  .modal__box {
+    opacity: 0;
+    background-color: white;
+    border-radius: 3px;
+    transition: opacity .4s ease, top .4s ease;
+    position: absolute;
+    top: 15%;
+    width: 90%;
+    left: 5%; }
+  .modal--visible .modal__overlay {
+    opacity: .6; }
+  .modal--visible .modal__box {
+    opacity: 1;
+    top: 25%; }
+  .modal__close {
+    cursor: pointer; }
+
 a.logo h1 {
   color: white;
   font-size: 1.5em;
   font-weight: bold; }
+
+a {
+  color: #972cfe;
+  cursor: pointer; }
+  a:hover {
+    text-decoration: underline; }
 
 .example::before {
   content: 'example';
@@ -687,6 +731,9 @@ a.logo h1 {
 #example-7 .carousel {
   width: 450px;
   height: 350px; }
+  #example-7 .carousel__slide > img {
+    display: block;
+    margin: 0 auto; }
 
 #example-8 > div[class*='container'] {
   background-color: white;
@@ -695,10 +742,24 @@ a.logo h1 {
   max-width: 500px;
   padding: 20px; }
   #example-8 > div[class*='container'] h3 {
+    text-align: center;
     width: 100%;
     margin: 20px 0px; }
     #example-8 > div[class*='container'] h3:first-child {
       margin-top: 0px; }
+  #example-8 > div[class*='container'] .modal-trigger {
+    margin: 10px 30px; }
+  #example-8 > div[class*='container'] .modal__footer {
+    align-items: end;
+    display: flex;
+    font-size: .8em;
+    justify-content: space-between; }
+  #example-8 > div[class*='container'] .modal__body {
+    height: 150px; }
+  #example-8 > div[class*='container'] .modal__header > .modal__close {
+    position: absolute;
+    top: 10px;
+    right: 15px; }
 
 #example-9 > div[class*='container'] {
   background-color: white;

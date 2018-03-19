@@ -115,10 +115,14 @@
 			carousel.arrowRight.style.top = arrowRightTopPos + 'px';
 			carousel.arrowLeft.style.top = arrowLeftTopPos + 'px';
 
-			// Associate each radio button with its correspondant label
-			for (var j = 0; j < carousel.labels.length; j++) {
+			// Associate each radio button with its correspondant label and slide
+			for (var j = 0; j < carousel.slides.length; j++) {
 				carousel.labels[j].radio = document.getElementById(carousel.labels[j].getAttribute('for'));
 				document.getElementById(carousel.labels[j].getAttribute('for')).label = carousel.labels[j];
+
+				carousel.radios[j].slide = carousel.radios[j].nextElementSibling;
+
+				carousel.slides[j].radio = carousel.slides[j].previousElementSibling;
 			}
 
 			// Add the selected state class to the label of the default selected radio.
@@ -142,11 +146,9 @@
 						for (var k = 0; k < carousel.labels.length; k++) {
 							var label = carousel.labels[k];
 							if (label.getAttribute('for') !== this.id) {
-								console.log('boom!');
 								label.classList.remove('carousel__label--selected');
 							}
 							else {
-								console.log('BAM');
 								label.classList.add('carousel__label--selected');
 							}
 						}
@@ -156,7 +158,6 @@
 
 			// Change the slide when clicking on an arrow.
 			carousel.arrowRight.addEventListener('click', function(e) {
-				console.log('right!');
 				for (var i = 0; i < carousel.radios.length; i++) {
 					var radio = carousel.radios[i];
 					var nextRadio = carousel.radios[(i + 1) % carousel.radios.length];
@@ -166,11 +167,9 @@
 						for (var k = 0; k < carousel.labels.length; k++) {
 							var label = carousel.labels[k];
 							if (label.getAttribute('for') !== nextRadio.id) {
-								console.log('boom!');
 								label.classList.remove('carousel__label--selected');
 							}
 							else {
-								console.log('BAM');
 								label.classList.add('carousel__label--selected');
 							}
 						}
@@ -226,6 +225,48 @@
 })();
 
 
+(function() {
+	var modalTriggers = document.getElementsByClassName('modal-trigger');
+	var modals = document.getElementsByClassName('modal');
+
+
+	// Associate modal triggers with their corresponding modals
+	for (var i = 0; i < modalTriggers.length; i++) {
+		modalTriggers[i].modal = modalTriggers[i].nextElementSibling;
+	}
+
+
+	// Add event listener to triggers to activate modals
+	for (var i = 0; i < modalTriggers.length; i++) {
+		(function(i) {
+			modalTriggers[i].addEventListener('click', function() {
+				var trigger = this;
+
+				trigger.modal.style.display = 'block';
+				trigger.modal.offsetWidth; // forces a reflow
+
+				trigger.modal.classList.add('modal--visible');
+				document.body.classList.add('no-scroll');
+			});
+
+			var closeBtns = modalTriggers[i].modal.getElementsByClassName('modal__close');
+
+			for (var j = 0; j < closeBtns.length; j++) {
+				(function(j) {
+					closeBtns[j].addEventListener('click', function() {
+						modalTriggers[i].modal.classList.remove('modal--visible');
+						modalTriggers[i].modal.style.display = 'none';
+						document.body.classList.remove('no-scroll');
+					});
+				})(j);
+			}
+			
+		})(i);
+	}
+
+})();
+
+
 // Remembers the scroll position in order to 
 // maintain it when the body's height changes
 
@@ -274,7 +315,7 @@
 (function() {
 
 	var tabs = document.getElementsByClassName('tabs__tab');
-	console.log('YO MAMMAAA;')
+
 	function togglePanel(tab) {
 		var allTabs = tab.parentElement.children;
 		var panelId = tab.getAttribute('data-controls');

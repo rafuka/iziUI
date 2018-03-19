@@ -11,3 +11,7 @@ h1 {
 ul li {
 	display: inline-block;
 }
+
+body.no-scroll {
+	overflow: hidden;
+}
