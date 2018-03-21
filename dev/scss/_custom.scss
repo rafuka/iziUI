@@ -1,4 +1,6 @@
-
+* {
+	font-family: 'Roboto';
+}
 a.logo {
 
 	h1 {
@@ -8,13 +10,12 @@ a.logo {
 	}
 }
 
-a {
+a#githublink {
 	color: $primaryColor;
-	cursor: pointer;
-	&:hover {
-		text-decoration: underline;
-	}
 }
+
+:focus {outline:none!important;}
+::-moz-focus-inner {border:0!important;}
 
 .example::before {
 	content: 'example';
@@ -409,6 +410,14 @@ a {
 			}
 		}
 
+		a {
+			color: $primaryColor;
+			cursor: pointer;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
 		.modal-trigger {
 			margin: 10px 30px;
 		}
@@ -455,9 +464,50 @@ a {
 	}
 }
 
+#example-10 {
+	& > div[class*='container'] {	
+		background-color: white;
+		border-radius: 10px;
+		margin: 10px;
+		max-width: 500px;
+		padding: 20px;
+
+		h3 {
+			width: 100%;
+			margin: 20px 0px;
+
+			&:first-child {
+				margin-top: 0px;
+			}
+		}
+
+
+	}
+
+	.izi-draggable {
+		border: 2px solid $primaryColor;
+		width: 300px;
+		height: 300px;
+
+		&__area {
+
+			p {
+				display: inline-block;
+				padding: 5px;
+
+			}
+		}
+	}
+}
+
 .input-field {
 	width: 100%;
 	text-align: center;
 	margin: 10px;
+
+	> * {
+		vertical-align: middle;
+		margin: 0px 5px;
+	}
 }
 

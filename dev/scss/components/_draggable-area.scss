@@ -1,0 +1,37 @@
+.izi-draggable {
+	background-color: #ccc;
+	overflow: hidden;
+	position: relative;
+
+	&__area {
+		background-color: white;
+		cursor: all-scroll;
+		position: absolute;
+		top: 0;
+		transition: width .1s ease;
+		left: 0;
+
+		> * {
+			
+		}
+	}
+
+	&__controls {
+		height: 50px;
+		width: 30px;
+		position: absolute;
+
+		.zoom-in, .zoom-out {
+			cursor: pointer;
+			flex: 1;
+		}
+
+		.zoom-in {
+
+		}
+
+		.zoom-out {
+
+		}
+	}
+}

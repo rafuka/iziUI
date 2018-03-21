@@ -44,13 +44,25 @@ table {
 
 /* The navbar height, used to calculate the header's margin when the navbar is fixed */
 /* The navbar background's color */
-* {
+*, h1, h2, h3, h4, h5, h6, p, a, label {
   box-sizing: border-box;
-  font-family: "Lato", sans-serif !important;
-  text-decoration: none; }
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 h1 {
-  font-size: 2em; }
+  font-size: 2.3em;
+  font-weight: bold; }
+
+h2 {
+  font-size: 1.7em;
+  font-weight: bold; }
+
+h3 {
+  font-size: 1.1em;
+  font-weight: bold; }
 
 ul li {
   display: inline-block; }
@@ -74,9 +86,10 @@ body.no-scroll {
   width: initial; }
 
 .container-col {
-  flex-direction: column;
-  overflow-x: hidden; }
+  display: flex;
+  flex-direction: column; }
 .container-row {
+  display: flex;
   flex-direction: row; }
 
 nav.navbar {
@@ -319,17 +332,17 @@ nav.navbar {
     background-color: #972cfe;
     color: white; }
     .izi-btn--primary:active {
-      background-color: #c992fe; }
+      background-color: #b05ffe; }
   .izi-btn--success {
     background-color: #47ce01;
     color: white; }
     .izi-btn--success:active {
-      background-color: #7bfe37; }
+      background-color: #59fe04; }
   .izi-btn--danger {
     background-color: #ce0801;
     color: white; }
     .izi-btn--danger:active {
-      background-color: #fe3e37; }
+      background-color: #fe0d04; }
   .izi-btn--hover {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5); }
     .izi-btn--hover:hover {
@@ -344,6 +357,59 @@ nav.navbar {
         background-color: #47ce01; }
       .izi-btn--hover:active.izi-btn--danger {
         background-color: #ce0801; }
+  .izi-btn--pressable {
+    border-radius: 1000px;
+    box-shadow: inset 0px 3px 5px rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3); }
+    .izi-btn--pressable:hover {
+      box-shadow: inset 0px 3px 5px rgba(255, 255, 255, 0.5); }
+    .izi-btn--pressable:active {
+      box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.3); }
+      .izi-btn--pressable:active.izi-btn--primary {
+        background-color: #972cfe; }
+      .izi-btn--pressable:active.izi-btn--success {
+        background-color: #47ce01; }
+      .izi-btn--pressable:active.izi-btn--danger {
+        background-color: #ce0801; }
+  .izi-btn--pressable-2 {
+    box-shadow: none;
+    position: relative;
+    overflow: visible;
+    border-radius: 5px 5px 0 0;
+    top: 0;
+    transition: top .2s ease; }
+    .izi-btn--pressable-2:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 2px;
+      background-color: #aaa;
+      position: absolute;
+      left: 0;
+      top: calc(100% - 2px);
+      transition: height .2s ease, box-shadow .2s ease; }
+    .izi-btn--pressable-2.izi-btn--primary:after {
+      background-color: #7101dc; }
+    .izi-btn--pressable-2.izi-btn--success:after {
+      background-color: #2d8201; }
+    .izi-btn--pressable-2.izi-btn--danger:after {
+      background-color: #820501; }
+    .izi-btn--pressable-2:hover {
+      top: -3px; }
+      .izi-btn--pressable-2:hover::after {
+        height: 5px;
+        box-shadow: 0px 3px 3px -1px rgba(0, 0, 0, 0.2); }
+    .izi-btn--pressable-2:active {
+      top: 0px; }
+      .izi-btn--pressable-2:active.izi-btn--primary {
+        background-color: #972cfe; }
+      .izi-btn--pressable-2:active.izi-btn--success {
+        background-color: #47ce01; }
+      .izi-btn--pressable-2:active.izi-btn--danger {
+        background-color: #ce0801; }
+      .izi-btn--pressable-2:active:after {
+        height: 2px; }
 
 .accordion__tab {
   background-color: #972cfe;
@@ -385,6 +451,14 @@ nav.navbar {
       .tabs__tab--active:after {
         left: 0;
         width: 100%; }
+    .tabs__tab--pill.tabs__tab--active {
+      background-color: #972cfe;
+      color: white;
+      border-radius: 5px; }
+      .tabs__tab--pill.tabs__tab--active:after {
+        content: '';
+        width: 0;
+        height: 0; }
   .tabs__content {
     min-height: 200px;
     width: 100%;
@@ -399,14 +473,6 @@ nav.navbar {
     .tabs__panel--visible {
       opacity: 1;
       transition: opacity .2s .2s ease; }
-  .tabs--pill .tabs__tab--active {
-    background-color: #972cfe;
-    color: white;
-    border-radius: 5px; }
-    .tabs--pill .tabs__tab--active:after {
-      content: '';
-      width: 0;
-      height: 0; }
 
 .carousel {
   padding: 20px;
@@ -602,16 +668,41 @@ nav.navbar {
   .modal__close {
     cursor: pointer; }
 
+.izi-draggable {
+  background-color: #ccc;
+  overflow: hidden;
+  position: relative; }
+  .izi-draggable__area {
+    background-color: white;
+    cursor: all-scroll;
+    position: absolute;
+    top: 0;
+    transition: width .1s ease;
+    left: 0; }
+  .izi-draggable__controls {
+    height: 50px;
+    width: 30px;
+    position: absolute; }
+    .izi-draggable__controls .zoom-in, .izi-draggable__controls .zoom-out {
+      cursor: pointer;
+      flex: 1; }
+
+* {
+  font-family: 'Roboto'; }
+
 a.logo h1 {
   color: white;
   font-size: 1.5em;
   font-weight: bold; }
 
-a {
-  color: #972cfe;
-  cursor: pointer; }
-  a:hover {
-    text-decoration: underline; }
+a#githublink {
+  color: #972cfe; }
+
+:focus {
+  outline: none !important; }
+
+::-moz-focus-inner {
+  border: 0 !important; }
 
 .example::before {
   content: 'example';
@@ -857,6 +948,11 @@ a {
     margin: 20px 0px; }
     #example-8 > div[class*='container'] h3:first-child {
       margin-top: 0px; }
+  #example-8 > div[class*='container'] a {
+    color: #972cfe;
+    cursor: pointer; }
+    #example-8 > div[class*='container'] a:hover {
+      text-decoration: underline; }
   #example-8 > div[class*='container'] .modal-trigger {
     margin: 10px 30px; }
   #example-8 > div[class*='container'] .modal__footer {
@@ -883,9 +979,31 @@ a {
     #example-9 > div[class*='container'] h3:first-child {
       margin-top: 0px; }
 
+#example-10 > div[class*='container'] {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  max-width: 500px;
+  padding: 20px; }
+  #example-10 > div[class*='container'] h3 {
+    width: 100%;
+    margin: 20px 0px; }
+    #example-10 > div[class*='container'] h3:first-child {
+      margin-top: 0px; }
+#example-10 .izi-draggable {
+  border: 2px solid #972cfe;
+  width: 300px;
+  height: 300px; }
+  #example-10 .izi-draggable__area p {
+    display: inline-block;
+    padding: 5px; }
+
 .input-field {
   width: 100%;
   text-align: center;
   margin: 10px; }
+  .input-field > * {
+    vertical-align: middle;
+    margin: 0px 5px; }
 
 /*# sourceMappingURL=main.css.map */
