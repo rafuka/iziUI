@@ -134,10 +134,12 @@ a#githublink {
 }
 
 #example-2 {
-	& > div {
+	.nav-example-container {
 		background-color: white;
 		box-shadow: 0 0 4px rgba(0,0,0,.4);
+		display: block;
 		height: 400px;
+		margin: 20px auto;
 		overflow: hidden;
 		position: relative;
 		width: 300px;
@@ -508,6 +510,96 @@ a#githublink {
 	> * {
 		vertical-align: middle;
 		margin: 0px 5px;
+	}
+}
+
+
+.tabs.example {
+	background-color: white;
+	border: none;
+	padding: 0px;
+
+	.tabs {
+		&__list {
+			background-color: white;
+			margin-left: 5px;
+		}
+
+		&__tab {
+			background-color: darken(#d5a9ff, 15%);
+			border: 3px solid #972cfe;
+			color: darken(#972cfe, 30%);
+
+			&--active {
+				background-color: #d5a9ff;
+				border-bottom: none;
+			}
+		}
+
+		&__content {
+			background-color: #d5a9ff;
+			border: 3px solid #972cfe;
+			margin: -3px;
+		}
+
+		&__panel {
+			width: 98%;
+		}
+	}
+}
+
+#example-2 {
+	.tabs {
+		&__content {
+			height: 460px;
+		}
+	}
+}
+
+
+#example-3-result {
+	.card {
+		width: 500px;
+		margin: 0 auto;
+		padding: 20px;
+	}
+}
+
+#example-3 {
+	.tabs {
+		&__content {
+			height: 460px;
+			padding-top: 20px;
+		}
+	}
+}
+
+#example-4 {
+	.tabs {
+		&__content {
+			height: 810px;
+		}
+	}
+}
+
+#example-5 {
+	.tabs {
+		&__content {
+			height: 480px;
+			padding-top: 20px;
+		}
+	}
+}
+
+#example-5-result {
+	.card {
+		width: 500px;
+		padding: 15px;
+		margin: 0 auto;
+
+		h3 {
+			margin: 15px 0px;
+		}
 	}
 }
 
