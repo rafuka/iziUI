@@ -53,13 +53,18 @@ table {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+a.logo h1 {
+  margin: 0px; }
+
 h1 {
   font-size: 2.3em;
-  font-weight: bold; }
+  font-weight: bold;
+  margin: 40px 0px; }
 
 h2 {
   font-size: 1.7em;
-  font-weight: bold; }
+  font-weight: bold;
+  margin: 30px 0px; }
 
 h3 {
   font-size: 1.1em;
@@ -818,6 +823,15 @@ a.logo h1 {
 a#githublink {
   color: #972cfe; }
 
+pre {
+  font-family: 'Consolas', monospace;
+  font-size: .8em;
+  padding: 20px;
+  background-color: #972cfe;
+  color: #e0c2fc;
+  font-weight: bold;
+  overflow: auto; }
+
 :focus {
   outline: none !important; }
 
@@ -840,6 +854,7 @@ a#githublink {
   border-left: none;
   border-right: none;
   margin: 30px auto;
+  margin-bottom: 0px;
   padding: 20px;
   position: relative;
   -webkit-transition: height .3s ease;
@@ -1152,52 +1167,5 @@ a#githublink {
   .input-field > * {
     vertical-align: middle;
     margin: 0px 5px; }
-
-.tabs.example {
-  background-color: white;
-  border: none;
-  padding: 0px; }
-  .tabs.example .tabs__list {
-    background-color: white;
-    margin-left: 5px; }
-  .tabs.example .tabs__tab {
-    background-color: #b05dff;
-    border: 3px solid #972cfe;
-    color: #4a0190; }
-    .tabs.example .tabs__tab--active {
-      background-color: #d5a9ff;
-      border-bottom: none; }
-  .tabs.example .tabs__content {
-    background-color: #d5a9ff;
-    border: 3px solid #972cfe;
-    margin: -3px; }
-  .tabs.example .tabs__panel {
-    width: 98%; }
-
-#example-2 .tabs__content {
-  height: 460px; }
-
-#example-3-result .card {
-  width: 500px;
-  margin: 0 auto;
-  padding: 20px; }
-
-#example-3 .tabs__content {
-  height: 460px;
-  padding-top: 20px; }
-
-#example-4 .tabs__content {
-  height: 810px; }
-
-#example-5 .tabs__content {
-  height: 480px;
-  padding-top: 20px; }
-
-#example-5-result .card {
-  width: 500px;
-  padding: 15px;
-  margin: 0 auto; }
-  #example-5-result .card h3 {
-    margin: 15px 0px; }
 
 /*# sourceMappingURL=main-prefixed.css.map */
