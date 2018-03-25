@@ -670,16 +670,20 @@ nav.izi-navbar {
     left: 50%;
     -webkit-transition: all .2s ease;
     transition: all .2s ease; }
-  .izi-radio:checked:after {
-    top: 3px;
-    left: 3px;
-    width: 12px;
-    height: 12px; }
-  .izi-radio--filled:checked:after {
-    top: -1px;
-    left: -1px;
-    width: 20px;
-    height: 20px; }
+  .izi-radio:checked {
+    background-color: white; }
+    .izi-radio:checked:after {
+      top: 3px;
+      left: 3px;
+      width: 12px;
+      height: 12px; }
+  .izi-radio--filled:checked {
+    background-color: white; }
+    .izi-radio--filled:checked:after {
+      top: -1px;
+      left: -1px;
+      width: 20px;
+      height: 20px; }
 
 .izi-checkbox {
   -webkit-appearance: none;
@@ -710,6 +714,7 @@ nav.izi-navbar {
       top: 1px;
       width: 16px; }
     .izi-checkbox--switch:checked {
+      background-color: white;
       border-color: #972cfe; }
       .izi-checkbox--switch:checked:after {
         background-color: #972cfe;
@@ -723,16 +728,18 @@ nav.izi-navbar {
       left: 0;
       top: 0;
       width: 18px; }
-    .izi-checkbox--nobox:checked:after {
-      width: 7px;
-      border: none;
-      border-bottom: 2px solid #972cfe;
-      border-right: 2px solid #972cfe;
-      border-radius: 0px;
-      -webkit-transform: rotate(45deg);
-              transform: rotate(45deg);
-      top: -2px;
-      left: 6px; }
+    .izi-checkbox--nobox:checked {
+      background-color: white; }
+      .izi-checkbox--nobox:checked:after {
+        width: 7px;
+        border: none;
+        border-bottom: 2px solid #972cfe;
+        border-right: 2px solid #972cfe;
+        border-radius: 0px;
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+        top: -2px;
+        left: 6px; }
   .izi-checkbox--filled:before {
     background-color: #972cfe;
     width: 0px;

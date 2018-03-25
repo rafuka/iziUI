@@ -20,6 +20,7 @@
 	}
 
 	&:checked {
+		background-color: white;
 
 		&:after {
 			top: 3px;
@@ -32,6 +33,7 @@
 	&--filled {
 
 		&:checked {
+			background-color: white;
 
 			&:after {
 				top: -1px;
@@ -74,6 +76,7 @@
 		}
 
 		&:checked {
+			background-color: white;
 			border-color: $primaryColor;
 
 			&:after {
@@ -97,6 +100,7 @@
 		}
 
 		&:checked {
+			background-color: white;
 
 			&:after {
 				width: 7px;
