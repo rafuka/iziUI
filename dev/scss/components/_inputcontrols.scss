@@ -133,6 +133,8 @@
 		}
 
 		&:checked {
+			background-color: white;
+
 			&:before {
 				width: 19px;
 				height: 19px;
@@ -162,6 +164,8 @@
 		}
 
 		&:checked {
+			background-color: white;
+			
 			&:after {
 				border-right: 2px solid $primaryColor;
 				border-bottom: 2px solid $primaryColor;
