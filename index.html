@@ -112,6 +112,8 @@
 								</ul>
 							</nav>
 						</div>
+
+                        
 						
 			</div>
 			<div class="html-footer accordion--single">
@@ -516,7 +518,46 @@
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
-				<div class="accordion__panel">SOME SLICK HTML BREW</div>
+				<div class="accordion__panel">
+                    <pre>
+&lt;div class="carousel"&gt;
+    &lt;input checked type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-1-control"&gt;
+    &lt;div class="carousel__slide" id="slide-1"&gt;
+        &lt;!-- Slide content here --&gt;
+    &lt;/div&gt;
+
+    &lt;input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-2-control"&gt;
+    &lt;div class="carousel__slide" id="slide-2"&gt;
+        &lt;!-- Slide content here --&gt;
+    &lt;/div&gt;
+
+    &lt;input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-3-control"&gt;
+    &lt;div class="carousel__slide" id="slide-3"&gt;
+        &lt;!-- Slide content here --&gt;
+    &lt;/div&gt;
+
+    &lt;input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-4-control"&gt;
+    &lt;div class="carousel__slide" id="slide-4"&gt;
+        &lt;!-- Slide content here --&gt;
+    &lt;/div&gt;
+
+    &lt;input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-5-control"&gt;
+    &lt;div class="carousel__slide" id="slide-5"&gt;
+        &lt;!-- Slide content here --&gt;
+    &lt;/div&gt;
+
+    &lt;div class="carousel__labels"&gt;
+        &lt;label for="slide-1-control" class="carousel__label"&gt;&lt;/label&gt;
+        &lt;label for="slide-2-control" class="carousel__label"&gt;&lt;/label&gt;
+        &lt;label for="slide-3-control" class="carousel__label"&gt;&lt;/label&gt;
+        &lt;label for="slide-4-control" class="carousel__label"&gt;&lt;/label&gt;
+        &lt;label for="slide-5-control" class="carousel__label"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="carousel__arrow-right"&gt;&gt;&lt;/div&gt;
+    &lt;div class="carousel__arrow-left"&gt;&lt;&lt;/div&gt;
+&lt;/div&gt;
+                    </pre>            
+                </div>
 			</div>
 
 			<h2>Modal</h2>
@@ -562,7 +603,43 @@
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
-				<div class="accordion__panel">SOME SLICK HTML BREW</div>
+				<div class="accordion__panel">
+                    <pre>
+&lt;button class="modal-trigger izi-btn izi-btn--primary" &gt;Modal&lt;/button&gt;
+&lt;div class="modal"&gt;
+    &lt;div class="modal__overlay"&gt;&lt;/div&gt;
+    &lt;div class="modal__box"&gt;
+        &lt;div class="modal__header"&gt;
+            &lt;!-- Modal's header content here --&gt;
+        &lt;/div&gt;
+        &lt;div class="modal__body"&gt;
+            &lt;!-- Modal's body content here --&gt;
+        &lt;/div&gt;
+        &lt;div class="modal__footer container-row"&gt;
+            &lt;!-- Modal's footer content here --&gt;
+            &lt;button class="modal__close izi-btn izi-btn--danger"&gt;&lt;!-- Close button text here --&gt;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;a class="modal-trigger" &gt;Modal&lt;/a&gt;
+&lt;div class="modal"&gt;
+    &lt;div class="modal__overlay modal__close"&gt;&lt;/div&gt;
+    &lt;div class="modal__box"&gt;
+        &lt;div class="modal__header"&gt;
+            &lt;!-- Modal's header content here --&gt;
+            &lt;span class="modal__close"&gt;X&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="modal__body"&gt;
+            &lt;!-- Modal's body content here --&gt;
+        &lt;/div&gt;
+        &lt;div class="modal__footer container-row"&gt;
+            &lt;!-- Modal's footer content here --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                    </pre>            
+                </div>
 			</div>
 
 			<h2>Radio Buttons and Check Boxes</h2>
@@ -601,7 +678,39 @@
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
-				<div class="accordion__panel">SOME SLICK HTML BREW</div>
+				<div class="accordion__panel">
+                    <pre>
+&lt;!-- Filled-in Radio Button --&gt;
+&lt;input class="izi-radio izi-radio--filled" type="radio" name="radiodemo" id="radiofill"&gt;
+&lt;label for="radiofill"&gt;&lt;!-- Label text here --&gt;&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;!-- Default Radio Button --&gt;
+&lt;input class="izi-radio" type="radio" name="radiodemo" id="radiogap"&gt;
+&lt;label for="radiogap"&gt;&lt;!-- Label text here --&gt;&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;!-- Switch Checkbox --&gt;
+&lt;input class="izi-checkbox izi-checkbox--switch" type="checkbox" name="radiodemo" id="checkbox4"&gt;
+&lt;label for="checkbox4"&gt;&lt;!-- Label text here --&gt;&lt;/label&gt;
+
+
+&lt;!-- No-Box Checkbox --&gt;
+&lt;input class="izi-checkbox izi-checkbox--nobox" type="checkbox" name="checkdemo" id="nobox"&gt;
+&lt;label for="nobox"&gt;&lt;!-- Label text here --&gt;&lt;/label&gt;
+
+
+&lt;!-- Filled-in Checkbox --&gt;
+&lt;input class="izi-checkbox izi-checkbox--filled" type="checkbox" name="checkdemo" id="fillin"&gt;
+&lt;label for="fillin"&gt;&lt;!-- Label text here --&gt;&lt;/label&gt;
+
+
+&lt;!-- Normal Checkbox --&gt;
+&lt;input class="izi-checkbox izi-checkbox--default" type="checkbox" name="checkdemo" id="normal"&gt;
+&lt;label for="normal"&gt;&lt;!-- Label text here --&gt;&lt;/label&gt;
+
+                    </pre>            
+                </div>
 			</div>
 
 
@@ -620,20 +729,24 @@
 							<div class="izi-draggable__area">
 								<img src="dist/assets/dommodel.png">
 							</div>
-							<div class="izi-draggable__controls container-col">
-								<span class="zoom-in">+</span>
-								<span class="zoom-out">-</span>
-							</div>
 						</div>
 					</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
-				<div class="accordion__panel">SOME SLICK HTML BREW</div>
+				<div class="accordion__panel">
+                    <pre>
+&lt;div class="izi-draggable"&gt;
+    &lt;div class="izi-draggable__area"&gt;
+        &lt;!-- Draggable area content here --&gt;
+    &lt;/div&gt;  
+&lt;/div&gt;
+                    </pre>            
+                </div>
 			</div>
 
 			</section>
-			<footer> Created by Rafael Garcia 2018</footer>
+			<footer class="main-footer"> Created by Rafael Garcia 2018</footer>
 		</main>
 
 		<script type="text/javascript" src="dist/scripts/built.min.js"></script>

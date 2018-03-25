@@ -27,6 +27,17 @@ pre {
 :focus {outline:none!important;}
 ::-moz-focus-inner {border:0!important;}
 
+footer.main-footer {
+	background-color: $navBckgnd;
+	text-align: center;
+	padding: 20px;
+	color: white;
+}
+
+body {
+	min-width: 320px;
+}
+
 .example::before {
 	content: 'example';
 	font-family: 'mono', sans-serif;
@@ -392,7 +403,6 @@ pre {
 	}
 
 	.carousel {
-		width: 450px;
 		height: 350px;
 
 		&__slide {
@@ -525,5 +535,12 @@ pre {
 }
 
 
+@media screen and (max-width: 350px) {
 
+	#example-7, #example-10 {
+		> .container-row {
+			padding: 0px!important;
+		}
+	}
+}
 

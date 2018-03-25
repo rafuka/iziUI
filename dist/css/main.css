@@ -501,7 +501,7 @@ nav.navbar {
   .carousel__slide {
     display: none;
     height: 100%;
-    overflow: scroll;
+    overflow: auto;
     position: relative;
     width: 100%; }
   .carousel__radio {
@@ -535,6 +535,13 @@ nav.navbar {
   .carousel__arrow-left {
     left: 0; }
 
+@media screen and (max-width: 500px) {
+  .carousel {
+    width: 100%; }
+    .carousel__slide {
+      width: 100%; }
+      .carousel__slide > img {
+        width: 100%; } }
 .izi-radio {
   appearance: none;
   border: 2px solid #972cfe;
@@ -731,6 +738,15 @@ pre {
 
 ::-moz-focus-inner {
   border: 0 !important; }
+
+footer.main-footer {
+  background-color: black;
+  text-align: center;
+  padding: 20px;
+  color: white; }
+
+body {
+  min-width: 320px; }
 
 .example::before {
   content: 'example';
@@ -961,7 +977,6 @@ pre {
     #example-7 > div[class*='container'] h3:first-child {
       margin-top: 0px; }
 #example-7 .carousel {
-  width: 450px;
   height: 350px; }
   #example-7 .carousel__slide > img {
     display: block;
@@ -1036,5 +1051,9 @@ pre {
   .input-field > * {
     vertical-align: middle;
     margin: 0px 5px; }
+
+@media screen and (max-width: 350px) {
+  #example-7 > .container-row, #example-10 > .container-row {
+    padding: 0px !important; } }
 
 /*# sourceMappingURL=main.css.map */
