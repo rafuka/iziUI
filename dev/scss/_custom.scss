@@ -39,6 +39,7 @@ body {
 }
 
 .example::before {
+
 	content: 'example';
 	font-family: 'mono', sans-serif;
 	font-size: .9em;
@@ -51,12 +52,12 @@ body {
 
 .example {
 
-	background-color: #d5a9ff;
-	border: 3px solid #972cfe;
+	background-color: lighten($primaryColor, 30%);
+	border: 3px solid darken($primaryColor, 10%);
 	border-left: none;
 	border-right: none;
-	margin: 30px auto;
-	margin-bottom: 0px;
+	box-shadow: 0px -5px 7px -2px rgba(0,0,0,0.4);
+	margin: 0px auto;
 	padding: 20px;
 	position: relative;
 	transition: height .3s ease;
@@ -167,7 +168,7 @@ body {
 		width: 300px;
 
 
-		nav.navbar {
+		nav.izi-navbar {
 			top: 0px;
 			width: 100%;
 			position: absolute;
@@ -274,8 +275,10 @@ body {
 						background-color: $navColor;
 						color: $navBckgnd;
 
-						span {
-							border-color: $navBckgnd!important;
+						span.plus-sign {
+							span {
+								border-color: $navBckgnd!important;
+							}
 						}	
 					}
 
@@ -403,7 +406,6 @@ body {
 	}
 
 	.carousel {
-		height: 350px;
 
 		&__slide {
 
@@ -534,8 +536,41 @@ body {
 	}
 }
 
+.izi-banner {
+	background: linear-gradient(to bottom right, lighten($primaryColor, 20%), white ) ;
+	h1, h2 {
+		opacity: .8;
+		text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+	}
 
-@media screen and (max-width: 350px) {
+	h2 {
+		margin-top: 80px;
+		margin-bottom: 0px;
+		
+	}
+
+	p {
+		font-size: 1.3em;
+		margin: 15px;
+		opacity: .6;
+		line-height: 1.3em;
+	}
+}
+
+p#intro-p {
+	font-size: 2em;
+	margin: 80px 15px;
+	text-align: center;
+}
+
+code {
+	color: lighten($primaryColor, 30%);
+	padding: 0px 7px;
+	border-radius: 5px;
+	background-color: darken($primaryColor, 3%);
+}
+
+@media screen and (max-width: 500px) {
 
 	#example-7, #example-10 {
 		> .container-row {

@@ -1,7 +1,7 @@
 
 
 
-nav.navbar {
+nav.izi-navbar {
 
 	@include display-flex();
 	min-height: $navHeight;
@@ -167,7 +167,7 @@ nav.navbar {
 
 @media screen and (max-width: 720px) {
 
-	nav.navbar {
+	nav.izi-navbar {
 		top: 0px;
 		width: 100%;
 		
@@ -224,15 +224,16 @@ nav.navbar {
 						background-color: $navColor;
 						color: $navBckgnd;
 
-						span {
-							border-color: $navBckgnd;
+						div.plus-sign {
+							
 
 							&:first-child {
+								border-color: $navBckgnd;
 								transform: rotate(0deg);
-								border-color: green;
 							}
 
 							&:last-child {
+								border-color: $navBckgnd;
 								transform: rotate(180deg);
 							}
 						}		
@@ -257,8 +258,10 @@ nav.navbar {
 						background-color: $navColor;
 						color: $navBckgnd;
 
-						span {
-							border-color: $navBckgnd!important;
+						div.plus-sign {
+							span {
+								border-color: $navBckgnd!important;
+							}
 						}	
 					}
 
@@ -274,7 +277,7 @@ nav.navbar {
 						transition: transform .3s ease;
 					}
 
-					span:first-child {
+					div.plus-sign:first-child {
 						transform: rotate(90deg);
 					}
 				}

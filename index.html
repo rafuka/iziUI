@@ -11,7 +11,7 @@
 	<title>iziUI Framework</title>
 </head>
 <body>
-	<nav class="navbar">
+	<nav class="izi-navbar">
 		<a class="logo"><h1>iziUI</h1></a>
 		<input type="checkbox" name="mobile-btn" id="mobile-btn">
 		<label for="mobile-btn" class="hamburguer">
@@ -25,7 +25,7 @@
 			<li><a href="#">Layout</a></li>
 			<li class="dropdown">
 				<input type="checkbox" name="mobile-dropdown-toggle" class="dropdown__toggle" id="mobile-dropdown-toggle">
-				<label class="dropdown__title" for="mobile-dropdown-toggle">Components<span></span><span></span></label>	
+				<label class="dropdown__title" for="mobile-dropdown-toggle">Components<div class="plus-sign"><span></span><span></span></div></label>	
 				<ul class="dropdown__menu">
 					<li><a href="#">Buttons</a></li>
 					<li><a href="#">Cards</a></li>
@@ -41,13 +41,16 @@
 
 	<main>
 		<section>
-			<p>iziUI is a easy-to-use UI framework. The use of flex-box containers instead of columns and rows makes it a simple framework for a quick responsive solution!</p>
-		</section>
-		<section>
-			<h1>Layout</h1>
+            <div class="izi-banner">
+                <p id="intro-p">iziUI is a easy-to-use UI framework based on CSS flexbox.</p>
+        
+                <h1>Layout</h1>
+                
+                <p>The use of flex-box containers instead of columns and rows makes it a simple framework for a quick responsive solution!</p>
+                <p>The main layout components are containers, which come in two flavors &mdash; row containers and column containers &mdash; and correspond to the <code>flex-direction: column</code> and <code>flex-direction: row</code> properties.</p>
+                <p>iziUI allows you to create responsive layouts in seconds! Plus it is highly customizable using the flexbox properties.</p>
+            </div>
 			
-			<p>The main layout components are containers, which come in two flavors: container-row and container-col, and correspond to the flex-direction: column and flex-direction: row properties.</p>
-			<p>This makes it easy to create responive layouts in seconds! Plus it is highly customizable using the flexbox properties.</p>
 			<div class="container-row example" id="example-1">
 				<div class="container-row">
 					<div>1</div>
@@ -81,40 +84,38 @@
 			</div>
 		</section>
 		<section>
-			<h1>Components</h1>
-
-			<h2>Responsive Navigation Menus</h2>
-			<p>A responsive menu.</p>
+            <div class="izi-banner">
+                <h1>Components</h1>
+                <h2>Responsive Navigation Menu</h2>
+            </div>
+			
 			<div class="container-row example" id="example-2">
-						<div class="nav-example-container">
-							<nav class="navbar">
-								<a class="logo"><h1>iziUI</h1></a>
-								<input type="checkbox" name="mobile-btn" id="mobile-btn-example-2-1">
-								<label for="mobile-btn-example-2-1" class="hamburguer">
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</label>
+				<div class="nav-example-container">
+					<nav class="izi-navbar">
+						<a class="logo"><h1>iziUI</h1></a>
+						<input type="checkbox" name="mobile-btn" id="mobile-btn-example-2-1">
+						<label for="mobile-btn-example-2-1" class="hamburguer">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</label>
 								
-								<ul class="navbar-main mobile-left">
-									<li><a href="#">One</a></li>
-									<li class="dropdown">
-										<input type="checkbox" class="dropdown__toggle" id="mobile-dropdown-toggle-example">
-										<label class="dropdown__title" for="mobile-dropdown-toggle-example">Two<span></span><span></span></label>	
-										<ul class="dropdown__menu">
-											<li><a href="#">Two and one quarter</a></li>
-											<li><a href="#">Two and a half</a></li>
-											<li><a href="#">Two and three quarters</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Three</a></li>
+						<ul class="navbar-main mobile-left">
+							<li><a href="#">One</a></li>
+							<li class="dropdown">
+								<input type="checkbox" class="dropdown__toggle" id="mobile-dropdown-toggle-example">
+								<label class="dropdown__title" for="mobile-dropdown-toggle-example">Two<span></span><span></span></label>	
+								<ul class="dropdown__menu">
+									<li><a href="#">Two and one quarter</a></li>
+									<li><a href="#">Two and a half</a></li>
+									<li><a href="#">Two and three quarters</a></li>
 								</ul>
-							</nav>
-						</div>
-
-                        
-						
+							</li>
+							<li><a href="#">Three</a></li>
+						</ul>
+					</nav>
+				</div>			
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
@@ -148,33 +149,32 @@
 				</div>
 			</div>
 			
-			
-			<h2>Buttons</h2>
+			<div class="izi-banner">
+                <h2>Buttons</h2>
+            </div>
 			<div class="container-row example" id="example-3">
-
-
-						<div class="container-row">
-							<h3>Default Buttons</h3>
-							<button class="izi-btn">BUTTON</button>
-							<button class="izi-btn izi-btn--primary">PRIMARY</button>
-							<button class="izi-btn izi-btn--success">SUCCESS</button>
-							<button class="izi-btn izi-btn--danger">DANGER</button>
-							<h3>Hover Buttons</h3>
-							<button class="izi-btn izi-btn--hover">BUTTON</button>
-							<button class="izi-btn izi-btn--hover izi-btn--primary">PRIMARY</button>
-							<button class="izi-btn izi-btn--hover izi-btn--success">SUCCESS</button>
-							<button class="izi-btn izi-btn--hover izi-btn--danger">DANGER</button>
-							<h3>Pressable Buttons</h3>
-							<button class="izi-btn izi-btn--pressable">BUTTON</button>
-							<button class="izi-btn izi-btn--pressable izi-btn--primary">PRIMARY</button>
-							<button class="izi-btn izi-btn--pressable izi-btn--success">SUCCESS</button>
-							<button class="izi-btn izi-btn--pressable izi-btn--danger">DANGER</button>
-							<h3>Pressable Buttons (2)</h3>
-							<button class="izi-btn izi-btn--pressable-2">BUTTON</button>
-							<button class="izi-btn izi-btn--pressable-2 izi-btn--primary">PRIMARY</button>
-							<button class="izi-btn izi-btn--pressable-2 izi-btn--success">SUCCESS</button>
-							<button class="izi-btn izi-btn--pressable-2 izi-btn--danger">DANGER</button>
-						</div>
+                <div class="container-row">
+					<h3>Default Buttons</h3>
+					<button class="izi-btn">BUTTON</button>
+					<button class="izi-btn izi-btn--primary">PRIMARY</button>
+					<button class="izi-btn izi-btn--success">SUCCESS</button>
+					<button class="izi-btn izi-btn--danger">DANGER</button>
+					<h3>Hover Buttons</h3>
+					<button class="izi-btn izi-btn--hover">BUTTON</button>
+	       			<button class="izi-btn izi-btn--hover izi-btn--primary">PRIMARY</button>
+					<button class="izi-btn izi-btn--hover izi-btn--success">SUCCESS</button>
+					<button class="izi-btn izi-btn--hover izi-btn--danger">DANGER</button>
+					<h3>Pressable Buttons</h3>
+					<button class="izi-btn izi-btn--pressable">BUTTON</button>
+					<button class="izi-btn izi-btn--pressable izi-btn--primary">PRIMARY</button>
+					<button class="izi-btn izi-btn--pressable izi-btn--success">SUCCESS</button>
+					<button class="izi-btn izi-btn--pressable izi-btn--danger">DANGER</button>
+					<h3>Pressable Buttons (2)</h3>
+					<button class="izi-btn izi-btn--pressable-2">BUTTON</button>
+					<button class="izi-btn izi-btn--pressable-2 izi-btn--primary">PRIMARY</button>
+					<button class="izi-btn izi-btn--pressable-2 izi-btn--success">SUCCESS</button>
+					<button class="izi-btn izi-btn--pressable-2 izi-btn--danger">DANGER</button>
+				</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
@@ -207,46 +207,44 @@
                 </div>
 			</div>
 				
-				
-
-
-			<h2>Cards</h2>
-			<p>Different types of cards to hold content</p>
+            <div class="izi-banner">
+                <h2>Cards</h2>
+            </div>
+			
 			<div class="container-row example" id="example-4">
-
-							<div class="card">
-								<div class="card__content">
-									<p>Cards formed with the <code>class="card"</code> may contain any content and are customizable. They don't have a fixed height and their minimum width is <code>300px</code>.</p>
-								</div>
-							</div>
-							<div class="card--profile">
-								<header>
-									<img src="http://placebear.com/150/150">
-								</header>
-								<div class="card__content">
-									<h1>Title</h1>
-									<p>Lorem sf Ipsum Lorsdgsdfem Ipsum a Lorem xy Ipsum Loremgdsd Ipsum Lorem Ipsum
+				<div class="card">
+					<div class="card__content">
+							<p>Cards formed with the <code>class="card"</code> may contain any content and are customizable. They don't have a fixed height and their minimum width is <code>300px</code>.</p>
+					</div>
+				</div>
+				<div class="card--profile">
+					<header>
+						<img src="http://placebear.com/150/150">
+					</header>
+					<div class="card__content">
+						<h1>Title</h1>
+						<p>Lorem sf Ipsum Lorsdgsdfem Ipsum a Lorem xy Ipsum Loremgdsd Ipsum Lorem Ipsum
 										Lorem Ipsum  sfdg Lorem Ipsum Lorem Ipsusdgm Loremg Ipsum Lorem Ipsum 
-									</p>
-								</div>
-								<footer>
-									<p>Card footer</p>
-								</footer>
-							</div>
-							<div class="card--item">
-								<header>
-									<img src="http://placekitten.com/300/150">
-								</header>
-								<div class="card__content">
-									<h1>Title</h1>
-									<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
+						</p>
+					</div>
+					<footer>
+						<p>Card footer</p>
+					</footer>
+				</div>
+				<div class="card--item">
+					<header>
+						<img src="http://placekitten.com/300/150">
+					</header>
+					<div class="card__content">
+						<h1>Title</h1>
+						<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
 										sfg fdas gdf gad sdh sdgh sdgh sdghwreh dlñkh ñsjdgh 
 										erlyhjha dfm jkdhlkjh dkjg halkdj hgsldk.</p>
-									<footer>
-										<p>card footer</p>
-									</footer>
-								</div>
-							</div>
+					</div>
+                    <footer>
+                        <p>card footer</p>
+                    </footer>
+				</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
@@ -285,49 +283,52 @@
                 </div>
 			</div>
 
-			<h2>Accordions</h2>
+            <div class="izi-banner">
+                <h2>Accordions</h2>
+            </div>
+			
 			<div class="container-row example" id="example-5">
-
-						<div class="container-row">
-							<h3>Multiple expanded tabs accordion</h3>
-							<div class="accordion--multiple">
-								<div class="accordion__tab">Tab 1</div>
-								<div class="accordion__panel">
-									<p>Lorem ipsum ksjbf khasg sljkhgas gass kd sdfgls hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
-								</div>
-								<div class="accordion__tab">Tab 2</div>
-								<div class="accordion__panel">
-									<p>Lorem ipsum ksjbf khasg  h ksdjh kshad lsjhls uhgsahg kfgjfhbh jj h kdfkg ls sj kdgldhd hdhf ldshg h hd dj f    kdhg kslsdkg d kd d   dh kdhgkj lkdhg dks d kd lkdhgkd jdh jjf huehw p p epie ii ru e iwiw ei piue ie  eiweihe e ei ipew h  e  ih gt t y uf ytf k fk hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
-								</div>
-								<div class="accordion__tab">Tab 3</div>
-								<div class="accordion__panel">
-									<p>Lorem ipsum ksjbf khasg dj h  ks djshdkj djkshj dskdj kjs j d kjdsh sjkd kdh djh kjdh kjds h hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
-								</div>
-								<div class="accordion__tab">Tab 4</div>
-								<div class="accordion__panel">
-									<p>Lorem ipsum ksjbf khasg  dkgyksd gsdgd dkj dh hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
-								</div>
-							</div>
-							<h3>One tab at a time accordion</h3>
-							<div class="accordion--single">
-								<div class="accordion__tab">Tab 1</div>
-								<div class="accordion__panel">
-									<p>Lorem ipsum ksjbf khasg sljkhgas gass kd sdfgls hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
-								</div>
-								<div class="accordion__tab">Tab 2</div>
-								<div class="accordion__panel">
-									<p>Lorem ipsum ksjbf khasg  h ksdjh kshad lsjhls uhgsahg kfgjfhbh jj h kdfkg ls sj kdgldhd hdhf ldshg h hd dj f    kdhg kslsdkg d kd d   dh kdhgkj lkdhg dks d kd lkdhgkd jdh jjf huehw p p epie ii ru e iwiw ei piue ie  eiweihe e ei ipew h  e  ih gt t y uf ytf k fk hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
-								</div>
-								<div class="accordion__tab">Tab 3</div>
-								<div class="accordion__panel">
-									<p>Lorem ipsum ksjbf khasg dj h  ks djshdkj djkshj dskdj kjs j d kjdsh sjkd kdh djh kjdh kjds h hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
-								</div>
-								<div class="accordion__tab">Tab 4</div>
-								<div class="accordion__panel">
-									<p>Lorem ipsum ksjbf khasg  dkgyksd gsdgd dkj dh hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
-								</div>
-							</div>
+				<div class="container-row">
+					<h3>Multiple expanded tabs accordion</h3>
+					<div class="accordion--multiple">
+						<div class="accordion__tab">Tab 1</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg sljkhgas gass kd sdfgls hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
 						</div>
+						<div class="accordion__tab">Tab 2</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg  h ksdjh kshad lsjhls uhgsahg kfgjfhbh jj h kdfkg ls sj kdgldhd hdhf ldshg h hd dj f    kdhg kslsdkg d kd d   dh kdhgkj lkdhg dks d kd lkdhgkd jdh jjf huehw p p epie ii ru e iwiw ei piue ie  eiweihe e ei ipew h  e  ih gt t y uf ytf k fk hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 3</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg dj h  ks djshdkj djkshj dskdj kjs j d kjdsh sjkd kdh djh kjdh kjds h hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 4</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg  dkgyksd gsdgd dkj dh hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+					</div>
+
+					<h3>One tab at a time accordion</h3>
+					<div class="accordion--single">
+						<div class="accordion__tab">Tab 1</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg sljkhgas gass kd sdfgls hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 2</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg  h ksdjh kshad lsjhls uhgsahg kfgjfhbh jj h kdfkg ls sj kdgldhd hdhf ldshg h hd dj f    kdhg kslsdkg d kd d   dh kdhgkj lkdhg dks d kd lkdhgkd jdh jjf huehw p p epie ii ru e iwiw ei piue ie  eiweihe e ei ipew h  e  ih gt t y uf ytf k fk hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 3</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg dj h  ks djshdkj djkshj dskdj kjs j d kjdsh sjkd kdh djh kjdh kjds h hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+						<div class="accordion__tab">Tab 4</div>
+						<div class="accordion__panel">
+							<p>Lorem ipsum ksjbf khasg  dkgyksd gsdgd dkj dh hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
@@ -376,53 +377,56 @@
                 </div>
 			</div>
 
-			<h2>Tab Panels</h2>
+            <div class="izi-banner">
+                <h2>Tab Panels</h2>
+            </div>
+			
 			<div class="container-row example" id="example-6">
-						<div class="container-row">
-							<h3>Default tabs</h3>
-							<div class="tabs ">
-								<ul class="tabs__list">
-									<li class="tabs__tab tabs__tab--active" data-controls="tab-panel-7">Tab 1</li>
-									<li class="tabs__tab" data-controls="tab-panel-8">Tab 2</li>
-									<li class="tabs__tab" data-controls="tab-panel-9">Tab 3</li>
-								</ul>
-								<div class="tabs__content">
-									<div class="tabs__panel tabs__panel--visible" id="tab-panel-7">First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel .</div>
-									<div class="tabs__panel" id="tab-panel-8">Second Panel.</div>
-									<div class="tabs__panel" id="tab-panel-9">Third Panel.</div>
-								</div>
-							</div>
+				<div class="container-row">
+					<h3>Default tabs</h3>
+					<div class="tabs ">
+						<ul class="tabs__list">
+							<li class="tabs__tab tabs__tab--active" data-controls="tab-panel-7">Tab 1</li>
+							<li class="tabs__tab" data-controls="tab-panel-8">Tab 2</li>
+							<li class="tabs__tab" data-controls="tab-panel-9">Tab 3</li>
+						</ul>
+    					<div class="tabs__content">
+    						<div class="tabs__panel tabs__panel--visible" id="tab-panel-7">First Panel.</div>
+    						<div class="tabs__panel" id="tab-panel-8">Second Panel.</div>
+    						<div class="tabs__panel" id="tab-panel-9">Third Panel.</div>
+    					</div>
+					</div>
+				</div>
+				<div class="container-row">
+					<h3>Underline Tabs</h3>
+					<div class="tabs">
+						<ul class="tabs__list">
+							<li class="tabs__tab tabs__tab--underline tabs__tab--active" data-controls="tab-panel-1">Tab 1</li>
+							<li class="tabs__tab tabs__tab--underline " data-controls="tab-panel-2">Tab 2</li>
+							<li class="tabs__tab tabs__tab--underline " data-controls="tab-panel-3">Tab 3</li>
+						</ul>
+						<div class="tabs__content tabs__content--no-border">
+							<div class="tabs__panel tabs__panel--visible" id="tab-panel-1">First Panel..</div>
+							<div class="tabs__panel" id="tab-panel-2">Second Panel.</div>
+							<div class="tabs__panel" id="tab-panel-3">Third Panel.</div>
 						</div>
-						<div class="container-row">
-							<h3>Underline Tabs</h3>
-							<div class="tabs">
-								<ul class="tabs__list">
-									<li class="tabs__tab tabs__tab--underline tabs__tab--active" data-controls="tab-panel-1">Tab 1</li>
-									<li class="tabs__tab tabs__tab--underline " data-controls="tab-panel-2">Tab 2</li>
-									<li class="tabs__tab tabs__tab--underline " data-controls="tab-panel-3">Tab 3</li>
-								</ul>
-								<div class="tabs__content tabs__content--no-border">
-									<div class="tabs__panel tabs__panel--visible" id="tab-panel-1">First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel .</div>
-									<div class="tabs__panel" id="tab-panel-2">Second Panel.</div>
-									<div class="tabs__panel" id="tab-panel-3">Third Panel.</div>
-								</div>
-							</div>
+					</div>
+				</div>
+				<div class="container-row">
+					<h3>Pill Tabs</h3>
+					<div class="tabs ">
+						<ul class="tabs__list">
+							<li class="tabs__tab tabs__tab--pill tabs__tab--active" data-controls="tab-panel-4">Tab 1</li>
+							<li class="tabs__tab tabs__tab--pill" data-controls="tab-panel-5">Tab 2</li>
+							<li class="tabs__tab tabs__tab--pill" data-controls="tab-panel-6">Tab 3</li>
+						</ul>
+						<div class="tabs__content tabs__content--no-border">
+							<div class="tabs__panel tabs__panel--visible" id="tab-panel-4">First Panel.</div>
+							<div class="tabs__panel" id="tab-panel-5">Second Panel.</div>
+							<div class="tabs__panel" id="tab-panel-6">Third Panel.</div>
 						</div>
-						<div class="container-row">
-							<h3>Pill Tabs</h3>
-							<div class="tabs ">
-								<ul class="tabs__list">
-									<li class="tabs__tab tabs__tab--pill tabs__tab--active" data-controls="tab-panel-4">Tab 1</li>
-									<li class="tabs__tab tabs__tab--pill" data-controls="tab-panel-5">Tab 2</li>
-									<li class="tabs__tab tabs__tab--pill" data-controls="tab-panel-6">Tab 3</li>
-								</ul>
-								<div class="tabs__content tabs__content--no-border">
-									<div class="tabs__panel tabs__panel--visible" id="tab-panel-4">First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel First Panel .</div>
-									<div class="tabs__panel" id="tab-panel-5">Second Panel.</div>
-									<div class="tabs__panel" id="tab-panel-6">Third Panel.</div>
-								</div>
-							</div>			
-						</div>	
+					</div>			
+				</div>	
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
@@ -473,48 +477,49 @@
                 </div>
 			</div>
 				
-
-			<h2>Carousel</h2>
+            <div class="izi-banner">
+                <h2>Carousel</h2>
+            </div>
+			
 			<div class="container-row example" id="example-7">
-					<div class="container-row">
-						<div class="carousel">
-							<input checked type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-1-control">
-							<div class="carousel__slide" id="slide-1">
-								<img src="https://picsum.photos/350/300?image=1050">
-							</div>
-
-							<input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-2-control">
-							<div class="carousel__slide" id="slide-2">
-								<img src="https://picsum.photos/350/300?image=1039">
-							</div>
-
-							<input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-3-control">
-							<div class="carousel__slide" id="slide-3">
-								<img src="https://picsum.photos/350/300?image=1037">
-							</div>
-
-							<input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-4-control">
-							<div class="carousel__slide" id="slide-4">
-								<img src="https://picsum.photos/350/300?image=1021">
-							</div>
-
-							<input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-5-control">
-							<div class="carousel__slide" id="slide-5">
-								<img src="https://picsum.photos/350/300?image=1018">
-							</div>
-
-							<div class="carousel__labels">
-								<label for="slide-1-control" class="carousel__label"></label>
-								<label for="slide-2-control" class="carousel__label"></label>
-								<label for="slide-3-control" class="carousel__label"></label>
-								<label for="slide-4-control" class="carousel__label"></label>
-								<label for="slide-5-control" class="carousel__label"></label>
-							</div>
-							<div class="carousel__arrow-right">></div>
-							<div class="carousel__arrow-left"><</div>
+				<div class="container-row">
+					<div class="carousel">
+						<input checked type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-1-control">
+						<div class="carousel__slide" id="slide-1">
+							<img src="https://picsum.photos/350/300?image=1050">
 						</div>
 
+						<input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-2-control">
+						<div class="carousel__slide" id="slide-2">
+							<img src="https://picsum.photos/350/300?image=1039">
+						</div>
+
+						<input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-3-control">
+						<div class="carousel__slide" id="slide-3">
+							<img src="https://picsum.photos/350/300?image=1037">
+						</div>
+
+						<input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-4-control">
+						<div class="carousel__slide" id="slide-4">
+							<img src="https://picsum.photos/350/300?image=1021">
+						</div>
+
+						<input type="radio" class="carousel__radio" name="carousel-1-controls" id="slide-5-control">
+						<div class="carousel__slide" id="slide-5">
+							<img src="https://picsum.photos/350/300?image=1018">
+						</div>
+
+						<div class="carousel__labels">
+							<label for="slide-1-control" class="carousel__label"></label>
+							<label for="slide-2-control" class="carousel__label"></label>
+							<label for="slide-3-control" class="carousel__label"></label>
+							<label for="slide-4-control" class="carousel__label"></label>
+							<label for="slide-5-control" class="carousel__label"></label>
+						</div>
+						<div class="carousel__arrow-right">></div>
+						<div class="carousel__arrow-left"><</div>
 					</div>
+				</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
@@ -560,46 +565,47 @@
                 </div>
 			</div>
 
-			<h2>Modal</h2>
+            <div class="izi-banner">
+                <h2>Modal</h2>
+            </div>
+			
 			<div class="container-row example" id="example-8">
-					<div class="container-row">
-						<h3>Click on the Button/Anchor to show modal</h3>
-						<button class="modal-trigger izi-btn izi-btn--primary" >Modal</button>
-						<div class="modal">
-							<div class="modal__overlay"></div>
-							<div class="modal__box">
-								<div class="modal__header">
-									<p>This is the Modal's Header</p>
-								</div>
-								<div class="modal__body">
-									<p>This is the Modal's Body</p>
-								</div>
-								<div class="modal__footer container-row">
-									<p>This is the Modal's Footer</p>
-									<button class="modal__close izi-btn izi-btn--danger">Okay!</button>
-								</div>
+				<div class="container-row">
+					<h3>Click on the Button/Anchor to show modal</h3>
+					<button class="modal-trigger izi-btn izi-btn--primary" >Modal</button>
+					<div class="modal">
+						<div class="modal__overlay"></div>
+						<div class="modal__box">
+							<div class="modal__header">
+								<p>This is the Modal's Header</p>
+							</div>
+							<div class="modal__body">
+								<p>This is the Modal's Body</p>
+							</div>
+							<div class="modal__footer container-row">
+								<p>This is the Modal's Footer</p>
+								<button class="modal__close izi-btn izi-btn--danger">Okay!</button>
 							</div>
 						</div>
-
-						<a class="modal-trigger" >Modal</a>
-						<div class="modal">
-							<div class="modal__overlay modal__close"></div>
-							<div class="modal__box">
-								<div class="modal__header">
-									<p>This is the Modal's Header</p>
-									<span class="modal__close">X</span>
-								</div>
-								<div class="modal__body">
-									<p>This is the Modal's Body</p>
-								</div>
-								<div class="modal__footer container-row">
-									<p>This is the Modal's Footer</p>
-
-								</div>
-							</div>
-						</div>
-
 					</div>
+
+					<a class="modal-trigger" >Modal</a>
+					<div class="modal">
+						<div class="modal__overlay modal__close"></div>
+						<div class="modal__box">
+							<div class="modal__header">
+								<p>This is the Modal's Header</p>
+								<span class="modal__close">X</span>
+							</div>
+							<div class="modal__body">
+								<p>This is the Modal's Body</p>
+							</div>
+							<div class="modal__footer container-row">
+								<p>This is the Modal's Footer</p>
+                            </div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
@@ -642,39 +648,42 @@
                 </div>
 			</div>
 
-			<h2>Radio Buttons and Check Boxes</h2>
+            <div class="izi-banner">
+                <h2>Radio Buttons and Check Boxes</h2>
+            </div>
+			
 			<div class="container-row example" id="example-9">
-					<div class="container-row">
-						<div class="input-field">
-							<input class="izi-radio izi-radio--filled" type="radio" name="radiodemo" id="radiofill">
-							<label for="radiofill">Filled Radio Button</label>
-						</div>
-
-						<div class="input-field">
-							<input class="izi-radio" type="radio" name="radiodemo" id="radiogap">
-							<label for="radiogap">Default Radio Button</label>
-						</div>
-
-						<div class="input-field">
-							<input class="izi-checkbox izi-checkbox--switch" type="checkbox" name="radiodemo" id="checkbox4">
-							<label for="checkbox4">Switch Checkbox</label>
-						</div>
-
-						<div class="input-field">
-							<input class="izi-checkbox izi-checkbox--nobox" type="checkbox" name="checkdemo" id="nobox">
-							<label for="nobox">No-box checkbox</label>
-						</div>
-
-						<div class="input-field">
-							<input class="izi-checkbox izi-checkbox--filled" type="checkbox" name="checkdemo" id="fillin">
-							<label for="fillin">Filled in checkbox</label>
-						</div>
-
-						<div class="input-field">
-							<input class="izi-checkbox izi-checkbox--default" type="checkbox" name="checkdemo" id="normal">
-							<label for="normal">Normal checkbox</label>
-						</div>
+				<div class="container-row">
+					<div class="input-field">
+						<input class="izi-radio izi-radio--filled" type="radio" name="radiodemo" id="radiofill">
+						<label for="radiofill">Filled Radio Button</label>
 					</div>
+
+					<div class="input-field">
+						<input class="izi-radio" type="radio" name="radiodemo" id="radiogap">
+						<label for="radiogap">Default Radio Button</label>
+					</div>
+
+					<div class="input-field">
+						<input class="izi-checkbox izi-checkbox--switch" type="checkbox" name="radiodemo" id="checkbox4">
+						<label for="checkbox4">Switch Checkbox</label>
+					</div>
+
+					<div class="input-field">
+						<input class="izi-checkbox izi-checkbox--nobox" type="checkbox" name="checkdemo" id="nobox">
+						<label for="nobox">No-box checkbox</label>
+					</div>
+
+					<div class="input-field">
+						<input class="izi-checkbox izi-checkbox--filled" type="checkbox" name="checkdemo" id="fillin">
+						<label for="fillin">Filled in checkbox</label>
+					</div>
+
+					<div class="input-field">
+						<input class="izi-checkbox izi-checkbox--default" type="checkbox" name="checkdemo" id="normal">
+						<label for="normal">Normal checkbox</label>
+					</div>
+				</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
@@ -713,24 +722,26 @@
                 </div>
 			</div>
 
-
-			<h2>Draggable Area (innovative component)</h2>
+            <div class="izi-banner">
+                <h2>Draggable Area (innovative component)</h2>
+            </div>
+			
 			<div class="container-row example" id="example-10">
-					<div class="container-row">
-						<div class="izi-draggable">
-							<div class="izi-draggable__area">
-								<img src="https://picsum.photos/1200/1200?image=1025">
-							</div>	
-						</div>
+				<div class="container-row">
+					<div class="izi-draggable">
+						<div class="izi-draggable__area">
+							<img src="https://picsum.photos/1200/1200?image=1025">
+						</div>	
 					</div>
+				</div>
 
-					<div class="container-row">
-						<div class="izi-draggable">
-							<div class="izi-draggable__area">
-								<img src="dist/assets/dommodel.png">
-							</div>
+				<div class="container-row">
+					<div class="izi-draggable">
+						<div class="izi-draggable__area">
+							<img src="dist/assets/dommodel.png">
 						</div>
 					</div>
+				</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
