@@ -35,3 +35,22 @@ ul li {
 body.no-scroll {
 	overflow: hidden;
 }
+
+.plus-sign {
+	display: none;
+	float: right;
+	position: relative;
+
+	span {
+		background-color: white;
+		display: inline-block;
+		height: 17px;
+		transition: transform .3s ease;
+		width: 3px;
+		position: absolute;
+		
+		&:first-child {
+			transform: rotate(90deg);
+		}
+	}
+}

@@ -73,6 +73,20 @@ ul li {
 body.no-scroll {
   overflow: hidden; }
 
+.plus-sign {
+  display: none;
+  float: right;
+  position: relative; }
+  .plus-sign span {
+    background-color: white;
+    display: inline-block;
+    height: 17px;
+    transition: transform .3s ease;
+    width: 3px;
+    position: absolute; }
+    .plus-sign span:first-child {
+      transform: rotate(90deg); }
+
 [class^="container"] {
   display: flex;
   align-content: center;
@@ -135,6 +149,7 @@ nav.izi-navbar {
       cursor: pointer; }
     nav.izi-navbar label.hamburguer span {
       background-color: white;
+      border-radius: 30px;
       display: block;
       height: 5px;
       left: 10%;
@@ -249,12 +264,6 @@ nav.izi-navbar {
       nav.izi-navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__title {
         background-color: white;
         color: black; }
-        nav.izi-navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__title div.plus-sign:first-child {
-          border-color: black;
-          transform: rotate(0deg); }
-        nav.izi-navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__title div.plus-sign:last-child {
-          border-color: black;
-          transform: rotate(180deg); }
       nav.izi-navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__menu {
         max-height: 1000px;
         max-height: 80vh; }
@@ -269,20 +278,8 @@ nav.izi-navbar {
         nav.izi-navbar ul.navbar-main .dropdown__title:hover {
           background-color: white;
           color: black; }
-          nav.izi-navbar ul.navbar-main .dropdown__title:hover div.plus-sign span {
-            border-color: black !important; }
-        nav.izi-navbar ul.navbar-main .dropdown__title span {
-          border: 1px solid white;
-          float: right;
-          height: 0px;
-          position: absolute;
-          width: 15px;
-          right: 20px;
-          margin: 0;
-          top: calc(50% - 1px);
-          transition: transform .3s ease; }
-        nav.izi-navbar ul.navbar-main .dropdown__title div.plus-sign:first-child {
-          transform: rotate(90deg); }
+          nav.izi-navbar ul.navbar-main .dropdown__title:hover .plus-sign span {
+            background-color: black; }
       nav.izi-navbar ul.navbar-main .dropdown__menu {
         display: block;
         position: static;
@@ -299,7 +296,17 @@ nav.izi-navbar {
       overflow: scroll; }
       nav.izi-navbar input#mobile-btn:checked ~ ul.mobile-left {
         height: 100vh;
-        right: 0px; } }
+        right: 0px; }
+
+  .plus-sign {
+    display: inline-block; }
+
+  input.dropdown__toggle:checked + .dropdown__title > .plus-sign span {
+    background-color: black; }
+    input.dropdown__toggle:checked + .dropdown__title > .plus-sign span:first-child {
+      transform: rotate(-90deg); }
+    input.dropdown__toggle:checked + .dropdown__title > .plus-sign span:last-child {
+      transform: rotate(90deg); } }
 .card, .card--profile, .card--item {
   background-color: white;
   border-radius: 3px;
@@ -907,13 +914,6 @@ body {
     #example-2 .nav-example-container nav.izi-navbar .dropdown__toggle:checked ~ .dropdown__title {
       background-color: white;
       color: black; }
-      #example-2 .nav-example-container nav.izi-navbar .dropdown__toggle:checked ~ .dropdown__title span {
-        border-color: black; }
-        #example-2 .nav-example-container nav.izi-navbar .dropdown__toggle:checked ~ .dropdown__title span:first-child {
-          transform: rotate(0deg);
-          border-color: green; }
-        #example-2 .nav-example-container nav.izi-navbar .dropdown__toggle:checked ~ .dropdown__title span:last-child {
-          transform: rotate(180deg); }
     #example-2 .nav-example-container nav.izi-navbar .dropdown__toggle:checked ~ .dropdown__menu {
       max-height: 1000px;
       max-height: 80vh; }
@@ -928,20 +928,8 @@ body {
       #example-2 .nav-example-container nav.izi-navbar .dropdown__title:hover {
         background-color: white;
         color: black; }
-        #example-2 .nav-example-container nav.izi-navbar .dropdown__title:hover span.plus-sign span {
-          border-color: black !important; }
-      #example-2 .nav-example-container nav.izi-navbar .dropdown__title span {
-        border: 1px solid white;
-        float: right;
-        height: 0px;
-        position: absolute;
-        width: 15px;
-        right: 20px;
-        margin: 0;
-        top: calc(50% - 1px);
-        transition: transform .3s ease; }
-      #example-2 .nav-example-container nav.izi-navbar .dropdown__title span:first-child {
-        transform: rotate(90deg); }
+        #example-2 .nav-example-container nav.izi-navbar .dropdown__title:hover .plus-sign span {
+          background-color: black; }
     #example-2 .nav-example-container nav.izi-navbar .dropdown__menu {
       display: block;
       position: static;
@@ -952,6 +940,14 @@ body {
       transition: max-height .4s ease; }
       #example-2 .nav-example-container nav.izi-navbar .dropdown__menu li a {
         padding-left: 45px; }
+    #example-2 .nav-example-container nav.izi-navbar .plus-sign {
+      display: inline-block; }
+    #example-2 .nav-example-container nav.izi-navbar input.dropdown__toggle:checked + .dropdown__title > .plus-sign span {
+      background-color: black; }
+      #example-2 .nav-example-container nav.izi-navbar input.dropdown__toggle:checked + .dropdown__title > .plus-sign span:first-child {
+        transform: rotate(-90deg); }
+      #example-2 .nav-example-container nav.izi-navbar input.dropdown__toggle:checked + .dropdown__title > .plus-sign span:last-child {
+        transform: rotate(90deg); }
 
 #example-3 > div[class*='container'] {
   background-color: white;
@@ -1097,10 +1093,11 @@ p#intro-p {
   text-align: center; }
 
 code {
-  color: #e2c4ff;
-  padding: 0px 7px;
+  background-color: #8f1dfe;
   border-radius: 5px;
-  background-color: #8f1dfe; }
+  color: #e2c4ff;
+  font-family: monospace;
+  padding: 0px 7px; }
 
 @media screen and (max-width: 500px) {
   #example-7 > .container-row, #example-10 > .container-row {

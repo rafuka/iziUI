@@ -34,6 +34,7 @@ nav.izi-navbar {
 
 		span {
 			background-color: white;
+			border-radius: 30px;
 			display: block;
 			height: 5px;
 			left: 10%;
@@ -61,6 +62,8 @@ nav.izi-navbar {
 
 		&:checked + label.hamburguer {
 			span {
+				
+
 				&:nth-child(1), &:nth-child(4) {
 					top: 22.5px;
 					opacity: 0;
@@ -222,21 +225,7 @@ nav.izi-navbar {
 
 					& ~ .dropdown__title {
 						background-color: $navColor;
-						color: $navBckgnd;
-
-						div.plus-sign {
-							
-
-							&:first-child {
-								border-color: $navBckgnd;
-								transform: rotate(0deg);
-							}
-
-							&:last-child {
-								border-color: $navBckgnd;
-								transform: rotate(180deg);
-							}
-						}		
+						color: $navBckgnd;	
 					}
 
 					& ~ .dropdown__menu {
@@ -256,30 +245,15 @@ nav.izi-navbar {
 
 					&:hover {
 						background-color: $navColor;
-						color: $navBckgnd;
+						color: $navBckgnd;	
 
-						div.plus-sign {
+						.plus-sign {
 							span {
-								border-color: $navBckgnd!important;
+								background-color: $navBckgnd;
 							}
-						}	
+						}
 					}
 
-					span {	
-						border: 1px solid $navColor;
-						float: right;
-						height: 0px;
-						position: absolute;
-						width: 15px;
-						right: 20px;
-						margin: 0;
-						top: calc(50% - 1px);
-						transition: transform .3s ease;
-					}
-
-					div.plus-sign:first-child {
-						transform: rotate(90deg);
-					}
 				}
 
 				&__menu {
@@ -310,6 +284,27 @@ nav.izi-navbar {
 				&.mobile-left {
 					height: 100vh;
 					right: 0px;
+				}
+			}
+		}
+	}
+
+	.plus-sign {
+		display: inline-block;
+	}
+
+	input.dropdown__toggle:checked {
+		& + .dropdown__title {
+			& > .plus-sign {
+				span {
+					background-color: $navBckgnd;
+
+					&:first-child {
+						transform: rotate(-90deg);
+					}
+					&:last-child {
+						transform: rotate(90deg);
+					}
 				}
 			}
 		}

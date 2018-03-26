@@ -240,20 +240,7 @@ body {
 
 					& ~ .dropdown__title {
 						background-color: $navColor;
-						color: $navBckgnd;
-
-						span {
-							border-color: $navBckgnd;
-
-							&:first-child {
-								transform: rotate(0deg);
-								border-color: green;
-							}
-
-							&:last-child {
-								transform: rotate(180deg);
-							}
-						}		
+						color: $navBckgnd;		
 					}
 
 					& ~ .dropdown__menu {
@@ -275,27 +262,11 @@ body {
 						background-color: $navColor;
 						color: $navBckgnd;
 
-						span.plus-sign {
+						.plus-sign {
 							span {
-								border-color: $navBckgnd!important;
+								background-color: $navBckgnd;
 							}
-						}	
-					}
-
-					span {	
-						border: 1px solid $navColor;
-						float: right;
-						height: 0px;
-						position: absolute;
-						width: 15px;
-						right: 20px;
-						margin: 0;
-						top: calc(50% - 1px);
-						transition: transform .3s ease;
-					}
-
-					span:first-child {
-						transform: rotate(90deg);
+						}
 					}
 				}
 
@@ -311,6 +282,27 @@ body {
 					li {
 						a {
 							padding-left: 45px;
+						}
+					}
+				}
+			}
+
+			.plus-sign {
+				display: inline-block;
+			}
+
+			input.dropdown__toggle:checked {
+				& + .dropdown__title {
+					& > .plus-sign {
+						span {
+							background-color: $navBckgnd;
+
+							&:first-child {
+								transform: rotate(-90deg);
+							}
+							&:last-child {
+								transform: rotate(90deg);
+							}
 						}
 					}
 				}
@@ -564,10 +556,13 @@ p#intro-p {
 }
 
 code {
-	color: lighten($primaryColor, 30%);
-	padding: 0px 7px;
-	border-radius: 5px;
 	background-color: darken($primaryColor, 3%);
+	border-radius: 5px;
+	color: lighten($primaryColor, 30%);
+	font-family: monospace;
+	padding: 0px 7px;
+	
+	
 }
 
 @media screen and (max-width: 500px) {
