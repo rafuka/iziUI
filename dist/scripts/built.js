@@ -318,7 +318,7 @@
 		(function(i) {
 
 			dAreas[i].addEventListener('mousedown', function(e) {
-
+				console.log('testing');
 				this.startX = e.clientX;
 				this.startY = e.clientY;
 				this.addEventListener('mousemove', handleDrag, false);
