@@ -339,7 +339,7 @@
 
 			}, false);
 
-			dAreas[i].addEventListener('touchdown', function(e) {
+			dAreas[i].addEventListener('touchstart', function(e) {
 				alert('testing');
 			});
 
