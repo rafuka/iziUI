@@ -339,14 +339,9 @@
 
 			}, false);
 
-			var zoomControls = dAreas[i].zoomControls;
-
-			for (var j = 0; j < zoomControls.length; j++) {
-				(function (j) {
-					console.log('hi');
-					zoomControls[j].addEventListener('click', handleZoom, false);
-				})(j);
-			}
+			dAreas[i].addEventListener('touchdown', function(e) {
+				alert('testing');
+			});
 
 		})(i);
 	}
