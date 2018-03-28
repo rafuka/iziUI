@@ -1,18 +1,9 @@
 (function () {
 
-	var dAreaContainers = document.getElementsByClassName('izi-draggable');
-	var dAreas = document.getElementsByClassName('izi-draggable__area');
+	var stickyPackElement = document.getElementById('izi-stickyPack');
+	var activeStickyNotes = []; // An array that will contain all the sticky notes' objects.
 
-	for(var i = 0; i < dAreas.length; i++) {
 
-		dAreas[i].draggable = true;
-		dAreas[i].zoomControls = dAreas[i].parentElement.getElementsByClassName('izi-draggable__controls');
-		console.log(dAreas[i].zoomControls);
-
-		for(var j = 0; j < dAreas[i].children.length; j++) {
-			dAreas[i].children[j].draggable = false;
-		}
-	}
 	
 
 	function handleDrag(event) {
@@ -62,28 +53,7 @@
 	}
 
 	function handleZoom(event) {
-		console.log('handle zoom');
-		var zoomControl = event.target;
-		console.log(zoomControl.classList);
-		console.log(zoomControl.parentElement);
-		// TODO
-		var dArea = zoomControl.parentElement.parentElement.getElementsByClassName('izi-draggable__area')[0];
-		console.log(dArea);
-		var currWidth = dArea.offsetWidth;
-		console.log('area width: ' + currWidth);
-
-		if (zoomControl.classList.contains('zoom-in')) {
-			
-			var newWidth = currWidth * 1.10;
-			dArea.style.width = newWidth + 'px';
-		}
-		else if (zoomControl.classList.contains('zoom-out')) {
-
-			var newWidth = currWidth * 0.9;
-			if (newWidth > dArea.parentElement.offsetWidth) {
-				dArea.style.width = newWidth + 'px';
-			}
-		}
+		
 	}
 
 	for (var i = 0; i < dAreas.length; i++) {

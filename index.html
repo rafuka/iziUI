@@ -726,35 +726,23 @@
 			</div>
 
             <div class="izi-banner">
-                <h2>Draggable Area (innovative component)</h2>
+                <h2>Sicky Notes (innovative component)</h2>
+                <p>This component allows users to place sticky notes on their browser's window screen. The sticky notes may have a fixed position (sticked to the sreen) or a an absolute position (sticked to the document's body). </p>
             </div>
 			
 			<div class="container-row example" id="example-10">
 				<div class="container-row">
-					<div class="izi-draggable">
-						<div class="izi-draggable__area">
-							<img src="https://picsum.photos/1200/1200?image=1025">
-						</div>	
-					</div>
-				</div>
-
-				<div class="container-row">
-					<div class="izi-draggable">
-						<div class="izi-draggable__area">
-							<img src="dist/assets/dommodel.png">
-						</div>
-					</div>
+					<div class="sticky-note-switch-container">
+                        <input type="checkbox" class="izi-checkbox izi-checkbox--switch" name="sticky-note-switch" id="sticky-note-switch"> 
+                        <span class="sticky-note-switch-state"></span>              
+                    </div>
 				</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
 				<div class="accordion__panel">
                     <pre>
-&lt;div class="izi-draggable"&gt;
-    &lt;div class="izi-draggable__area"&gt;
-        &lt;!-- Draggable area content here --&gt;
-    &lt;/div&gt;  
-&lt;/div&gt;
+
                     </pre>            
                 </div>
 			</div>
@@ -763,7 +751,12 @@
 			<footer class="main-footer"> Created by Rafael Garcia 2018</footer>
 		</main>
 
+        <div class="izi-sticky-pack">     
+            <div class="izi-sticky-pack__create">///</div>
+            <div class="izi-sticky-pack__tooltip">
+                <p>Click to create a new Sticky Note!</p>
+            </div>
+        </div>
 		<script type="text/javascript" src="dist/scripts/built.min.js"></script>
-
 	</body>
 	</html>

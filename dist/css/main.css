@@ -602,6 +602,7 @@ nav.izi-navbar {
   appearance: none;
   border: 2px solid #972cfe;
   border-radius: 3px;
+  cursor: pointer;
   position: relative;
   transition: all .2s ease;
   width: 22px;
@@ -728,24 +729,12 @@ nav.izi-navbar {
   .modal__close {
     cursor: pointer; }
 
-.izi-draggable {
-  background-color: #ccc;
-  overflow: hidden;
-  position: relative; }
-  .izi-draggable__area {
-    background-color: white;
-    cursor: all-scroll;
-    position: absolute;
-    top: 0;
-    transition: width .1s ease;
-    left: 0; }
-  .izi-draggable__controls {
-    height: 50px;
-    width: 30px;
-    position: absolute; }
-    .izi-draggable__controls .zoom-in, .izi-draggable__controls .zoom-out {
-      cursor: pointer;
-      flex: 1; }
+.izi-sticky-pack__tooltip {
+  display: hidden; }
+.izi-sticky-pack__create:hover {
+  color: red; }
+  .izi-sticky-pack__create:hover + .izi-sticky-pack__tooltip {
+    display: inline-block; }
 
 * {
   font-family: 'Roboto'; }
@@ -1098,6 +1087,14 @@ code {
   color: #e2c4ff;
   font-family: monospace;
   padding: 0px 7px; }
+
+#sticky-note-switch + .sticky-note-switch-state:after {
+  content: 'off';
+  color: gray;
+  display: inline-block; }
+#sticky-note-switch:checked + .sticky-note-switch-state:after {
+  content: 'on';
+  color: #972cfe; }
 
 @media screen and (max-width: 500px) {
   #example-7 > .container-row, #example-10 > .container-row {

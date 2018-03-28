@@ -565,6 +565,27 @@ code {
 	
 }
 
+#sticky-note-switch {
+	
+	& + .sticky-note-switch-state {
+		&:after {
+			content: 'off';
+			color: gray;
+			display: inline-block;
+		}
+	}
+
+	&:checked {
+		& + .sticky-note-switch-state {
+			&:after {
+				content: 'on';
+				color: $primaryColor;
+				
+			}
+		}
+	}
+}
+
 @media screen and (max-width: 500px) {
 
 	#example-7, #example-10 {
