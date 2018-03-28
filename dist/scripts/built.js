@@ -225,22 +225,168 @@
 })();
 
 
-(function () {
+(function() {
+	var modalTriggers = document.getElementsByClassName('modal-trigger');
+	var modals = document.getElementsByClassName('modal');
 
-	var dAreaContainers = document.getElementsByClassName('izi-draggable');
-	var dAreas = document.getElementsByClassName('izi-draggable__area');
 
-	for(var i = 0; i < dAreas.length; i++) {
+	// Associate modal triggers with their corresponding modals
+	for (var i = 0; i < modalTriggers.length; i++) {
+		modalTriggers[i].modal = modalTriggers[i].nextElementSibling;
+	}
 
-		dAreas[i].draggable = true;
-		dAreas[i].zoomControls = dAreas[i].parentElement.getElementsByClassName('izi-draggable__controls');
-		console.log(dAreas[i].zoomControls);
 
-		for(var j = 0; j < dAreas[i].children.length; j++) {
-			dAreas[i].children[j].draggable = false;
+	// Add event listener to triggers to activate modals
+	for (var i = 0; i < modalTriggers.length; i++) {
+		(function(i) {
+			modalTriggers[i].addEventListener('click', function() {
+				var trigger = this;
+
+				trigger.modal.style.display = 'block';
+				trigger.modal.offsetWidth; // forces a reflow
+
+				trigger.modal.classList.add('modal--visible');
+				document.body.classList.add('no-scroll');
+			});
+
+			var closeBtns = modalTriggers[i].modal.getElementsByClassName('modal__close');
+
+			for (var j = 0; j < closeBtns.length; j++) {
+				(function(j) {
+					closeBtns[j].addEventListener('click', function() {
+						modalTriggers[i].modal.classList.remove('modal--visible');
+						modalTriggers[i].modal.style.display = 'none';
+						document.body.classList.remove('no-scroll');
+					});
+				})(j);
+			}
+			
+		})(i);
+	}
+
+})();
+
+
+
+var stickyNotesSwitch = document.getElementById('sticky-note-switch');
+var stickyPacks = document.getElementsByClassName('izi-sticky-pack');
+
+console.log('hi');
+	stickyNotesSwitch.addEventListener('change', function(e) {
+
+		if (stickyNotesSwitch.checked) {
+			console.log('yes!');
+			for (var i = 0; i < stickyPacks.length; i++) {
+				stickyPacks[i].style.display = 'inline-block';
+			}
 		}
+		else {
+			console.log('no!');
+			for (var i = 0; i < stickyPacks.length; i++) {
+				stickyPacks[i].style.display = 'none';
+			}
+		}
+	});
+
+
+
+// Remembers the scroll position in order to 
+// maintain it when the body's height changes
+
+/*
+(function(){
+
+	// Listen to the height of a given element
+	function onHeightChange(element, callback) {
+		var lastHeight = element.clientHeight;
+		var currentHeight;
+
+		(function listen() {
+			currentHeight = element.clientHeight;
+
+			if(currentHeight !== lastHeight) {
+				callback(currentHeight, lastHeight);
+			}
+			lastHeight = currentHeight;
+
+			if (element.onHeightChangeTimer) {
+				clearTimeout(element.onHeightChangeTimer)
+			}
+
+			element.onHeightChangeTimer = setTimeout(listen, 200);
+
+		})();
+	}
+
+	var scrollfixElement = document.getElementById('scrollfix');
+
+	if (scrollFixElement) {
+		onHeightChange(scrollFixElement, function(currHeight, lastHeight) {
+			console.log(window.scrollY);
+
+			if (currHeight < lastHeight)
+				window.scrollTo(0, window.scrollY + ( currHeight - lastHeight ) );
+			
+		});
 	}
 	
+
+})();
+*/
+
+
+(function () {
+
+	var stickyPackElement = document.getElementById('izi-stickyPack');
+	var activeStickyNotes = []; // An array that will contain all the sticky notes' objects.
+
+	var createStickyNoteElement = document.getElementsByClassName('izi-sticky-pack__create')[0];
+
+	function createStickyNote(posX, posY) {
+		var newNote = {
+			isFixed: true,
+			left: posX,
+			top: posY,
+			content: 'Write something!'
+		};
+
+		var noteText = document.createTextNode(newNote.content);
+		var newNoteElement = document.createElement('div');
+
+		var noteEditBtn = document.createElement('button');
+
+		noteEditBtn.classList.add('izi-sticky-pack__note-edit');
+
+		var noteTextP = document.createElement('p');
+
+		noteTextP.appendChild(noteText);
+		noteTextP.setAttribute('contenteditable', 'true');
+		noteTextP.classList.add('izi-sticky-pack__note-text');
+		
+		newNoteElement.classList.add('izi-sticky-pack__note');
+		newNoteElement.classList.add('dragging');
+		
+		newNoteElement.style.top = newNote.top;
+		newNoteElement.style.left = newNote.left;
+
+		newNoteElement.appendChild(noteTextP);
+		newNoteElement.appendChild(noteEditBtn);
+
+		activeStickyNotes.push(newNoteElement);
+
+		return newNoteElement;
+	}
+
+
+	// TODO: Listen on clicks on the createStickyNoteElement and create a new sticky note
+	createStickyNoteElement.addEventListener('click', function(e) {
+
+		var newNoteElement = createStickyNote('100px', '100px');
+		
+		document.body.appendChild(newNoteElement);
+
+
+	});
 
 	function handleDrag(event) {
 
@@ -289,31 +435,9 @@
 	}
 
 	function handleZoom(event) {
-		console.log('handle zoom');
-		var zoomControl = event.target;
-		console.log(zoomControl.classList);
-		console.log(zoomControl.parentElement);
-		// TODO
-		var dArea = zoomControl.parentElement.parentElement.getElementsByClassName('izi-draggable__area')[0];
-		console.log(dArea);
-		var currWidth = dArea.offsetWidth;
-		console.log('area width: ' + currWidth);
-
-		if (zoomControl.classList.contains('zoom-in')) {
-			
-			var newWidth = currWidth * 1.10;
-			dArea.style.width = newWidth + 'px';
-		}
-		else if (zoomControl.classList.contains('zoom-out')) {
-
-			var newWidth = currWidth * 0.9;
-			if (newWidth > dArea.parentElement.offsetWidth) {
-				dArea.style.width = newWidth + 'px';
-			}
-		}
+		
 	}
-
-	for (var i = 0; i < dAreas.length; i++) {
+/*	for (var i = 0; i < dAreas.length; i++) {
 
 		(function(i) {
 
@@ -344,95 +468,8 @@
 			});
 
 		})(i);
-	}
+	}*/
 })();
-
-
-(function() {
-	var modalTriggers = document.getElementsByClassName('modal-trigger');
-	var modals = document.getElementsByClassName('modal');
-
-
-	// Associate modal triggers with their corresponding modals
-	for (var i = 0; i < modalTriggers.length; i++) {
-		modalTriggers[i].modal = modalTriggers[i].nextElementSibling;
-	}
-
-
-	// Add event listener to triggers to activate modals
-	for (var i = 0; i < modalTriggers.length; i++) {
-		(function(i) {
-			modalTriggers[i].addEventListener('click', function() {
-				var trigger = this;
-
-				trigger.modal.style.display = 'block';
-				trigger.modal.offsetWidth; // forces a reflow
-
-				trigger.modal.classList.add('modal--visible');
-				document.body.classList.add('no-scroll');
-			});
-
-			var closeBtns = modalTriggers[i].modal.getElementsByClassName('modal__close');
-
-			for (var j = 0; j < closeBtns.length; j++) {
-				(function(j) {
-					closeBtns[j].addEventListener('click', function() {
-						modalTriggers[i].modal.classList.remove('modal--visible');
-						modalTriggers[i].modal.style.display = 'none';
-						document.body.classList.remove('no-scroll');
-					});
-				})(j);
-			}
-			
-		})(i);
-	}
-
-})();
-
-
-// Remembers the scroll position in order to 
-// maintain it when the body's height changes
-
-/*
-(function(){
-
-	// Listen to the height of a given element
-	function onHeightChange(element, callback) {
-		var lastHeight = element.clientHeight;
-		var currentHeight;
-
-		(function listen() {
-			currentHeight = element.clientHeight;
-
-			if(currentHeight !== lastHeight) {
-				callback(currentHeight, lastHeight);
-			}
-			lastHeight = currentHeight;
-
-			if (element.onHeightChangeTimer) {
-				clearTimeout(element.onHeightChangeTimer)
-			}
-
-			element.onHeightChangeTimer = setTimeout(listen, 200);
-
-		})();
-	}
-
-	var scrollfixElement = document.getElementById('scrollfix');
-
-	if (scrollFixElement) {
-		onHeightChange(scrollFixElement, function(currHeight, lastHeight) {
-			console.log(window.scrollY);
-
-			if (currHeight < lastHeight)
-				window.scrollTo(0, window.scrollY + ( currHeight - lastHeight ) );
-			
-		});
-	}
-	
-
-})();
-*/
 
 
 (function() {

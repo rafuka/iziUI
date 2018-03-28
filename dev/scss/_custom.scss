@@ -566,7 +566,7 @@ code {
 }
 
 #sticky-note-switch {
-	
+
 	& + .sticky-note-switch-state {
 		&:after {
 			content: 'off';
@@ -584,6 +584,10 @@ code {
 			}
 		}
 	}
+}
+
+.izi-sticky-pack {
+	display: none;
 }
 
 @media screen and (max-width: 500px) {

@@ -3,8 +3,53 @@
 	var stickyPackElement = document.getElementById('izi-stickyPack');
 	var activeStickyNotes = []; // An array that will contain all the sticky notes' objects.
 
+	var createStickyNoteElement = document.getElementsByClassName('izi-sticky-pack__create')[0];
 
-	
+	function createStickyNote(posX, posY) {
+		var newNote = {
+			isFixed: true,
+			left: posX,
+			top: posY,
+			content: 'Write something!'
+		};
+
+		var noteText = document.createTextNode(newNote.content);
+		var newNoteElement = document.createElement('div');
+
+		var noteEditBtn = document.createElement('button');
+
+		noteEditBtn.classList.add('izi-sticky-pack__note-edit');
+
+		var noteTextP = document.createElement('p');
+
+		noteTextP.appendChild(noteText);
+		noteTextP.setAttribute('contenteditable', 'true');
+		noteTextP.classList.add('izi-sticky-pack__note-text');
+		
+		newNoteElement.classList.add('izi-sticky-pack__note');
+		newNoteElement.classList.add('dragging');
+		
+		newNoteElement.style.top = newNote.top;
+		newNoteElement.style.left = newNote.left;
+
+		newNoteElement.appendChild(noteTextP);
+		newNoteElement.appendChild(noteEditBtn);
+
+		activeStickyNotes.push(newNoteElement);
+
+		return newNoteElement;
+	}
+
+
+	// TODO: Listen on clicks on the createStickyNoteElement and create a new sticky note
+	createStickyNoteElement.addEventListener('click', function(e) {
+
+		var newNoteElement = createStickyNote('100px', '100px');
+		
+		document.body.appendChild(newNoteElement);
+
+
+	});
 
 	function handleDrag(event) {
 
@@ -55,8 +100,7 @@
 	function handleZoom(event) {
 		
 	}
-
-	for (var i = 0; i < dAreas.length; i++) {
+/*	for (var i = 0; i < dAreas.length; i++) {
 
 		(function(i) {
 
@@ -87,5 +131,5 @@
 			});
 
 		})(i);
-	}
+	}*/
 })();

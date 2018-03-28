@@ -1,0 +1,54 @@
+.izi-sticky-pack {
+	background-color: white;
+	border-radius: 0px 20px 20px 0px;
+	box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+	position: fixed;
+	top: 85%;
+	left: 0;
+	
+	&__tooltip {
+		background-color: rgba(0,0,0,0.7);
+		border-radius: 50% 50% 50% 0px;
+		bottom: calc(100% + 2px);
+		color: white;
+		display: none;
+		font-size: .8em;
+		padding: 15px;
+		position: absolute; 
+		left: calc(100% + 2px);
+		text-align: center;	
+		width: 130px;;
+	}
+
+	&__create {
+		cursor: pointer;
+		padding: 15px;
+		&:hover {
+			color: red;
+			& + .izi-sticky-pack__tooltip {
+				display: inline-block;
+			}
+		}	
+	}
+
+	&__note {
+		border-radius: 5px;
+		display: inlien-block;
+		position: fixed;
+		background-color: 'red';
+		width: 150px;
+		height: 150px;
+	}
+
+	&__note-edit {
+		position: absolute;
+		color: white;
+		width: 15px;
+		height: 15px;
+		background-color: yellow;
+
+		&:hover {
+			color: blue
+		}
+	}
+}
