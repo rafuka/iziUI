@@ -750,18 +750,37 @@ nav.izi-navbar {
     width: 130px; }
   .izi-sticky-pack__create {
     cursor: pointer;
+    background-image: url("../assets/stickypack.jpg");
+    background-size: cover;
     padding: 15px; }
     .izi-sticky-pack__create:hover {
       color: red; }
-      .izi-sticky-pack__create:hover + .izi-sticky-pack__tooltip {
+      .izi-sticky-pack__create:hover ~ .izi-sticky-pack__tooltip {
         display: inline-block; }
   .izi-sticky-pack__note {
-    border-radius: 5px;
+    border-radius: 3px;
     display: inlien-block;
     position: fixed;
-    background-color: 'red';
+    background-color: #5dd959;
     width: 150px;
-    height: 150px; }
+    height: 150px;
+    box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+    z-index: 99999;
+    padding: 7px;
+    transtion: transform .3s ease;
+    cursor: move;
+    cursor: grab; }
+    .izi-sticky-pack__note:hover {
+      transform: rotate(0deg);
+      color: white; }
+    .izi-sticky-pack__note:active {
+      cursor: grabbing; }
+    .izi-sticky-pack__note--green {
+      background-color: #5dd959; }
+    .izi-sticky-pack__note--yellow {
+      background-color: #fbef68; }
+    .izi-sticky-pack__note--pink {
+      background-color: #ff7b98; }
   .izi-sticky-pack__note-edit {
     position: absolute;
     color: white;
@@ -769,7 +788,12 @@ nav.izi-navbar {
     height: 15px;
     background-color: yellow; }
     .izi-sticky-pack__note-edit:hover {
-      color: blue; }
+      background-color: blue; }
+  .izi-sticky-pack__note-pin {
+    padding: 10px;
+    position: absolute;
+    top: 80%;
+    background-color: lightblue; }
 
 * {
   font-family: 'Roboto'; }

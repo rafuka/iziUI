@@ -17,27 +17,57 @@
 		position: absolute; 
 		left: calc(100% + 2px);
 		text-align: center;	
-		width: 130px;;
+		width: 130px;
 	}
 
 	&__create {
 		cursor: pointer;
+		background-image: url('../assets/stickypack.jpg');
+		background-size: cover;
 		padding: 15px;
+
 		&:hover {
 			color: red;
-			& + .izi-sticky-pack__tooltip {
+			& ~ .izi-sticky-pack__tooltip {
 				display: inline-block;
 			}
 		}	
 	}
 
 	&__note {
-		border-radius: 5px;
+		border-radius: 3px;
 		display: inlien-block;
 		position: fixed;
-		background-color: 'red';
+		background-color: #5dd959;
 		width: 150px;
 		height: 150px;
+		box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+		z-index: 99999;
+		padding: 7px;
+		transtion: transform .3s ease;
+		cursor: move;
+		cursor: grab;
+
+		&:hover {
+			transform: rotate(0deg);
+			color: white;
+		}
+
+		&:active {
+			cursor: grabbing;
+		}
+
+		&--green {
+			background-color: #5dd959;
+		}
+
+		&--yellow {
+			background-color: #fbef68;
+		}
+
+		&--pink {
+			background-color: #ff7b98;
+		}
 	}
 
 	&__note-edit {
@@ -48,7 +78,15 @@
 		background-color: yellow;
 
 		&:hover {
-			color: blue
+			background-color: blue
+
 		}
+	}
+
+	&__note-pin {
+		padding: 10px;
+		position: absolute;
+		top: 80%;
+		background-color: lightblue;
 	}
 }
