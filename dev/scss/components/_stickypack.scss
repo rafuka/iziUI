@@ -20,11 +20,30 @@
 		width: 130px;
 	}
 
-	&__create {
+	&__icon {
 		cursor: pointer;
-		background-image: url('../assets/stickypack.jpg');
-		background-size: cover;
-		padding: 15px;
+		display: flex;
+		padding: 10px;
+
+		span {
+			display: inline-block;
+			width: 7px;
+			height: 21px;
+
+			&:nth-child(1) {
+				background-color: #f6ff06;
+				border-radius: 3px 0px 0px 3px;
+			}
+
+			&:nth-child(2) {
+				background-color: #08d211;
+			}
+
+			&:nth-child(3) {
+				background-color: #fe296d;
+				border-radius: 0px 3px 3px 0px;
+			}
+		}
 
 		&:hover {
 			color: red;
@@ -34,39 +53,52 @@
 		}	
 	}
 
+	&__create {
+		width: 40px;
+		height: 40px;
+	}
+
+	&__color {
+		width: 20px;
+		height: 20px;
+		padding: 15px;
+		border-radius: 50%;
+		background-color: #f6ff06;
+	}
+
 	&__note {
 		border-radius: 3px;
 		display: inlien-block;
 		position: fixed;
-		background-color: #5dd959;
+		background-color: #ffff00;
+		font-weight: bold;
 		width: 150px;
 		height: 150px;
 		box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-		z-index: 99999;
+		z-index: 2;
 		padding: 7px;
-		transtion: transform .3s ease;
+		transtion: all 2s ease;
 		cursor: move;
 		cursor: grab;
 
 		&:hover {
-			transform: rotate(0deg);
-			color: white;
+			
 		}
 
 		&:active {
 			cursor: grabbing;
 		}
 
-		&--green {
-			background-color: #5dd959;
+		&--yellow {
+			background-color: #f6ff06;
 		}
 
-		&--yellow {
-			background-color: #fbef68;
+		&--green {
+			background-color: #08d211;
 		}
 
 		&--pink {
-			background-color: #ff7b98;
+			background-color: #fe296d;
 		}
 	}
 

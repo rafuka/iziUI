@@ -38,13 +38,17 @@
 
 		notePinBtn.classList.add('izi-sticky-pack__note-pin');
 
-		notePinBtn.addEventListener('click', function() {
+		notePinBtn.addEventListener('click', function(e) {
+
+			e.preventDefault();
 
 			var noteOffset = newNoteElement.getBoundingClientRect();
 
 			if (newNote.isFixed) {
 				newNoteElement.style.position = 'absolute';
 				newNoteElement.style.top = (window.scrollY + noteOffset.top) + 'px';
+				newNoteElement.style.zIndex = 1;
+
 				newNote.isFixed = false;
 				newNote.posX = newNoteElement.style.left;
 				newNote.posY = newNoteElement.style.top;
@@ -52,6 +56,8 @@
 			else {
 				newNoteElement.style.position = 'fixed';
 				newNoteElement.style.top = noteOffset.top + 'px';
+				newNoteElement.style.zIndex = 2;
+
 				newNote.isFixed = true;
 				newNote.posX = newNoteElement.style.left;
 				newNote.posY = newNoteElement.style.top;
@@ -60,7 +66,10 @@
 
 		noteEditBtn.classList.add('izi-sticky-pack__note-edit');
 
-		noteEditBtn.addEventListener('click', function() {
+		noteEditBtn.addEventListener('click', function(e) {
+
+			e.preventDefault();
+
 			if (noteTextP.getAttribute('contenteditable') === 'false') {
 				noteTextP.setAttribute('contenteditable', 'true');
 				noteTextP.focus();
@@ -96,16 +105,39 @@
 
 		newNoteElement.addEventListener('mousedown', function(e) {
 
-			console.log('testing');
-			this.startX = e.clientX;
-			this.startY = e.clientY;
-			this.addEventListener('mousemove', handleDrag, false);
+			e.preventDefault();
+
+			this.parentElement.appendChild(this);
+
+			if (e.target !== noteEditBtn && e.target !== notePinBtn) {
+
+				this.style.transition = 'transform .1s ease';
+				this.style.transform = 'rotate(0deg) scale(1.05)';
+				this.style.boxShadow = '0px 0px 5px rgba(0,0,0,0.6)';
+
+				this.startX = e.clientX;
+				this.startY = e.clientY;
+				this.addEventListener('mousemove', handleDrag, false);
+			}
+			
 
 		}, false);
 
 		newNoteElement.addEventListener('mouseup', function(e) {
-				
-			this.removeEventListener('mousemove', handleDrag, false);
+
+			if (e.target !== noteEditBtn && e.target !== notePinBtn) {
+
+				var randNum = Math.floor((Math.random() * 10) - 5);
+				var transformDegree = randNum < 0 ? randNum - 5 : randNum + 5;
+
+				this.style.transition = 'transform .1s ease';
+				this.style.transform = 'rotate(' + transformDegree + 'deg)';
+				this.style.boxShadow = '0px 4px 7px -3px rgba(0,0,0,0.8)';
+
+				this.removeEventListener('mousemove', handleDrag, false);
+			}
+			
+			
 
 		}, false);
 
@@ -116,9 +148,15 @@
 
 	createStickyNoteElement.addEventListener('click', function(e) {
 
-		var newNoteElement = createStickyNote('100px', '100px');
+		var randPosX = Math.floor((Math.random() * 40) + 20) + '%';
+		var randPosY = Math.floor((Math.random() * 40) + 20) + '%';
+
+		var newNoteElement = createStickyNote(randPosX, randPosY);
+
 		var transformDegree = Math.floor((Math.random() * 12) - 6);
+
 		newNoteElement.style.transform = 'rotate(' + transformDegree + 'deg)';
+
 		document.body.appendChild(newNoteElement);
 
 
