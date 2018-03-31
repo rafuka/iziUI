@@ -16,6 +16,48 @@
 		
 	}
 
+	function handleNoteMouseDown(event) {
+		event.preventDefault();
+
+		this.parentElement.appendChild(this);
+
+		var noteEditBtn = this.getElementsByClassName('izi-sticky-pack__note-edit')[0];
+		var notePinBtn = this.getElementsByClassName('izi-sticky-pack__note-pin')[0];
+
+		if (event.target !== noteEditBtn && event.target !== notePinBtn) {
+
+			this.style.transition = 'transform .1s ease';
+			this.style.transform = 'rotate(0deg) scale(1.05)';
+			this.style.boxShadow = '0px 0px 5px rgba(0,0,0,0.6)';
+			this.style.cursor = 'grabbing';
+
+			this.startX = event.clientX;
+			this.startY = event.clientY;
+			this.addEventListener('mousemove', handleDrag, false);
+		}
+	}
+
+	function handleNoteMouseUp(event) {
+
+		event.preventDefault();
+
+		var noteEditBtn = this.getElementsByClassName('izi-sticky-pack__note-edit')[0];
+		var notePinBtn = this.getElementsByClassName('izi-sticky-pack__note-pin')[0];
+
+		if (event.target !== noteEditBtn && event.target !== notePinBtn) {
+			console.log('yawn');
+			var randNum = Math.floor((Math.random() * 10) - 5);
+			var transformDegree = randNum < 0 ? randNum - 5 : randNum + 5;
+
+			this.style.transition = 'transform .1s ease';
+			this.style.transform = 'rotate(' + transformDegree + 'deg)';
+			this.style.boxShadow = '0px 4px 7px -3px rgba(0,0,0,0.8)';
+			this.style.cursor = 'grab';
+
+			this.removeEventListener('mousemove', handleDrag, false);
+		}
+	}
+
 	function createStickyNote(posX, posY) {
 
 		var newNote = {
@@ -30,17 +72,28 @@
 		var notePinBtn = document.createElement('button');
 		var noteEditBtn = document.createElement('button');
 		var noteTextP = document.createElement('p');
+		var pinIcon = document.createElement('span');
+		var editIcon = document.createElement('span');
+
+
 
 		noteTextP.appendChild(noteText);
 
 		noteTextP.classList.add('izi-sticky-pack__note-text');
 		noteTextP.setAttribute('contenteditable', 'false');
 
+		pinIcon.classList.add('fa');
+		pinIcon.classList.add('fa-thumb-tack');
+
+		notePinBtn.appendChild(pinIcon);
+
 		notePinBtn.classList.add('izi-sticky-pack__note-pin');
 
 		notePinBtn.addEventListener('click', function(e) {
 
 			e.preventDefault();
+
+			this.classList.toggle('izi-sticky-pack__note-pin--pinned');
 
 			var noteOffset = newNoteElement.getBoundingClientRect();
 
@@ -64,18 +117,28 @@
 			}
 		});
 
+		editIcon.classList.add('fa');
+		editIcon.classList.add('fa-pencil');
+
+		noteEditBtn.appendChild(editIcon);
+
 		noteEditBtn.classList.add('izi-sticky-pack__note-edit');
 
 		noteEditBtn.addEventListener('click', function(e) {
 
 			e.preventDefault();
 
+			this.classList.toggle('izi-sticky-pack__note-edit--editing');
+
 			if (noteTextP.getAttribute('contenteditable') === 'false') {
 				noteTextP.setAttribute('contenteditable', 'true');
 				noteTextP.focus();
+
+				newNoteElement.style.cursor = 'text';
 			}
 			else {
 				noteTextP.setAttribute('contenteditable', 'false');
+				newNoteElement.style.cursor = 'grab';
 			}	
 		});
 
@@ -103,43 +166,9 @@
 		newNoteElement.appendChild(noteEditBtn);
 		newNoteElement.appendChild(notePinBtn);
 
-		newNoteElement.addEventListener('mousedown', function(e) {
+		newNoteElement.addEventListener('mousedown', handleNoteMouseDown, false);
 
-			e.preventDefault();
-
-			this.parentElement.appendChild(this);
-
-			if (e.target !== noteEditBtn && e.target !== notePinBtn) {
-
-				this.style.transition = 'transform .1s ease';
-				this.style.transform = 'rotate(0deg) scale(1.05)';
-				this.style.boxShadow = '0px 0px 5px rgba(0,0,0,0.6)';
-
-				this.startX = e.clientX;
-				this.startY = e.clientY;
-				this.addEventListener('mousemove', handleDrag, false);
-			}
-			
-
-		}, false);
-
-		newNoteElement.addEventListener('mouseup', function(e) {
-
-			if (e.target !== noteEditBtn && e.target !== notePinBtn) {
-
-				var randNum = Math.floor((Math.random() * 10) - 5);
-				var transformDegree = randNum < 0 ? randNum - 5 : randNum + 5;
-
-				this.style.transition = 'transform .1s ease';
-				this.style.transform = 'rotate(' + transformDegree + 'deg)';
-				this.style.boxShadow = '0px 4px 7px -3px rgba(0,0,0,0.8)';
-
-				this.removeEventListener('mousemove', handleDrag, false);
-			}
-			
-			
-
-		}, false);
+		newNoteElement.addEventListener('mouseup', handleNoteMouseUp, false);
 
 		activeStickyNotes.push(newNoteElement);
 
@@ -164,74 +193,7 @@
 
 	
 
-	// Check if there is empty space between the border of the draggable area and its parent.
-	// In that case, move the area's border back to its initial position.
-	function checkBorders(dragArea) {
+	
 
-		if (dragArea.offsetLeft > 0) {
-			dragArea.style.transition = 'left .3s ease, top .3s ease';
-			dragArea.style.left = '0px';
-			setTimeout(function() {
-				dragArea.style.transition = '';
-			}, 300);
-		}
-		else if ((dragArea.offsetLeft + dragArea.offsetWidth) < dragArea.parentElement.offsetWidth) {
-			dragArea.style.transition = 'left .3s ease, top .3s ease';
-			dragArea.style.left = (dragArea.parentElement.offsetWidth - dragArea.offsetWidth) + 'px';
-			setTimeout(function() {
-				dragArea.style.transition = '';
-			}, 300);
-		}
-
-		if (dragArea.offsetTop > 0) {
-			dragArea.style.transition = 'left .3s ease, top .3s ease';
-			dragArea.style.top = '0px';
-			setTimeout(function() {
-				dragArea.style.transition = '';
-			}, 300);
-		}
-		else if ((dragArea.offsetTop + dragArea.offsetHeight) < dragArea.parentElement.offsetHeight) {
-			dragArea.style.transition = 'left .3s ease, top .3s ease';
-			dragArea.style.top = (dragArea.parentElement.offsetHeight - dragArea.offsetHeight) + 'px';
-			setTimeout(function() {
-				dragArea.style.transition = '';
-			}, 300);
-		}
-	}
-
-	function handleZoom(event) {
-		
-	}
-/*	for (var i = 0; i < dAreas.length; i++) {
-
-		(function(i) {
-
-			dAreas[i].addEventListener('mousedown', function(e) {
-				console.log('testing');
-				this.startX = e.clientX;
-				this.startY = e.clientY;
-				this.addEventListener('mousemove', handleDrag, false);
-
-			}, false);
-
-			dAreas[i].addEventListener('mouseup', function(e) {
-				
-				this.removeEventListener('mousemove', handleDrag, false);
-				checkBorders(this);
-
-			}, false);
-
-			dAreas[i].addEventListener('mouseleave', function(e) {
-				
-				this.removeEventListener('mousemove', handleDrag, false);
-				checkBorders(this);
-
-			}, false);
-
-			dAreas[i].addEventListener('touchstart', function(e) {
-				alert('testing');
-			});
-
-		})(i);
-	}*/
+	
 })();

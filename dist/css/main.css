@@ -783,19 +783,20 @@ nav.izi-navbar {
     border-radius: 50%;
     background-color: #f6ff06; }
   .izi-sticky-pack__note {
-    border-radius: 3px;
-    display: inlien-block;
-    position: fixed;
     background-color: #ffff00;
-    font-weight: bold;
-    width: 150px;
-    height: 150px;
+    border-radius: 3px;
     box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
-    z-index: 2;
-    padding: 7px;
-    transtion: all 2s ease;
     cursor: move;
-    cursor: grab; }
+    cursor: grab;
+    display: inlien-block;
+    font-weight: bold;
+    height: 150px;
+    padding: 7px;
+    position: fixed;
+    transtion: all 2s ease;
+    width: 150px;
+    word-wrap: break-word;
+    z-index: 2; }
     .izi-sticky-pack__note:active {
       cursor: grabbing; }
     .izi-sticky-pack__note--yellow {
@@ -805,18 +806,26 @@ nav.izi-navbar {
     .izi-sticky-pack__note--pink {
       background-color: #fe296d; }
   .izi-sticky-pack__note-edit {
+    background: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
     position: absolute;
-    color: white;
     width: 15px;
-    height: 15px;
-    background-color: yellow; }
-    .izi-sticky-pack__note-edit:hover {
-      background-color: blue; }
+    height: 15px; }
+    .izi-sticky-pack__note-edit--editing span.fa {
+      color: #009; }
   .izi-sticky-pack__note-pin {
-    padding: 10px;
+    background: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    padding: 0px;
     position: absolute;
-    top: 80%;
-    background-color: lightblue; }
+    top: 125px;
+    left: 10px; }
+    .izi-sticky-pack__note-pin--pinned span.fa {
+      color: #009; }
 
 * {
   font-family: 'Roboto'; }
