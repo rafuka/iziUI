@@ -949,7 +949,7 @@ body {
     z-index: 1; }
     #example-2 .nav-example-container nav.izi-navbar label.hamburguer {
       display: inline-block; }
-    #example-2 .nav-example-container nav.izi-navbar ul.navbar-main {
+    #example-2 .nav-example-container nav.izi-navbar ul.izi-navbar__main {
       align-items: unset;
       background-color: black;
       display: flex;
@@ -962,16 +962,16 @@ body {
       transition: height .3s ease, right .3s ease, left .3s ease;
       width: 100%;
       z-index: 2; }
-      #example-2 .nav-example-container nav.izi-navbar ul.navbar-main li a {
+      #example-2 .nav-example-container nav.izi-navbar ul.izi-navbar__main li a {
         color: white;
         width: 100%;
         display: block;
         padding-right: 35px;
         transition: color .2s ease, background-color .2s ease; }
-        #example-2 .nav-example-container nav.izi-navbar ul.navbar-main li a:hover {
+        #example-2 .nav-example-container nav.izi-navbar ul.izi-navbar__main li a:hover {
           background-color: white;
           color: black; }
-      #example-2 .nav-example-container nav.izi-navbar ul.navbar-main.mobile-left {
+      #example-2 .nav-example-container nav.izi-navbar ul.izi-navbar__main.mobile-left {
         height: 100vh;
         right: 100%; }
     #example-2 .nav-example-container nav.izi-navbar .mask {
