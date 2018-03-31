@@ -180,6 +180,7 @@ body {
 			}
 
 			ul.navbar-main {		
+				align-items: unset;
 				background-color: $navBckgnd;
 				display: flex;
 				flex-direction: column;

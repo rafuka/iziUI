@@ -152,6 +152,8 @@ nav.izi-navbar {
   display: flex;
   min-height: 80px;
   background-color: black;
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
   padding: 0px 15px;
   position: fixed;
   width: 100%;
@@ -212,31 +214,31 @@ nav.izi-navbar {
       transition: -webkit-transform .3s ease .3s;
       transition: transform .3s ease .3s;
       transition: transform .3s ease .3s, -webkit-transform .3s ease .3s; }
-  nav.izi-navbar ul.navbar-main {
+  nav.izi-navbar ul.izi-navbar__main {
     -ms-flex-item-align: center;
         align-self: center;
     margin-left: auto; }
-    nav.izi-navbar ul.navbar-main li a {
+    nav.izi-navbar ul.izi-navbar__main li a {
       color: white;
       padding: 10px;
       padding-left: 20px;
       opacity: .9; }
-      nav.izi-navbar ul.navbar-main li a:hover {
+      nav.izi-navbar ul.izi-navbar__main li a:hover {
         opacity: 1;
         cursor: pointer; }
-    nav.izi-navbar ul.navbar-main .dropdown__toggle {
+    nav.izi-navbar ul.izi-navbar__main .dropdown__toggle {
       display: none; }
-    nav.izi-navbar ul.navbar-main .dropdown__title {
+    nav.izi-navbar ul.izi-navbar__main .dropdown__title {
       color: white;
       padding: 10px;
       padding-left: 20px;
       -webkit-transition: color .2s ease, background-color .2s ease;
       transition: color .2s ease, background-color .2s ease;
       opacity: .9; }
-      nav.izi-navbar ul.navbar-main .dropdown__title:hover {
+      nav.izi-navbar ul.izi-navbar__main .dropdown__title:hover {
         opacity: 1;
         cursor: pointer; }
-    nav.izi-navbar ul.navbar-main .dropdown__menu {
+    nav.izi-navbar ul.izi-navbar__main .dropdown__menu {
       background-color: black;
       border-radius: 0px 0px 5px 5px;
       color: white;
@@ -254,9 +256,9 @@ nav.izi-navbar {
       -webkit-transition: max-height .4s ease, padding .1s .1s ease;
       transition: max-height .4s ease, padding .1s .1s ease;
       visibility: visible; }
-      nav.izi-navbar ul.navbar-main .dropdown__menu li {
+      nav.izi-navbar ul.izi-navbar__main .dropdown__menu li {
         display: block; }
-        nav.izi-navbar ul.navbar-main .dropdown__menu li a {
+        nav.izi-navbar ul.izi-navbar__main .dropdown__menu li a {
           display: block;
           width: 100%; }
 
@@ -270,14 +272,22 @@ nav.izi-navbar {
     max-height: 90vh;
     padding-bottom: 10px; }
   .dropdown:hover > .dropdown__title {
-    opacity: 1; } }
+    opacity: 1; }
+
+  ul.izi-navbar__main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; } }
 @media screen and (max-width: 720px) {
   nav.izi-navbar {
     top: 0px;
     width: 100%; }
     nav.izi-navbar label.hamburguer {
       display: inline-block; }
-    nav.izi-navbar ul.navbar-main {
+    nav.izi-navbar ul.izi-navbar__main {
       background-color: black;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -296,7 +306,7 @@ nav.izi-navbar {
       transition: height .3s ease, right .3s ease-in-out, left .3s ease;
       width: 100%;
       z-index: 2; }
-      nav.izi-navbar ul.navbar-main li a {
+      nav.izi-navbar ul.izi-navbar__main li a {
         color: white;
         width: 100%;
         -webkit-transition: all .1s ease;
@@ -305,22 +315,22 @@ nav.izi-navbar {
         padding-right: 35px;
         -webkit-transition: color .2s ease, background-color .2s ease;
         transition: color .2s ease, background-color .2s ease; }
-        nav.izi-navbar ul.navbar-main li a:hover {
+        nav.izi-navbar ul.izi-navbar__main li a:hover {
           background-color: white;
           color: black;
           cursor: pointer; }
-      nav.izi-navbar ul.navbar-main.mobile-left {
+      nav.izi-navbar ul.izi-navbar__main.mobile-left {
         height: 100vh;
         right: 100%; }
-        nav.izi-navbar ul.navbar-main.mobile-left li {
+        nav.izi-navbar ul.izi-navbar__main.mobile-left li {
           text-align: left; }
-      nav.izi-navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__title {
+      nav.izi-navbar ul.izi-navbar__main .dropdown__toggle:checked ~ .dropdown__title {
         background-color: white;
         color: black; }
-      nav.izi-navbar ul.navbar-main .dropdown__toggle:checked ~ .dropdown__menu {
+      nav.izi-navbar ul.izi-navbar__main .dropdown__toggle:checked ~ .dropdown__menu {
         max-height: 1000px;
         max-height: 80vh; }
-      nav.izi-navbar ul.navbar-main .dropdown__title {
+      nav.izi-navbar ul.izi-navbar__main .dropdown__title {
         color: white;
         width: 100%;
         display: block;
@@ -328,12 +338,12 @@ nav.izi-navbar {
         padding-top: 10px;
         padding-bottom: 10px;
         position: relative; }
-        nav.izi-navbar ul.navbar-main .dropdown__title:hover {
+        nav.izi-navbar ul.izi-navbar__main .dropdown__title:hover {
           background-color: white;
           color: black; }
-          nav.izi-navbar ul.navbar-main .dropdown__title:hover .plus-sign span {
+          nav.izi-navbar ul.izi-navbar__main .dropdown__title:hover .plus-sign span {
             background-color: black; }
-      nav.izi-navbar ul.navbar-main .dropdown__menu {
+      nav.izi-navbar ul.izi-navbar__main .dropdown__menu {
         display: block;
         position: static;
         padding: 0px;
@@ -342,7 +352,7 @@ nav.izi-navbar {
         overflow: auto;
         -webkit-transition: max-height .4s ease;
         transition: max-height .4s ease; }
-        nav.izi-navbar ul.navbar-main .dropdown__menu li a {
+        nav.izi-navbar ul.izi-navbar__main .dropdown__menu li a {
           padding-left: 45px; }
     nav.izi-navbar input#mobile-btn:checked ~ ul {
       height: 100vh;
@@ -1060,6 +1070,9 @@ body {
     #example-2 .nav-example-container nav.izi-navbar label.hamburguer {
       display: inline-block; }
     #example-2 .nav-example-container nav.izi-navbar ul.navbar-main {
+      -webkit-box-align: unset;
+          -ms-flex-align: unset;
+              align-items: unset;
       background-color: black;
       display: -webkit-box;
       display: -ms-flexbox;

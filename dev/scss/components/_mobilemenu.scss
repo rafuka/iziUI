@@ -6,6 +6,7 @@ nav.izi-navbar {
 	@include display-flex();
 	min-height: $navHeight;
 	background-color: $navBckgnd;
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.5);
 	padding: 0px 15px;
 	position: fixed;
 	width: 100%;
@@ -83,7 +84,7 @@ nav.izi-navbar {
 		}
 	}
 
-	ul.navbar-main {
+	ul.izi-navbar__main {
 		align-self: center;
 		margin-left: auto;
 
@@ -166,6 +167,11 @@ nav.izi-navbar {
 			opacity: 1;
 		}
 	}
+
+	ul.izi-navbar__main {
+		display: flex;
+		align-items: center;
+	}
 }
 
 @media screen and (max-width: 720px) {
@@ -178,7 +184,7 @@ nav.izi-navbar {
 			display: inline-block;
 		}
 
-		ul.navbar-main {		
+		ul.izi-navbar__main {		
 			background-color: $navBckgnd;
 			display: flex;
 			flex-direction: column;
