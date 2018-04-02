@@ -75,7 +75,9 @@
 		display: inlien-block;
 		font-weight: bold;
 		height: 150px;
+		overflow: hidden;
 		padding: 7px;
+		padding-right: 15px;
 		position: fixed;
 		transtion: all 2s ease;
 		width: 150px;
@@ -103,6 +105,12 @@
 		}
 	}
 
+	&__note-text {
+		font-size: .8em;
+		max-height: 130px;
+		overflow: hidden;
+	}
+
 	&__note-edit {
 		background: none;
 		border: none;
@@ -111,6 +119,8 @@
 		position: absolute;
 		width: 15px;
 		height: 15px;
+		left: 122px;
+		top: 127px;
 
 		&--editing {
 			span.fa {
@@ -134,8 +144,18 @@
 			span.fa {
 				color: #009;
 			}
-			
 		}
+	}
 
+	&__note-close {
+		background: none;
+		border: none;
+		color: rgba(0,0,0,0.7);
+		cursor: pointer;
+		left: 133px;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		top: 2px;
 	}
 }

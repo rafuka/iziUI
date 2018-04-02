@@ -904,7 +904,9 @@ nav.izi-navbar {
     display: inlien-block;
     font-weight: bold;
     height: 150px;
+    overflow: hidden;
     padding: 7px;
+    padding-right: 15px;
     position: fixed;
     transtion: all 2s ease;
     width: 150px;
@@ -919,6 +921,10 @@ nav.izi-navbar {
       background-color: #08d211; }
     .izi-sticky-pack__note--pink {
       background-color: #fe296d; }
+  .izi-sticky-pack__note-text {
+    font-size: .8em;
+    max-height: 130px;
+    overflow: hidden; }
   .izi-sticky-pack__note-edit {
     background: none;
     border: none;
@@ -926,7 +932,9 @@ nav.izi-navbar {
     cursor: pointer;
     position: absolute;
     width: 15px;
-    height: 15px; }
+    height: 15px;
+    left: 122px;
+    top: 127px; }
     .izi-sticky-pack__note-edit--editing span.fa {
       color: #009; }
   .izi-sticky-pack__note-pin {
@@ -940,6 +948,16 @@ nav.izi-navbar {
     left: 10px; }
     .izi-sticky-pack__note-pin--pinned span.fa {
       color: #009; }
+  .izi-sticky-pack__note-close {
+    background: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    left: 133px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 2px; }
 
 * {
   font-family: 'Roboto'; }
