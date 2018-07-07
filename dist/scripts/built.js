@@ -340,8 +340,14 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 (function () {
 
 	var stickyPackElement = document.getElementById('izi-stickyPack');
-	var activeStickyNotes = []; // An array that will contain all the sticky notes' objects.
-	var notePackData = []; // Contains the data of every created note. For use with local storage to rebuild.
+	var activeStickyNotes = []; // An array that will contain all the sticky notes' DOM elements.
+	
+	//TODO: check if the notePackData array exists in the localStorage. 
+	//		If it does, restore the sticky notes. Else, create it empty.
+
+
+
+	var notePackData = []; // Contains the data of every created note. For use with local storage to rebuild state.
 
 	var createStickyNoteElement = document.getElementsByClassName('izi-sticky-pack__create')[0];
 
@@ -352,29 +358,30 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 		this.style.left = (this.offsetLeft - newX) + 'px';
 		this.style.top = (this.offsetTop - newY) + 'px';
 		this.startX = event.clientX;
-		this.startY = event.clientY;
-		
+		this.startY = event.clientY;	
 	}
 
 	function handleNoteMouseDown(event) {
 		event.preventDefault();
 
-		this.parentElement.appendChild(this);
+		var note = this;
 
-		var noteEditBtn = this.getElementsByClassName('izi-sticky-pack__note-edit')[0];
-		var notePinBtn = this.getElementsByClassName('izi-sticky-pack__note-pin')[0];
-		var closeBtn = this.getElementsByClassName('izi-sticky-pack__note-close')[0];
+		note.parentElement.appendChild(note);
+
+		var noteEditBtn = note.getElementsByClassName('izi-sticky-pack__note-edit')[0];
+		var notePinBtn = note.getElementsByClassName('izi-sticky-pack__note-pin')[0];
+		var closeBtn = note.getElementsByClassName('izi-sticky-pack__note-close')[0];
 
 		if (event.target !== noteEditBtn && event.target !== notePinBtn && event.target !== closeBtn) {
 
-			this.style.transition = 'transform .1s ease';
-			this.style.transform = 'rotate(0deg) scale(1.05)';
-			this.style.boxShadow = '0px 0px 5px rgba(0,0,0,0.6)';
-			this.style.cursor = 'grabbing';
+			note.style.transition = 'transform .1s ease';
+			note.style.transform = 'rotate(0deg) scale(1.05)';
+			note.style.boxShadow = '0px 0px 5px rgba(0,0,0,0.6)';
+			note.style.cursor = 'grabbing';
 
-			this.startX = event.clientX;
-			this.startY = event.clientY;
-			this.addEventListener('mousemove', handleDrag, false);
+			note.startX = event.clientX;
+			note.startY = event.clientY;
+			note.addEventListener('mousemove', handleDrag, false);
 		}
 	}
 
@@ -382,23 +389,30 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 
 		event.preventDefault();
 
-		var noteEditBtn = this.getElementsByClassName('izi-sticky-pack__note-edit')[0];
-		var notePinBtn = this.getElementsByClassName('izi-sticky-pack__note-pin')[0];
-		var closeBtn = this.getElementsByClassName('izi-sticky-pack__note-close')[0];
+		var note = this;
+
+		var noteEditBtn = note.getElementsByClassName('izi-sticky-pack__note-edit')[0];
+		var notePinBtn = note.getElementsByClassName('izi-sticky-pack__note-pin')[0];
+		var closeBtn = note.getElementsByClassName('izi-sticky-pack__note-close')[0];
 
 		if (event.target !== noteEditBtn && event.target !== notePinBtn && event.target !== closeBtn) {
 
 			var randNum = Math.floor((Math.random() * 10) - 5);
 			var transformDegree = randNum < 0 ? randNum - 5 : randNum + 5;
 
-			this.style.transition = 'transform .1s ease';
-			this.style.transform = 'rotate(' + transformDegree + 'deg)';
-			this.style.boxShadow = '0px 4px 7px -3px rgba(0,0,0,0.8)';
-			this.style.cursor = 'grab';
+			
 
-			this.noteData.left = this.style.left;
-			this.noteData.top = this.style.top;
-			this.removeEventListener('mousemove', handleDrag, false);
+			note.style.transition = 'transform .1s ease';
+			note.style.transform = 'rotate(' + transformDegree + 'deg)';
+			note.style.boxShadow = '0px 4px 7px -3px rgba(0,0,0,0.8)';
+			note.style.cursor = 'grab';
+
+			note.noteData.left = note.style.left;
+			note.noteData.top = note.style.top;
+			note.removeEventListener('mousemove', handleDrag, false);
+
+			updatePackData(note);
+			console.log(notePackData);
 		}
 	}
 
@@ -414,12 +428,15 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 		else if (event.keyCode < 37 || event.keyCode > 40) {
 			
 			var text = this;
+			var note = text.parentElement;
 
 			setTimeout(function(){
-				text.parentElement.noteData.content = text.textContent;
+				note.noteData.content = text.textContent;
 				console.log(text.parentElement.noteData.content);
-			}, 0);
-			
+			}, 0);	
+
+			updatePackData(note);
+			console.log(notePackData);
 		}
 	}
 
@@ -427,6 +444,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 		event.preventDefault();
 
 		this.classList.toggle('izi-sticky-pack__note-edit--editing');
+
 
 		var note = this.parentElement;
 		var noteTextP = note.getElementsByClassName('izi-sticky-pack__note-text')[0];
@@ -457,6 +475,8 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 		var note = this.parentElement;
 		var noteOffset = note.getBoundingClientRect();
 
+
+
 		if (note.noteData.isFixed) {
 			note.style.position = 'absolute';
 			note.style.top = (window.scrollY + noteOffset.top) + 'px';
@@ -475,6 +495,9 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 			note.noteData.left = note.style.left;
 			note.noteData.top = note.style.top;
 		}
+
+		updatePackData(note);
+		console.log(notePackData);
 	}
 
 	function handleCloseBtnClick(event) {
@@ -515,6 +538,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 	function createStickyNote(posX, posY) {
 
 		var newNote = {
+			id: notePackData.length + 1,
 			isFixed: true,
 			left: posX,
 			top: posY,
@@ -522,6 +546,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 		};
 
 		notePackData.push(newNote);
+		console.log(notePackData);
 
 		var noteText 		= document.createTextNode(newNote.content);
 		var newNoteElement 	= document.createElement('div');
@@ -601,6 +626,13 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 		return newNoteElement;
 	}
 
+	// Updates the attributes of a given note in the notePackData array every time a note is modified.
+	function updatePackData(note) {
+		notePackData[note.noteData.id - 1] = note.noteData;
+
+		//TODO: Save the notePackData object to the localStorage 
+	}
+
 	createStickyNoteElement.addEventListener('click', function(e) {
 
 		var randPosX = Math.floor((Math.random() * 40) + 20) + '%';
@@ -613,10 +645,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 		newNoteElement.style.transform = 'rotate(' + transformDegree + 'deg)';
 
 		document.body.appendChild(newNoteElement);
-
-
 	});
-
 })();
 
 
