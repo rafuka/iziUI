@@ -2,14 +2,20 @@
 
 	var stickyPackElement = document.getElementById('izi-stickyPack');
 	var activeStickyNotes = []; // An array that will contain all the sticky notes' DOM elements.
-	
-	//TODO: check if the notePackData array exists in the localStorage. 
-	//		If it does, restore the sticky notes. Else, create it empty.
-
-
 
 	var notePackData = []; // Contains the data of every created note. For use with local storage to rebuild state.
 
+	if (localStorage.getItem('notePackData')) {
+		notePackData = JSON.parse(localStorage.getItem('notePackData'));
+
+		for (var i = 0; i < notePackData.length; i++) {
+			var noteElement = createStickyNote(notePackData[i]);
+			addNoteElementToDom(noteElement);
+			console.log('created ' + (i+1) + ' sticky notes..');
+		}
+	}
+
+	
 	var createStickyNoteElement = document.getElementsByClassName('izi-sticky-pack__create')[0];
 
 	function handleDrag(event) {
@@ -196,18 +202,9 @@
 		}
 	}
 
-	function createStickyNote(posX, posY) {
+	function createStickyNote(newNote) {
 
-		var newNote = {
-			id: notePackData.length + 1,
-			isFixed: true,
-			left: posX,
-			top: posY,
-			content: 'Click the edit button to write something.'
-		};
-
-		notePackData.push(newNote);
-		console.log(notePackData);
+		console.log('woob');
 
 		var noteText 		= document.createTextNode(newNote.content);
 		var newNoteElement 	= document.createElement('div');
@@ -220,7 +217,6 @@
 		var closeIcon 		= document.createElement('span');
 
 		newNoteElement.noteData = newNote;
-
 
 		noteTextP.appendChild(noteText);
 
@@ -256,9 +252,8 @@
 		
 		
 		newNoteElement.classList.add('izi-sticky-pack__note');
-		newNoteElement.classList.add('dragging');
 
-		switch (Math.floor((Math.random() * 3) + 1)) {
+		switch (newNote.color) {
 			case 1:
 				newNoteElement.classList.add('izi-sticky-pack__note--green');
 				break;
@@ -268,6 +263,12 @@
 			case 3:
 				newNoteElement.classList.add('izi-sticky-pack__note--pink');
 				break;
+		}
+
+		if (!newNote.isFixed) {
+			newNoteElement.style.position = 'absolute';
+			newNoteElement.style.zIndex = '1';
+			notePinBtn.classList.add('izi-sticky-pack__note-pin--pinned');
 		}
 		
 		newNoteElement.style.top = newNote.top;
@@ -291,7 +292,14 @@
 	function updatePackData(note) {
 		notePackData[note.noteData.id - 1] = note.noteData;
 
-		//TODO: Save the notePackData object to the localStorage 
+		//TODO: Save the notePackData object to the localStorage
+		localStorage.setItem('notePackData', JSON.stringify(notePackData));
+	}
+
+	function addNoteElementToDom(noteElement) {
+		var transformDegree = Math.floor((Math.random() * 12) - 6);
+		noteElement.style.transform = 'rotate(' + transformDegree + 'deg)';
+		document.body.appendChild(noteElement);
 	}
 
 	createStickyNoteElement.addEventListener('click', function(e) {
@@ -299,12 +307,24 @@
 		var randPosX = Math.floor((Math.random() * 40) + 20) + '%';
 		var randPosY = Math.floor((Math.random() * 40) + 20) + '%';
 
-		var newNoteElement = createStickyNote(randPosX, randPosY);
+		var newNote = {
+			id: notePackData.length + 1,
+			isFixed: true,
+			left: randPosX,
+			color: Math.floor((Math.random() * 3) + 1),
+			top: randPosY,
+			content: 'Click the edit button to write something.'
+		};
 
-		var transformDegree = Math.floor((Math.random() * 12) - 6);
 
-		newNoteElement.style.transform = 'rotate(' + transformDegree + 'deg)';
+		notePackData.push(newNote);
+		console.log(notePackData);
 
-		document.body.appendChild(newNoteElement);
+		localStorage.setItem('notePackData', JSON.stringify(notePackData));
+
+		var newNoteElement = createStickyNote(newNote);
+
+		addNoteElementToDom(newNoteElement);
+		
 	});
 })();
