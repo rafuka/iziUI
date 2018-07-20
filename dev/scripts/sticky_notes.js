@@ -1,22 +1,24 @@
 (function () {
 
-	var stickyPackElement = document.getElementById('izi-stickyPack');
 	var activeStickyNotes = []; // An array that will contain all the sticky notes' DOM elements.
-
 	var notePackData = []; // Contains the data of every created note. For use with local storage to rebuild state.
 
 	if (localStorage.getItem('notePackData')) {
 		notePackData = JSON.parse(localStorage.getItem('notePackData'));
 
 		for (var i = 0; i < notePackData.length; i++) {
-			var noteElement = createStickyNote(notePackData[i]);
-			addNoteElementToDom(noteElement);
-			console.log('created ' + (i+1) + ' sticky notes..');
+			if (notePackData[i] !== null) {
+				var noteElement = createStickyNote(notePackData[i]);
+				addNoteElementToDom(noteElement);
+				console.log('created ' + (i+1) + ' sticky notes..');
+			}
+			
 		}
 	}
 
+	// TODO: Implement a better solution for removing notes (instead of just setting hte note object to null in the notePackData array).
 	
-	var createStickyNoteElement = document.getElementsByClassName('izi-sticky-pack__create')[0];
+	var createStickyNoteElement = document.getElementsByClassName('izi-sticky-pack')[0];
 
 	function handleDrag(event) {
 
@@ -79,11 +81,10 @@
 			note.removeEventListener('mousemove', handleDrag, false);
 
 			updatePackData(note);
-			console.log(notePackData);
 		}
 	}
 
-	function handleKeyDownOnText(event) {
+	function handleKeyUpOnText(event) {
 		if (this.textContent.length > 170 && 
 			event.keyCode !== 8 && 
 			event.keyCode !== 46 &&
@@ -97,13 +98,9 @@
 			var text = this;
 			var note = text.parentElement;
 
-			setTimeout(function(){
-				note.noteData.content = text.textContent;
-				console.log(text.parentElement.noteData.content);
-			}, 0);	
+			note.noteData.content = text.textContent;
 
 			updatePackData(note);
-			console.log(notePackData);
 		}
 	}
 
@@ -164,7 +161,6 @@
 		}
 
 		updatePackData(note);
-		console.log(notePackData);
 	}
 
 	function handleCloseBtnClick(event) {
@@ -186,25 +182,21 @@
 
 			pinBtn.removeEventListener('click', handlePinBtnClick, false);
 
-			text.removeEventListener('keydown', handleKeyDownOnText, false);
+			text.removeEventListener('keyup', handleKeyUpOnText, false);
 
 			this.removeEventListener('click', handleCloseBtnClick, false);
 
 			// Remove note data object
 			notePackData[notePackData.indexOf(note.noteData)] = null;
-			
+			// Save to Local Storage
+			localStorage.setItem('notePackData', JSON.stringify(notePackData));
 			// Remove note Element from the DOM.
 			note.remove();
 
 		}
-		else {
-			console.log(notePackData);
-		}
 	}
 
 	function createStickyNote(newNote) {
-
-		console.log('woob');
 
 		var noteText 		= document.createTextNode(newNote.content);
 		var newNoteElement 	= document.createElement('div');
@@ -223,7 +215,7 @@
 		noteTextP.classList.add('izi-sticky-pack__note-text');
 		noteTextP.setAttribute('contenteditable', 'false');
 
-		noteTextP.addEventListener('keydown', handleKeyDownOnText, false);
+		noteTextP.addEventListener('keyup', handleKeyUpOnText, false);
 
 		pinIcon.classList.add('fa');
 		pinIcon.classList.add('fa-thumb-tack');
@@ -291,8 +283,6 @@
 	// Updates the attributes of a given note in the notePackData array every time a note is modified.
 	function updatePackData(note) {
 		notePackData[note.noteData.id - 1] = note.noteData;
-
-		//TODO: Save the notePackData object to the localStorage
 		localStorage.setItem('notePackData', JSON.stringify(notePackData));
 	}
 
@@ -318,7 +308,6 @@
 
 
 		notePackData.push(newNote);
-		console.log(notePackData);
 
 		localStorage.setItem('notePackData', JSON.stringify(notePackData));
 
