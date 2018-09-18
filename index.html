@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="dist/css/main.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
@@ -19,16 +19,16 @@
 			<span></span>
 			<span></span>
 		</label>
-		
+
 		<ul class="izi-navbar__main mobile-left">
 			<li><a href="#">Layout</a></li>
 			<li class="dropdown">
 				<input type="checkbox" name="mobile-dropdown-toggle" class="dropdown__toggle" id="mobile-dropdown-toggle">
-				<label class="dropdown__title" for="mobile-dropdown-toggle">Components<div class="plus-sign"><span></span><span></span></div></label>	
+				<label class="dropdown__title" for="mobile-dropdown-toggle">Components<div class="plus-sign"><span></span><span></span></div></label>
 				<ul class="dropdown__menu">
                     <li><a href="#mobile-nav-anchor">Mobile Nav</a></li>
 					<li><a href="#buttons-anchor">Buttons</a></li>
-					<li><a href="#cards-anchor">Cards</a></li>	
+					<li><a href="#cards-anchor">Cards</a></li>
 					<li><a href="#accordions-anchor">Accordion</a></li>
 					<li><a href="#tabs-anchor">Tab Panel</a></li>
                     <li><a href="#carousel-anchor">Image Carousel</a></li>
@@ -37,7 +37,7 @@
 				</ul>
 			</li>
 			<li><a href="#">About</a></li>
-			<li><a href="https://github.com/rafuka/iziUI" id="githublink"><span class="fa fa-github fa-2x"></span></a></li>
+			<li><a href="https://github.com/rafuka/iziUI" id="githublink"><i class="fab fa-github"></i></a></li>
 		</ul>
 	</nav>
 
@@ -45,14 +45,14 @@
 		<section>
             <div class="izi-banner">
                 <p id="intro-p">iziUI is an easy-to-use UI framework based on CSS flexbox.</p>
-        
+
                 <h1>Layout</h1>
-                
-                <p>The use of flex-box containers instead of columns and rows makes it a simple framework for a quick responsive solution!</p>
+
+                <p>The use of flex-box containers instead of the usual columns and rows grid systems makes it a very easy to use framework for a quick responsive solution!</p>
                 <p>The main layout components are containers, which come in two flavors &mdash; row containers and column containers &mdash; and correspond to the <code>flex-direction: column</code> and <code>flex-direction: row</code> properties.</p>
                 <p>iziUI allows you to create responsive layouts in seconds! Plus it is highly customizable using the flexbox properties.</p>
             </div>
-			
+
 			<div class="container-row example" id="example-1">
 				<div class="container-row">
 					<div>1</div>
@@ -61,7 +61,7 @@
 					<div>4</div>
 					<div>5</div>
 					<input id="example-1-input-1" type="checkbox" class="js-modifier-width">
-					<label for="example-1-input-1"><i class="fas fa-arrows-alt-h"></i></label>
+					<label for="example-1-input-1"><i class="fas fa-arrows-alt-h change-size"></i></label>
 				</div>
 				<div class="container-col">
 					<div>1</div>
@@ -70,7 +70,7 @@
 					<div>4</div>
 					<div>5</div>
 					<input id="example-1-input-2" type="checkbox" class="js-modifier-height">
-					<label for="example-1-input-2"><i class="fas fa-arrows-alt-v"></i></label>
+					<label for="example-1-input-2"><i class="fas fa-arrows-alt-v change-size"></i></label>
 				</div>
 				<div class="container-row">
 					<div>1</div>
@@ -81,7 +81,7 @@
 						<div>5</div>
 					</div>
 					<input id="example-1-input-3" type="checkbox" class="js-modifier-width" checked>
-					<label for="example-1-input-3"><i class="fas fa-arrows-alt-h"></i></label>
+					<label for="example-1-input-3"><i class="fas fa-arrows-alt-h change-size"></i></label>
 				</div>
 			</div>
 		</section>
@@ -90,7 +90,7 @@
                 <h1>Components</h1>
                 <h2>Responsive Navigation Menu</h2>
             </div>
-			
+
 			<div class="container-row example" id="example-2">
 				<div class="nav-example-container">
 					<nav class="izi-navbar">
@@ -102,12 +102,12 @@
 							<span></span>
 							<span></span>
 						</label>
-								
+
 						<ul class="izi-navbar__main mobile-left">
 							<li><a href="#">One</a></li>
 							<li class="dropdown">
 								<input type="checkbox" class="dropdown__toggle" id="mobile-dropdown-toggle-example">
-								<label class="dropdown__title" for="mobile-dropdown-toggle-example">Two<div class="plus-sign"><span></span><span></span></div></label>	
+								<label class="dropdown__title" for="mobile-dropdown-toggle-example">Two<div class="plus-sign"><span></span><span></span></div></label>
 								<ul class="dropdown__menu">
 									<li><a href="#">Two and one quarter</a></li>
 									<li><a href="#">Two and a half</a></li>
@@ -117,7 +117,7 @@
 							<li><a href="#">Three</a></li>
 						</ul>
 					</nav>
-				</div>			
+				</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
@@ -132,12 +132,12 @@
       &lt;span&gt;&lt;/span&gt;
       &lt;span&gt;&lt;/span&gt;
     &lt;/label&gt;
-								
+
     &lt;ul class="izi-navbar__main mobile-left"&gt;
         &lt;li&gt;&lt;a href="#"&gt;One&lt;/a&gt;&lt;/li&gt;
         &lt;li class="dropdown"&gt;
             &lt;input type="checkbox" class="dropdown__toggle" id="&lt;!-- dropdown-toggle-id --&gt;"&gt;
-            &lt;label class="dropdown__title" for="&lt;!-- dropdown-toggle-id --&gt;"&gt;Two&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/label&gt;	
+            &lt;label class="dropdown__title" for="&lt;!-- dropdown-toggle-id --&gt;"&gt;Two&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/label&gt;
             &lt;ul class="dropdown__menu"&gt;
                 &lt;li&gt;&lt;a href="#"&gt;Two and one quarter&lt;/a&gt;&lt;/li&gt;
                 &lt;li&gt;&lt;a href="#"&gt;Two and a half&lt;/a&gt;&lt;/li&gt;
@@ -150,7 +150,7 @@
 					</pre>
 				</div>
 			</div>
-			
+
 			<div class="izi-banner" id="buttons-anchor">
                 <h2>Buttons</h2>
             </div>
@@ -205,14 +205,14 @@
 &lt;button class="izi-btn izi-btn--pressable-2 izi-btn--primary"&gt;PRIMARY&lt;/button&gt;
 &lt;button class="izi-btn izi-btn--pressable-2 izi-btn--success"&gt;SUCCESS&lt;/button&gt;
 &lt;button class="izi-btn izi-btn--pressable-2 izi-btn--danger"&gt;DANGER&lt;/button&gt;
-                    </pre>            
+                    </pre>
                 </div>
 			</div>
-				
+
             <div class="izi-banner" id="cards-anchor">
                 <h2 >Cards</h2>
             </div>
-			
+
 			<div class="container-row example" id="example-4">
 				<div class="card">
 					<div class="card__content">
@@ -225,8 +225,7 @@
 					</header>
 					<div class="card__content">
 						<h1>Title</h1>
-						<p>Lorem sf Ipsum Lorsdgsdfem Ipsum a Lorem xy Ipsum Loremgdsd Ipsum Lorem Ipsum
-										Lorem Ipsum  sfdg Lorem Ipsum Lorem Ipsusdgm Loremg Ipsum Lorem Ipsum 
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 						</p>
 					</div>
 					<footer>
@@ -239,9 +238,7 @@
 					</header>
 					<div class="card__content">
 						<h1>Title</h1>
-						<p>Lorem ipsum asl ahsihfkasjb lksahrbflshab jhsabg
-										sfg fdas gdf gad sdh sdgh sdgh sdghwreh dlñkh ñsjdgh 
-										erlyhjha dfm jkdhlkjh dkjg halkdj hgsldk.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 					</div>
                     <footer>
                         <p>card footer</p>
@@ -281,33 +278,33 @@
         &lt;!-- Card footer content here --&gt;
     &lt;/footer&gt;
 &lt;/div&gt;
-</pre>            
+</pre>
                 </div>
 			</div>
 
             <div class="izi-banner" id="accordions-anchor">
                 <h2>Accordions</h2>
             </div>
-			
+
 			<div class="container-row example" id="example-5">
 				<div class="container-row">
 					<h3>Multiple expanded tabs accordion</h3>
 					<div class="accordion--multiple">
 						<div class="accordion__tab">Tab 1</div>
 						<div class="accordion__panel">
-							<p>Lorem ipsum ksjbf khasg sljkhgas gass kd sdfgls hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</div>
 						<div class="accordion__tab">Tab 2</div>
 						<div class="accordion__panel">
-							<p>Lorem ipsum ksjbf khasg  h ksdjh kshad lsjhls uhgsahg kfgjfhbh jj h kdfkg ls sj kdgldhd hdhf ldshg h hd dj f    kdhg kslsdkg d kd d   dh kdhgkj lkdhg dks d kd lkdhgkd jdh jjf huehw p p epie ii ru e iwiw ei piue ie  eiweihe e ei ipew h  e  ih gt t y uf ytf k fk hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</div>
 						<div class="accordion__tab">Tab 3</div>
 						<div class="accordion__panel">
-							<p>Lorem ipsum ksjbf khasg dj h  ks djshdkj djkshj dskdj kjs j d kjdsh sjkd kdh djh kjdh kjds h hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 						</div>
 						<div class="accordion__tab">Tab 4</div>
 						<div class="accordion__panel">
-							<p>Lorem ipsum ksjbf khasg  dkgyksd gsdgd dkj dh hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</div>
 					</div>
 
@@ -315,19 +312,19 @@
 					<div class="accordion--single">
 						<div class="accordion__tab">Tab 1</div>
 						<div class="accordion__panel">
-							<p>Lorem ipsum ksjbf khasg sljkhgas gass kd sdfgls hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 						</div>
 						<div class="accordion__tab">Tab 2</div>
 						<div class="accordion__panel">
-							<p>Lorem ipsum ksjbf khasg  h ksdjh kshad lsjhls uhgsahg kfgjfhbh jj h kdfkg ls sj kdgldhd hdhf ldshg h hd dj f    kdhg kslsdkg d kd d   dh kdhgkj lkdhg dks d kd lkdhgkd jdh jjf huehw p p epie ii ru e iwiw ei piue ie  eiweihe e ei ipew h  e  ih gt t y uf ytf k fk hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</div>
 						<div class="accordion__tab">Tab 3</div>
 						<div class="accordion__panel">
-							<p>Lorem ipsum ksjbf khasg dj h  ks djshdkj djkshj dskdj kjs j d kjdsh sjkd kdh djh kjdh kjds h hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 						</div>
 						<div class="accordion__tab">Tab 4</div>
 						<div class="accordion__panel">
-							<p>Lorem ipsum ksjbf khasg  dkgyksd gsdgd dkj dh hsnagj hsgjbsfdlkjghs dk jkdh ksdlg dkg</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 						</div>
 					</div>
 				</div>
@@ -375,14 +372,14 @@
         &lt;p&gt;&lt;!-- Accordion panel content here --&gt;&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-                    </pre>            
+                    </pre>
                 </div>
 			</div>
 
             <div class="izi-banner" id="tabs-anchor">
                 <h2>Tab Panels</h2>
             </div>
-			
+
 			<div class="container-row example" id="example-6">
 				<div class="container-row">
 					<h3>Default tabs</h3>
@@ -427,8 +424,8 @@
 							<div class="tabs__panel" id="tab-panel-5">Second Panel.</div>
 							<div class="tabs__panel" id="tab-panel-6">Third Panel.</div>
 						</div>
-					</div>			
-				</div>	
+					</div>
+				</div>
 			</div>
 			<div class="html-footer accordion--single">
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
@@ -474,15 +471,15 @@
         &lt;div class="tabs__panel" id="tab-panel-5"&gt;&lt;!-- Tab Content --&gt;&lt;/div&gt;
         &lt;div class="tabs__panel" id="tab-panel-6"&gt;&lt;!-- Tab Content --&gt;&lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;          
-                    </pre>            
+&lt;/div&gt;
+                    </pre>
                 </div>
 			</div>
-				
+
             <div class="izi-banner" id="carousel-anchor">
                 <h2>Carousel</h2>
             </div>
-			
+
 			<div class="container-row example" id="example-7">
 				<div class="container-row">
 					<div class="carousel">
@@ -563,14 +560,14 @@
     &lt;div class="carousel__arrow-right"&gt;&gt;&lt;/div&gt;
     &lt;div class="carousel__arrow-left"&gt;&lt;&lt;/div&gt;
 &lt;/div&gt;
-                    </pre>            
+                    </pre>
                 </div>
 			</div>
 
             <div class="izi-banner" id="modals-anchor">
                 <h2>Modal</h2>
             </div>
-			
+
 			<div class="container-row example" id="example-8">
 				<div class="container-row">
 					<h3>Click on the Button/Anchor to show modal</h3>
@@ -597,7 +594,7 @@
 						<div class="modal__box">
 							<div class="modal__header">
 								<p>This is the Modal's Header</p>
-								<span class="modal__close">X</span>
+								<span class="modal__close"><i class="fas fa-times"></i></span>
 							</div>
 							<div class="modal__body">
 								<p>This is the Modal's Body</p>
@@ -646,14 +643,14 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-                    </pre>            
+                    </pre>
                 </div>
 			</div>
 
             <div class="izi-banner" id="input-anchor">
                 <h2>Radio Buttons and Check Boxes</h2>
             </div>
-			
+
 			<div class="container-row example" id="example-9">
 				<div class="container-row">
 					<div class="input-field">
@@ -720,20 +717,29 @@
 &lt;input class="izi-checkbox izi-checkbox--default" type="checkbox" name="checkdemo" id="normal"&gt;
 &lt;label for="normal"&gt;&lt;!-- Label text here --&gt;&lt;/label&gt;
 
-                    </pre>            
+                    </pre>
                 </div>
 			</div>
 
             <div class="izi-banner">
                 <h2>Sticky Notes (innovative component)</h2>
                 <p>This component allows users to place sticky notes on their browser's window screen. The sticky notes may have a fixed position (sticked to the sreen) or a an absolute position (sticked to the document's body). </p>
+                <p>To try out this component, click on the switch in the example box below. This will turn on the sticky note component and you'll notice a tab appearing on the lower left corner of the screen. This is the sticky-notes pack! Click on it to create a sticky note.</p>
+                <p>Once you create a sticky note, you'll notice it has three buttons:
+                	<ul>
+                		<li>- Close (<i class="fas fa-times"></i>): will delete the sticky note upon clicking on it and confirming that you want to delete it.</li>
+                		<li>- Edit (<i class="far fa-edit"></i>): will toggle the edit function. When turned on, you'll be able to edit the text content on the sticky note.</li>
+                		<li>- Pin (<i class="fas fa-thumbtack"></i>): this will toggle how the sticky note behaves. Either it sticks to the window (fixed position) or to the document (absolute position)</li>
+                	</ul>
+                </p>
+                <p>You can drag the sticky note and place it anywere in the webpage.</p>
             </div>
-			
+
 			<div class="container-row example" id="example-10">
 				<div class="container-row">
 					<div class="sticky-note-switch-container">
-                        <input type="checkbox" class="izi-checkbox izi-checkbox--switch" name="sticky-note-switch" id="sticky-note-switch"> 
-                        <span class="sticky-note-switch-state"></span>              
+                        <input type="checkbox" class="izi-checkbox izi-checkbox--switch" name="sticky-note-switch" id="sticky-note-switch">
+                        <span class="sticky-note-switch-state"></span>
                     </div>
 				</div>
 			</div>
@@ -741,8 +747,17 @@
 				<div class="accordion__tab">Show Markup &lt;&#x2F;&gt;</div>
 				<div class="accordion__panel">
                     <pre>
-
-                    </pre>            
+&lt;div class="izi-sticky-pack"&gt;
+  &lt;div class="izi-sticky-pack__icon"&gt;
+    &lt;span&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="izi-sticky-pack__tooltip"&gt;
+    &lt;p&gt;Click to create a new Sticky Note!&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                    </pre>
                 </div>
 			</div>
 
@@ -750,13 +765,13 @@
 			<footer class="main-footer"> Created by Rafael Garcia 2018</footer>
 		</main>
 
-        <div class="izi-sticky-pack">    
+        <div class="izi-sticky-pack">
             <div class="izi-sticky-pack__icon">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            
+
             <div class="izi-sticky-pack__tooltip">
                 <p>Click to create a new Sticky Note!</p>
             </div>

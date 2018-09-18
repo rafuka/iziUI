@@ -5,7 +5,7 @@
 	position: fixed;
 	top: 85%;
 	left: 0;
-	
+
 	&__tooltip {
 		background-color: rgba(0,0,0,0.7);
 		border-radius: 50% 50% 50% 0px;
@@ -14,9 +14,9 @@
 		display: none;
 		font-size: .8em;
 		padding: 15px;
-		position: absolute; 
+		position: absolute;
 		left: calc(100% + 2px);
-		text-align: center;	
+		text-align: center;
 		width: 130px;
 	}
 
@@ -50,7 +50,7 @@
 			& ~ .izi-sticky-pack__tooltip {
 				display: inline-block;
 			}
-		}	
+		}
 	}
 
 	&__create {
@@ -85,7 +85,7 @@
 		z-index: 2;
 
 		&:hover {
-			
+
 		}
 
 		&:active {
@@ -116,18 +116,17 @@
 		border: none;
 		color: rgba(0,0,0,0.7);
 		cursor: pointer;
+		padding: 2px;
 		position: absolute;
 		width: 15px;
 		height: 15px;
 		left: 122px;
+		text-align: center;
 		top: 127px;
 
 		&--editing {
-			span.fa {
-				color: #009;
-			}
+			color: cyan;
 		}
-		
 	}
 
 	&__note-pin {
@@ -135,15 +134,13 @@
 		border: none;
 		color: rgba(0,0,0,0.7);
 		cursor: pointer;
-		padding: 0px;
+		padding: 2px;
 		position: absolute;
 		top: 125px;
 		left: 10px;
 
 		&--pinned {
-			span.fa {
-				color: #009;
-			}
+			color: cyan;
 		}
 	}
 
@@ -154,7 +151,7 @@
 		cursor: pointer;
 		left: 133px;
 		margin: 0;
-		padding: 0;
+		padding: 2px;
 		position: absolute;
 		top: 2px;
 	}

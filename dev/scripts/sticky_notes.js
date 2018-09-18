@@ -12,12 +12,11 @@
 				addNoteElementToDom(noteElement);
 				console.log('created ' + (i+1) + ' sticky notes..');
 			}
-			
 		}
 	}
 
 	// TODO: Implement a better solution for removing notes (instead of just setting hte note object to null in the notePackData array).
-	
+
 	var createStickyNoteElement = document.getElementsByClassName('izi-sticky-pack')[0];
 
 	function handleDrag(event) {
@@ -27,7 +26,7 @@
 		this.style.left = (this.offsetLeft - newX) + 'px';
 		this.style.top = (this.offsetTop - newY) + 'px';
 		this.startX = event.clientX;
-		this.startY = event.clientY;	
+		this.startY = event.clientY;
 	}
 
 	function handleNoteMouseDown(event) {
@@ -69,7 +68,7 @@
 			var randNum = Math.floor((Math.random() * 10) - 5);
 			var transformDegree = randNum < 0 ? randNum - 5 : randNum + 5;
 
-			
+
 
 			note.style.transition = 'transform .1s ease';
 			note.style.transform = 'rotate(' + transformDegree + 'deg)';
@@ -85,8 +84,8 @@
 	}
 
 	function handleKeyUpOnText(event) {
-		if (this.textContent.length > 170 && 
-			event.keyCode !== 8 && 
+		if (this.textContent.length > 170 &&
+			event.keyCode !== 8 &&
 			event.keyCode !== 46 &&
 			event.keyCode !== 16 &&
 			(event.keyCode < 37 || event.keyCode > 40)) {
@@ -94,7 +93,7 @@
 			event.preventDefault();
 		}
 		else if (event.keyCode < 37 || event.keyCode > 40) {
-			
+
 			var text = this;
 			var note = text.parentElement;
 
@@ -106,6 +105,8 @@
 
 	function handleEditBtnClick(event) {
 		event.preventDefault();
+		event.stopPropagation();
+		event.stopImmediatePropagation();
 
 		this.classList.toggle('izi-sticky-pack__note-edit--editing');
 
@@ -128,11 +129,13 @@
 
 			note.addEventListener('mousedown', handleNoteMouseDown, false);
 			note.addEventListener('mouseup', handleNoteMouseUp, false);
-		}	
+		}
 	}
 
 	function handlePinBtnClick(event) {
 		event.preventDefault();
+		event.stopPropagation();
+		event.stopImmediatePropagation();
 
 		this.classList.toggle('izi-sticky-pack__note-pin--pinned');
 
@@ -154,7 +157,7 @@
 			note.style.position = 'fixed';
 			note.style.top = noteOffset.top + 'px';
 			note.style.zIndex = 2;
-		
+
 			note.noteData.isFixed = true;
 			note.noteData.left = note.style.left;
 			note.noteData.top = note.style.top;
@@ -168,7 +171,7 @@
 		event.preventDefault();
 
 		if (confirm('Are you sure you want to delete this note?')) {
-				
+
 			var note = this.parentElement;
 			var editBtn = note.getElementsByClassName('izi-sticky-pack__note-edit')[0];
 			var pinBtn = note.getElementsByClassName('izi-sticky-pack__note-pin')[0];
@@ -178,13 +181,13 @@
 			note.removeEventListener('mousedown', handleNoteMouseDown, false);
 			note.removeEventListener('mouseup', handleNoteMouseUp, false);
 
-			editBtn.removeEventListener('click', handleEditBtnClick, false);
+			editBtn.removeEventListener('mousedown', handleEditBtnClick, false);
 
-			pinBtn.removeEventListener('click', handlePinBtnClick, false);
+			pinBtn.removeEventListener('mousedown', handlePinBtnClick, false);
 
 			text.removeEventListener('keyup', handleKeyUpOnText, false);
 
-			this.removeEventListener('click', handleCloseBtnClick, false);
+			this.removeEventListener('mousedown', handleCloseBtnClick, false);
 
 			// Remove note data object
 			notePackData[notePackData.indexOf(note.noteData)] = null;
@@ -217,39 +220,39 @@
 
 		noteTextP.addEventListener('keyup', handleKeyUpOnText, false);
 
-		pinIcon.classList.add('fa');
-		pinIcon.classList.add('fa-thumb-tack');
+		pinIcon.classList.add('fas');
+		pinIcon.classList.add('fa-thumbtack');
 
 		notePinBtn.appendChild(pinIcon);
 
 		notePinBtn.classList.add('izi-sticky-pack__note-pin');
 
-		notePinBtn.addEventListener('click', handlePinBtnClick, false);
+		notePinBtn.addEventListener('mousedown', handlePinBtnClick, false);
 
-		editIcon.classList.add('fa');
-		editIcon.classList.add('fa-pencil');
+		editIcon.classList.add('far');
+		editIcon.classList.add('fa-edit');
 
 		noteEditBtn.appendChild(editIcon);
 
 		noteEditBtn.classList.add('izi-sticky-pack__note-edit');
 
-		noteEditBtn.addEventListener('click', handleEditBtnClick, false);
+		noteEditBtn.addEventListener('mousedown', handleEditBtnClick, false);
 
 		closeBtn.classList.add('izi-sticky-pack__note-close');
 		closeIcon.classList.add('fa');
 		closeIcon.classList.add('fa-times');
 		closeBtn.appendChild(closeIcon);
 
-		closeBtn.addEventListener('click', handleCloseBtnClick, false);
-		
-		
+		closeBtn.addEventListener('mousedown', handleCloseBtnClick, false);
+
+
 		newNoteElement.classList.add('izi-sticky-pack__note');
 
 		switch (newNote.color) {
 			case 1:
 				newNoteElement.classList.add('izi-sticky-pack__note--green');
 				break;
-			case 2: 
+			case 2:
 				newNoteElement.classList.add('izi-sticky-pack__note--yellow');
 				break;
 			case 3:
@@ -262,7 +265,7 @@
 			newNoteElement.style.zIndex = '1';
 			notePinBtn.classList.add('izi-sticky-pack__note-pin--pinned');
 		}
-		
+
 		newNoteElement.style.top = newNote.top;
 		newNoteElement.style.left = newNote.left;
 
@@ -314,6 +317,6 @@
 		var newNoteElement = createStickyNote(newNote);
 
 		addNoteElementToDom(newNoteElement);
-		
+
 	});
 })();

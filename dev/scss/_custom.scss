@@ -1,6 +1,11 @@
 * {
 	font-family: 'Roboto';
 }
+
+html {
+	background-color: black;
+}
+
 a.logo {
 
 	h1 {
@@ -29,10 +34,9 @@ pre {
 
 footer.main-footer {
 	background-color: $navBckgnd;
-	text-align: center;
-	padding: 20px;
 	color: white;
-	height: 300px;
+	padding: 20px;
+	text-align: center;
 }
 
 body {
@@ -40,7 +44,6 @@ body {
 }
 
 .example::before {
-
 	content: 'example';
 	font-family: 'mono', sans-serif;
 	font-size: .9em;
@@ -52,7 +55,6 @@ body {
 }
 
 .example {
-
 	background-color: lighten($primaryColor, 30%);
 	border: 3px solid darken($primaryColor, 10%);
 	border-left: none;
@@ -77,7 +79,7 @@ body {
 		margin: 10px;
 		padding-top: 12px;
 		padding-left: 15px;
-		width: 40px;	
+		width: 40px;
 	}
 
 	& > div[class*="container"] {
@@ -96,13 +98,13 @@ body {
 			font-weight: bold;
 			position: absolute;
 			top: 3px;
-			left: 7px;	
+			left: 7px;
 		}
 	}
 
 	& > div.container-row {
 		&::before {
-			content: 'container-row';	
+			content: 'container-row';
 		}
 	}
 
@@ -118,7 +120,6 @@ body {
 		&[class$="height"] {
 			right: 3px;
 			top:3px;
-
 		}
 
 		&[class$="width"] {
@@ -131,10 +132,10 @@ body {
 		position: absolute;
 		height: 0px;
 		visibility: hidden;
-		width: 0px; 
-		
+		width: 0px;
+
 		& + label {
-			color: red;
+			color: $dangerColor;
 			position: absolute;
 		}
 
@@ -144,16 +145,27 @@ body {
 
 		&[class$="width"] + label {
 			bottom: 5px;
+			font-size: 1.3em;
+			transition: transform .3s ease;
+
+			&:hover {
+				transform: scale(1.3);
+			}
 		}
 
 		&[class$="height"] + label {
-			right: -30px;
-			transform: rotate(90deg);
+			font-size: 1.3em;
+			right: 5px;
+			transition: transform .3s ease;
+
+			&:hover {
+				transform: scale(1.3);
+			}
 		}
 
 		&:checked + label {
-			color: green;
-		}	
+			color: $successColor;
+		}
 	}
 }
 
@@ -168,7 +180,6 @@ body {
 		position: relative;
 		width: 300px;
 
-
 		nav.izi-navbar {
 			top: 0px;
 			width: 100%;
@@ -179,7 +190,7 @@ body {
 				display: inline-block;
 			}
 
-			ul.izi-navbar__main {		
+			ul.izi-navbar__main {
 				align-items: unset;
 				background-color: $navBckgnd;
 				display: flex;
@@ -190,11 +201,10 @@ body {
 				position: absolute;
 				top: 100%;
 				transition: height .3s ease, right .3s ease, left .3s ease;
-				width: 100%; 
+				width: 100%;
 				z-index: 2;
 
 				li {
-
 					a {
 						color: $navColor;
 						width: 100%;
@@ -213,8 +223,6 @@ body {
 					height: 100vh;
 					right: 100%;
 				}
-
-
 			}
 
 			.mask {
@@ -224,7 +232,6 @@ body {
 			}
 
 			input#mobile-btn-example-2-1 {
-				
 				&:checked ~ ul {
 					height: 100vh;
 					height: calc(75vh - 40px);
@@ -242,7 +249,7 @@ body {
 
 					& ~ .dropdown__title {
 						background-color: $navColor;
-						color: $navBckgnd;		
+						color: $navBckgnd;
 					}
 
 					& ~ .dropdown__menu {
@@ -315,7 +322,7 @@ body {
 
 #example-3 {
 
-	& > div[class*='container'] {	
+	& > div[class*='container'] {
 		background-color: white;
 		border-radius: 10px;
 		margin-top: 20px;
@@ -335,7 +342,7 @@ body {
 
 #example-5 {
 
-	& > div[class*='container'] {	
+	& > div[class*='container'] {
 		background-color: white;
 		border-radius: 10px;
 		margin-top: 20px;
@@ -362,7 +369,7 @@ body {
 }
 
 #example-6 {
-	& > div[class*='container'] {	
+	& > div[class*='container'] {
 		background-color: white;
 		border-radius: 10px;
 		margin: 10px;
@@ -382,7 +389,7 @@ body {
 }
 
 #example-7 {
-	& > div[class*='container'] {	
+	& > div[class*='container'] {
 		background-color: white;
 		border-radius: 10px;
 		margin: 10px;
@@ -400,7 +407,6 @@ body {
 	}
 
 	.carousel {
-
 		&__slide {
 
 			> img {
@@ -412,7 +418,7 @@ body {
 }
 
 #example-8 {
-	& > div[class*='container'] {	
+	& > div[class*='container'] {
 		background-color: white;
 		border-radius: 10px;
 		margin: 10px;
@@ -463,7 +469,7 @@ body {
 }
 
 #example-9 {
-	& > div[class*='container'] {	
+	& > div[class*='container'] {
 		background-color: white;
 		border-radius: 10px;
 		margin: 10px;
@@ -478,13 +484,11 @@ body {
 				margin-top: 0px;
 			}
 		}
-
-
 	}
 }
 
 #example-10 {
-	& > div[class*='container'] {	
+	& > div[class*='container'] {
 		background-color: white;
 		border-radius: 10px;
 		margin: 10px;
@@ -499,8 +503,6 @@ body {
 				margin-top: 0px;
 			}
 		}
-
-
 	}
 
 	.izi-draggable {
@@ -509,7 +511,6 @@ body {
 		height: 300px;
 
 		&__area {
-
 			p {
 				display: inline-block;
 				padding: 5px;
@@ -531,7 +532,7 @@ body {
 }
 
 .izi-banner {
-	background: linear-gradient(to bottom right, lighten($primaryColor, 20%), white ) ;
+	background: linear-gradient(to bottom right, #fff 10%, #e6ccff) ;
 	h1, h2 {
 		opacity: .8;
 		text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
@@ -540,7 +541,7 @@ body {
 	h2 {
 		margin-top: 80px;
 		margin-bottom: 0px;
-		
+
 	}
 
 	p {
@@ -548,6 +549,19 @@ body {
 		margin: 15px;
 		opacity: .6;
 		line-height: 1.3em;
+	}
+
+	ul {
+		font-size: 1.3em;
+		list-style: normal;
+		line-height: 1.3em;
+		margin: 15px;
+		opacity: .6;
+		padding-left: 30px;
+
+		li {
+			margin-bottom: 10px;
+		}
 	}
 }
 
@@ -563,8 +577,6 @@ code {
 	color: lighten($primaryColor, 30%);
 	font-family: monospace;
 	padding: 0px 7px;
-	
-	
 }
 
 #sticky-note-switch {
@@ -582,7 +594,6 @@ code {
 			&:after {
 				content: 'on';
 				color: $primaryColor;
-				
 			}
 		}
 	}
@@ -597,7 +608,6 @@ code {
 }
 
 @media screen and (max-width: 500px) {
-
 	#example-7, #example-10 {
 		> .container-row {
 			padding: 0px!important;

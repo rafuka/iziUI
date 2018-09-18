@@ -198,29 +198,12 @@
 								label.classList.add('carousel__label--selected');
 							}
 						}
-						
+
 						break;
 					}
 				}
 			});
-
-			
-
-
-			/*for(var j = 0; j < carousels[i].labels.length; j++) {
-				(function(j) {
-					carousels[i].labels[j].addEventListener('click', function(e) {
-						console.log('clicked!');
-						var label = e.target;
-						console.log(label);
-						for (var k = 0; k < carousels[i].labels.length; k++) {
-							carousels[i].labels[k].classList.remove('carousel__label--selected');
-							label.classList.add('carousel__label--selected');
-						}
-					});
-				})(j);
-			}*/
-		})(i);	
+		})(i);
 	}
 })();
 
@@ -260,10 +243,8 @@
 					});
 				})(j);
 			}
-			
 		})(i);
 	}
-
 })();
 
 
@@ -351,12 +332,11 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 				addNoteElementToDom(noteElement);
 				console.log('created ' + (i+1) + ' sticky notes..');
 			}
-			
 		}
 	}
 
 	// TODO: Implement a better solution for removing notes (instead of just setting hte note object to null in the notePackData array).
-	
+
 	var createStickyNoteElement = document.getElementsByClassName('izi-sticky-pack')[0];
 
 	function handleDrag(event) {
@@ -366,7 +346,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 		this.style.left = (this.offsetLeft - newX) + 'px';
 		this.style.top = (this.offsetTop - newY) + 'px';
 		this.startX = event.clientX;
-		this.startY = event.clientY;	
+		this.startY = event.clientY;
 	}
 
 	function handleNoteMouseDown(event) {
@@ -408,7 +388,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 			var randNum = Math.floor((Math.random() * 10) - 5);
 			var transformDegree = randNum < 0 ? randNum - 5 : randNum + 5;
 
-			
+
 
 			note.style.transition = 'transform .1s ease';
 			note.style.transform = 'rotate(' + transformDegree + 'deg)';
@@ -424,8 +404,8 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 	}
 
 	function handleKeyUpOnText(event) {
-		if (this.textContent.length > 170 && 
-			event.keyCode !== 8 && 
+		if (this.textContent.length > 170 &&
+			event.keyCode !== 8 &&
 			event.keyCode !== 46 &&
 			event.keyCode !== 16 &&
 			(event.keyCode < 37 || event.keyCode > 40)) {
@@ -433,7 +413,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 			event.preventDefault();
 		}
 		else if (event.keyCode < 37 || event.keyCode > 40) {
-			
+
 			var text = this;
 			var note = text.parentElement;
 
@@ -445,6 +425,8 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 
 	function handleEditBtnClick(event) {
 		event.preventDefault();
+		event.stopPropagation();
+		event.stopImmediatePropagation();
 
 		this.classList.toggle('izi-sticky-pack__note-edit--editing');
 
@@ -467,11 +449,13 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 
 			note.addEventListener('mousedown', handleNoteMouseDown, false);
 			note.addEventListener('mouseup', handleNoteMouseUp, false);
-		}	
+		}
 	}
 
 	function handlePinBtnClick(event) {
 		event.preventDefault();
+		event.stopPropagation();
+		event.stopImmediatePropagation();
 
 		this.classList.toggle('izi-sticky-pack__note-pin--pinned');
 
@@ -493,7 +477,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 			note.style.position = 'fixed';
 			note.style.top = noteOffset.top + 'px';
 			note.style.zIndex = 2;
-		
+
 			note.noteData.isFixed = true;
 			note.noteData.left = note.style.left;
 			note.noteData.top = note.style.top;
@@ -507,7 +491,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 		event.preventDefault();
 
 		if (confirm('Are you sure you want to delete this note?')) {
-				
+
 			var note = this.parentElement;
 			var editBtn = note.getElementsByClassName('izi-sticky-pack__note-edit')[0];
 			var pinBtn = note.getElementsByClassName('izi-sticky-pack__note-pin')[0];
@@ -517,13 +501,13 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 			note.removeEventListener('mousedown', handleNoteMouseDown, false);
 			note.removeEventListener('mouseup', handleNoteMouseUp, false);
 
-			editBtn.removeEventListener('click', handleEditBtnClick, false);
+			editBtn.removeEventListener('mousedown', handleEditBtnClick, false);
 
-			pinBtn.removeEventListener('click', handlePinBtnClick, false);
+			pinBtn.removeEventListener('mousedown', handlePinBtnClick, false);
 
 			text.removeEventListener('keyup', handleKeyUpOnText, false);
 
-			this.removeEventListener('click', handleCloseBtnClick, false);
+			this.removeEventListener('mousedown', handleCloseBtnClick, false);
 
 			// Remove note data object
 			notePackData[notePackData.indexOf(note.noteData)] = null;
@@ -556,39 +540,39 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 
 		noteTextP.addEventListener('keyup', handleKeyUpOnText, false);
 
-		pinIcon.classList.add('fa');
-		pinIcon.classList.add('fa-thumb-tack');
+		pinIcon.classList.add('fas');
+		pinIcon.classList.add('fa-thumbtack');
 
 		notePinBtn.appendChild(pinIcon);
 
 		notePinBtn.classList.add('izi-sticky-pack__note-pin');
 
-		notePinBtn.addEventListener('click', handlePinBtnClick, false);
+		notePinBtn.addEventListener('mousedown', handlePinBtnClick, false);
 
-		editIcon.classList.add('fa');
-		editIcon.classList.add('fa-pencil');
+		editIcon.classList.add('far');
+		editIcon.classList.add('fa-edit');
 
 		noteEditBtn.appendChild(editIcon);
 
 		noteEditBtn.classList.add('izi-sticky-pack__note-edit');
 
-		noteEditBtn.addEventListener('click', handleEditBtnClick, false);
+		noteEditBtn.addEventListener('mousedown', handleEditBtnClick, false);
 
 		closeBtn.classList.add('izi-sticky-pack__note-close');
 		closeIcon.classList.add('fa');
 		closeIcon.classList.add('fa-times');
 		closeBtn.appendChild(closeIcon);
 
-		closeBtn.addEventListener('click', handleCloseBtnClick, false);
-		
-		
+		closeBtn.addEventListener('mousedown', handleCloseBtnClick, false);
+
+
 		newNoteElement.classList.add('izi-sticky-pack__note');
 
 		switch (newNote.color) {
 			case 1:
 				newNoteElement.classList.add('izi-sticky-pack__note--green');
 				break;
-			case 2: 
+			case 2:
 				newNoteElement.classList.add('izi-sticky-pack__note--yellow');
 				break;
 			case 3:
@@ -601,7 +585,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 			newNoteElement.style.zIndex = '1';
 			notePinBtn.classList.add('izi-sticky-pack__note-pin--pinned');
 		}
-		
+
 		newNoteElement.style.top = newNote.top;
 		newNoteElement.style.left = newNote.left;
 
@@ -653,7 +637,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 		var newNoteElement = createStickyNote(newNote);
 
 		addNoteElementToDom(newNoteElement);
-		
+
 	});
 })();
 
@@ -675,7 +659,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 
 		tab.classList.add('tabs__tab--active');
 
-		
+
 		for (var i = 0; i < allPanels.length; i++) {
 			allPanels[i].classList.remove('tabs__panel--visible');
 		}
@@ -692,7 +676,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 
 				if (!this.classList.contains('tabs__tab--active')) {
 					togglePanel(this);
-				}			
+				}
 			});
 		})(i);
 	}
@@ -704,10 +688,10 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 	var height_mod = document.getElementsByClassName('js-modifier-height');
 
 
-	/*  
+	/*
 	*	Get the parent elements' offset width and height and set it as a css style
 	*	and set the checked property to false
-	*/	
+	*/
 
 	for (var i = 0; i < width_mod.length; i++) {
 		width_mod[i].checked = false;
@@ -722,21 +706,21 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 	}
 
 
-	/* 
+	/*
 	*	Set event listeners to each modifier
 	*/
 
 	for (var i = 0; i < width_mod.length; i++) {
-		
+
 		width_mod[i].addEventListener('change', function() {
-			
+
 
 			if (this.checked) {
 				this.parentElement.style.width = '150px';
 			}
 			else {
 				this.parentElement.style.width = this.initialWidth + 'px';
-		
+
 			}
 		});
 	}
@@ -748,7 +732,7 @@ stickyNotesSwitch.addEventListener('change', function(e) {
 			}
 			else {
 				this.parentElement.style.height = this.initialHeight + 'px';
-		
+
 			}
 		});
 	}

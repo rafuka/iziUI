@@ -1,18 +1,18 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-  
+
     watch: {
       css: {
-        files: 'dev/scss/**/*.scss', 
+        files: 'dev/scss/**/*.scss',
         tasks: ['sass', 'postcss', 'cssmin']
       },
-      
+
       js: {
         files: 'dev/scripts/**/*.js',
         tasks: ['concat', 'uglify']
       },
-      
+
     },
 
     sass: {
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
       build: {
         src: 'dist/css/main-prefixed.css',
         dest: 'dist/css/main.min.css'
-      }    
+      }
     },
 
     concat: {
@@ -54,6 +54,9 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      options: {
+        sourceMap: true
+      },
       build: {
         files: {
           'dist/scripts/built.min.js': ['dist/scripts/built.js']

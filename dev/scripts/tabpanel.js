@@ -15,7 +15,7 @@
 
 		tab.classList.add('tabs__tab--active');
 
-		
+
 		for (var i = 0; i < allPanels.length; i++) {
 			allPanels[i].classList.remove('tabs__panel--visible');
 		}
@@ -32,7 +32,7 @@
 
 				if (!this.classList.contains('tabs__tab--active')) {
 					togglePanel(this);
-				}			
+				}
 			});
 		})(i);
 	}

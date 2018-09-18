@@ -12,6 +12,10 @@
 		cursor: pointer;
 	}
 
+	&:active {
+		background-color: darken(white, 10%);
+	}
+
 	&--primary {
 		background-color: $primaryColor;
 		color: $primaryFontColor;
@@ -48,6 +52,7 @@
 		}
 
 		&:active {
+			background-color: white;
 			box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
 			transform: scale(1);
 
@@ -62,7 +67,7 @@
 			&.izi-btn--danger {
 				background-color: $dangerColor;
 			}
-		}	
+		}
 	}
 
 	&--pressable {
@@ -76,6 +81,7 @@
 		}
 
 		&:active {
+			background-color: white;
 			box-shadow: inset 0px 1px 5px rgba(0,0,0,0.3);
 
 			&.izi-btn--primary {
@@ -133,6 +139,7 @@
 		}
 
 		&:active {
+			background-color: white;
 			top: 0px;
 
 			&.izi-btn--primary {

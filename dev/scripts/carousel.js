@@ -99,28 +99,11 @@
 								label.classList.add('carousel__label--selected');
 							}
 						}
-						
+
 						break;
 					}
 				}
 			});
-
-			
-
-
-			/*for(var j = 0; j < carousels[i].labels.length; j++) {
-				(function(j) {
-					carousels[i].labels[j].addEventListener('click', function(e) {
-						console.log('clicked!');
-						var label = e.target;
-						console.log(label);
-						for (var k = 0; k < carousels[i].labels.length; k++) {
-							carousels[i].labels[k].classList.remove('carousel__label--selected');
-							label.classList.add('carousel__label--selected');
-						}
-					});
-				})(j);
-			}*/
-		})(i);	
+		})(i);
 	}
 })();
